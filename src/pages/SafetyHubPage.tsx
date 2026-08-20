@@ -10,7 +10,7 @@ export const SafetyHubPage: React.FC = () => {
   const { blockedList, mutedThreads } = useSettings();
 
   return (
-    <div className="flex-1 flex flex-col min-h-screen bg-night-bg text-night-text pb-20">
+    <div className="flex-1 flex flex-col app-viewport bg-night-bg text-night-text pb-20">
       <TopBar showBack title="Safety & Privacy" subtitle="Boundaries & Discretion" />
 
       <main className="flex-1 overflow-y-auto p-4 space-y-4">

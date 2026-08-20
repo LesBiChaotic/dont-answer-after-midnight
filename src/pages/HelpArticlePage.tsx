@@ -12,7 +12,7 @@ export const HelpArticlePage: React.FC = () => {
 
   if (!article) {
     return (
-      <div className="flex-1 flex flex-col min-h-screen bg-night-bg text-night-text">
+      <div className="flex-1 flex flex-col app-viewport bg-night-bg text-night-text">
         <TopBar showBack title="Article Not Found" />
         <div className="flex-1 flex flex-col items-center justify-center p-6 text-center space-y-3">
           <HelpCircle className="w-12 h-12 text-night-muted" />
@@ -54,7 +54,7 @@ export const HelpArticlePage: React.FC = () => {
   };
 
   return (
-    <div className="flex-1 flex flex-col min-h-screen bg-night-bg text-night-text select-none">
+    <div className="flex-1 flex flex-col app-viewport bg-night-bg text-night-text select-none">
       <TopBar showBack title="Documentation" subtitle={article.category} />
 
       <main className="flex-1 overflow-y-auto p-4 space-y-6 max-w-md mx-auto w-full">

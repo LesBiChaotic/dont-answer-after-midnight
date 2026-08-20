@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSettings } from '../../context/SettingsContext';
-import { DesktopShell } from './DesktopShell';
 import { MobileContainer } from './MobileContainer';
 
 interface AppShellProps {
@@ -32,10 +31,6 @@ export const AppShell: React.FC<AppShellProps> = ({ children }) => {
       toggleDesktopPreview();
     }
   }, [location.search, settings.desktopPreviewEnabled, toggleDesktopPreview]);
-
-  if (isDesktopWidth && !settings.desktopPreviewEnabled) {
-    return <DesktopShell onEnablePreview={toggleDesktopPreview} />;
-  }
 
   return (
     <MobileContainer isSimulatedFrame={isDesktopWidth && settings.desktopPreviewEnabled}>

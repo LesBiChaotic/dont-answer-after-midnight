@@ -28,7 +28,7 @@ export const RoomDetailPage: React.FC = () => {
 
   if (!room) {
     return (
-      <div className="flex-1 flex flex-col items-center justify-center p-6 text-center bg-night-bg text-night-text min-h-screen">
+      <div className="app-viewport flex-1 flex flex-col items-center justify-center p-6 text-center bg-night-bg text-night-text">
         <h2 className="text-base font-semibold mb-1">Room Not Found</h2>
         <p className="text-xs text-night-muted mb-4">This room channel may not exist or has been privatized.</p>
         <button
@@ -51,7 +51,7 @@ export const RoomDetailPage: React.FC = () => {
   };
 
   return (
-    <div className="flex-1 flex flex-col h-screen max-h-screen bg-night-bg text-night-text overflow-hidden">
+    <div className="app-viewport flex-1 flex flex-col max-h-[100dvh] bg-night-bg text-night-text overflow-hidden">
       {/* Top Header */}
       <TopBar
         showBack

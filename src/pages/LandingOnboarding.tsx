@@ -152,7 +152,7 @@ export const LandingOnboarding: React.FC = () => {
   // ==========================================
   if (!isOnboardingMode) {
     return (
-      <div className="flex-1 flex flex-col min-h-screen bg-[#11101A] text-[#F4EEF8] select-none">
+      <div className="flex-1 flex flex-col app-viewport bg-[#11101A] text-[#F4EEF8] select-none">
         {/* Top Navbar */}
         <header className="sticky top-0 z-30 flex items-center justify-between px-4 h-14 bg-[#191625]/90 backdrop-blur-xl border-b border-[#2E2742] pt-[max(env(safe-area-inset-top),6px)]">
           <Logo size="sm" />
@@ -343,7 +343,7 @@ export const LandingOnboarding: React.FC = () => {
   // VIEW B: 4-STEP PERSONA ONBOARDING FLOW
   // ==========================================
   return (
-    <div className="flex-1 flex flex-col min-h-screen bg-[#11101A] text-[#F4EEF8] select-none">
+    <div className="flex-1 flex flex-col app-viewport bg-[#11101A] text-[#F4EEF8] select-none">
       {/* Header */}
       <header className="px-4 h-14 flex items-center justify-between border-b border-[#2E2742] bg-[#191625]/90 backdrop-blur-md pt-[max(env(safe-area-inset-top),6px)]">
         <button
@@ -438,7 +438,7 @@ export const LandingOnboarding: React.FC = () => {
                   id="agePledge"
                   checked={ageConfirmed}
                   onChange={(e) => setAgeConfirmed(e.target.checked)}
-                  className="mt-0.5 w-4 h-4 rounded-sm border-[#2E2742] text-[#8197FF] focus:ring-[#8197FF] bg-[#211C30]"
+                  className="mt-0.5 w-5 h-5 shrink-0 rounded-sm border-[#2E2742] text-[#8197FF] focus:ring-[#8197FF] bg-[#211C30]"
                 />
                 <label htmlFor="agePledge" className="text-xs text-[#C9B9D2] leading-relaxed cursor-pointer select-none">
                   <span className="font-semibold text-white">Adult Confirmation:</span> I confirm that I am 18 years of age or older.
@@ -672,7 +672,7 @@ export const LandingOnboarding: React.FC = () => {
                 id="rulesPledge"
                 checked={agreedToRules}
                 onChange={(e) => setAgreedToRules(e.target.checked)}
-                className="mt-0.5 w-4 h-4 rounded-sm border-[#2E2742] text-[#8197FF] focus:ring-[#8197FF] bg-[#211C30]"
+                className="mt-0.5 w-5 h-5 shrink-0 rounded-sm border-[#2E2742] text-[#8197FF] focus:ring-[#8197FF] bg-[#211C30]"
               />
               <label htmlFor="rulesPledge" className="text-xs text-[#C9B9D2] leading-relaxed cursor-pointer select-none">
                 <span className="font-semibold text-white">I agree</span> to uphold the AFTERHOURS sanctuary rules and enter the network responsibly.

@@ -71,7 +71,7 @@ export const NotificationsPage: React.FC = () => {
   };
 
   return (
-    <div className="flex-1 flex flex-col min-h-screen bg-[#11101A] text-[#F4EEF8] pb-20">
+    <div className="flex-1 flex flex-col app-viewport bg-[#11101A] text-[#F4EEF8] pb-20">
       <TopBar
         showBack
         title="Notifications"

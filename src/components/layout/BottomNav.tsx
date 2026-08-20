@@ -52,7 +52,7 @@ export const BottomNav: React.FC = () => {
   return (
     <nav
       aria-label="Main Navigation"
-      className="fixed bottom-0 left-0 right-0 max-w-[430px] mx-auto bg-[#191625]/95 dark:bg-[#191625]/95 backdrop-blur-xl border-t border-[#2E2742] z-40 pb-[max(env(safe-area-inset-bottom),8px)] shadow-2xl"
+      className="fixed bottom-0 left-0 right-0 max-w-[430px] desktop:max-w-[1100px] mx-auto bg-[#191625]/95 dark:bg-[#191625]/95 backdrop-blur-xl border-t border-[#2E2742] z-40 pb-[max(env(safe-area-inset-bottom),8px)] shadow-2xl"
     >
       <div className="grid grid-cols-5 items-center justify-around h-14 px-1">
         {navItems.map((item) => {

@@ -16,7 +16,7 @@ export const DesktopShell: React.FC<DesktopShellProps> = ({ onEnablePreview }) =
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#11101A] text-[#F4EEF8] flex flex-col items-center justify-between p-6 sm:p-12 relative overflow-hidden">
+    <div className="app-viewport w-full bg-[#11101A] text-[#F4EEF8] flex flex-col items-center justify-between p-6 sm:p-12 relative overflow-hidden">
       {/* Subtle Ambient Plum / Periwinkle Glows */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-[#6E45C7]/15 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-[450px] h-[450px] bg-[#8197FF]/10 rounded-full blur-[130px] pointer-events-none" />

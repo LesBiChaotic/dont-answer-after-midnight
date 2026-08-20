@@ -16,7 +16,7 @@ export const ArchiveEraPage: React.FC = () => {
 
   if (!platform) {
     return (
-      <div className="flex-1 flex flex-col items-center justify-center p-6 text-center bg-[#11101A] text-[#F4EEF8] min-h-screen">
+      <div className="flex-1 flex flex-col items-center justify-center p-6 text-center bg-[#11101A] text-[#F4EEF8] app-viewport">
         <h2 className="text-base font-semibold mb-1">Archive Era Not Found</h2>
         <p className="text-xs text-[#91819A] mb-4">The requested partition index is not mounted.</p>
         <button
@@ -32,7 +32,7 @@ export const ArchiveEraPage: React.FC = () => {
   }
 
   return (
-    <div className="flex-1 flex flex-col min-h-screen bg-[#11101A] text-[#F4EEF8]">
+    <div className="flex-1 flex flex-col app-viewport bg-[#11101A] text-[#F4EEF8]">
       {/* Top Header */}
       <TopBar
         showBack

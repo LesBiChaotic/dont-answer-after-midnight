@@ -37,13 +37,14 @@ import { DataExportPage } from './pages/settings/DataExportPage';
 import { InternalDevPage } from './pages/internal/InternalDevPage';
 import { HelpCenterPage } from './pages/HelpCenterPage';
 import { HelpArticlePage } from './pages/HelpArticlePage';
+import { AppErrorBoundary } from './components/common/AppErrorBoundary';
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { isOnboarded, isLoading } = useAuthProfile();
 
   if (isLoading) {
     return (
-      <div className="flex-1 flex items-center justify-center min-h-screen bg-night-bg text-night-muted">
+      <div className="app-viewport flex-1 flex items-center justify-center bg-night-bg text-night-muted">
         <div className="flex flex-col items-center gap-3">
           <div className="w-8 h-8 rounded-full border-2 border-brand-500 border-t-transparent animate-spin" />
           <span className="text-xs font-mono tracking-wider">MOUNTING_AFTERHOURS</span>
@@ -61,6 +62,7 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) =
 
 export const App: React.FC = () => {
   return (
+    <AppErrorBoundary>
     <SettingsProvider>
       <AuthProfileProvider>
         <NotificationProvider>
@@ -298,7 +300,8 @@ export const App: React.FC = () => {
         </ChatProvider>
       </NotificationProvider>
     </AuthProfileProvider>
-  </SettingsProvider>
+    </SettingsProvider>
+    </AppErrorBoundary>
 );
 };
 export default App;
