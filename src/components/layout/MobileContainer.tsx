@@ -16,7 +16,7 @@ export const MobileContainer: React.FC<MobileContainerProps> = ({
 
   if (isSimulatedFrame) {
     return (
-      <div className="min-h-screen w-full bg-[#08090d] flex flex-col items-center justify-center p-4 sm:p-6 overflow-hidden">
+      <div className="app-viewport w-full bg-[#08090d] flex flex-col items-center justify-center p-4 sm:p-6 overflow-hidden">
         {/* Top Control Bar */}
         <div className="w-full max-w-[390px] flex items-center justify-between py-2 px-3 mb-2 bg-slate-900/90 border border-slate-800 rounded-full text-xs text-slate-300">
           <div className="flex items-center gap-2">
@@ -26,7 +26,7 @@ export const MobileContainer: React.FC<MobileContainerProps> = ({
           <button
             type="button"
             onClick={toggleDesktopPreview}
-            className="flex items-center gap-1 text-[11px] px-2 py-0.5 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors"
+            className="flex min-h-touch min-w-touch items-center justify-center gap-1 text-[11px] px-3 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors"
           >
             <span>Exit</span>
             <X className="w-3 h-3" />
@@ -52,7 +52,7 @@ export const MobileContainer: React.FC<MobileContainerProps> = ({
 
   // Real Mobile Viewport
   return (
-    <div className="min-h-screen w-full max-w-[430px] mx-auto bg-night-bg flex flex-col relative overflow-x-hidden shadow-xl">
+    <div className="app-viewport w-full max-w-[430px] desktop:max-w-[1100px] mx-auto bg-night-bg flex flex-col relative overflow-x-hidden shadow-xl desktop:border-x desktop:border-[#2E2742]">
       <OfflineBanner />
       <div className="flex-1 flex flex-col min-h-0 relative">
         {children}

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'afterhours-v1';
+const CACHE_NAME = 'afterhours-v2';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -53,11 +53,16 @@ self.addEventListener('fetch', (event) => {
           }
           return networkResponse;
         })
-        .catch(() => {
+        .catch(async () => {
           // If offline and requesting navigation, return index.html
           if (event.request.mode === 'navigate') {
-            return caches.match('./index.html') || caches.match('./');
+            return (await caches.match('./index.html')) || (await caches.match('./'));
           }
+
+          return new Response('AFTERHOURS is offline.', {
+            status: 503,
+            headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+          });
         });
 
       return cachedResponse || fetchPromise;

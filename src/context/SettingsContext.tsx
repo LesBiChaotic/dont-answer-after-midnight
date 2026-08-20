@@ -148,10 +148,14 @@ export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   );
 
   const toggleDesktopPreview = useCallback(() => {
-    setSettings((prev) => ({
-      ...prev,
-      desktopPreviewEnabled: !prev.desktopPreviewEnabled,
-    }));
+    setSettings((prev) => {
+      const updated = {
+        ...prev,
+        desktopPreviewEnabled: !prev.desktopPreviewEnabled,
+      };
+      void saveStoredSettings(updated);
+      return updated;
+    });
   }, []);
 
   const blockUser = useCallback(
