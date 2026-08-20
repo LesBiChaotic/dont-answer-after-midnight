@@ -36,16 +36,16 @@ export const StickerBuilder: React.FC = () => {
   };
 
   return (
-    <div className="p-4 bg-night-surface border border-night-border rounded-3xl space-y-4 select-none">
-      <div className="flex items-center justify-between border-b border-night-border/60 pb-2.5">
+    <div className="p-4 bg-ah-surface border border-ah-border rounded-3xl space-y-4 select-none">
+      <div className="flex items-center justify-between border-b border-ah-border/60 pb-2.5">
         <div className="flex items-center gap-2">
           <Sparkles className="w-4 h-4 text-brand-400" />
-          <h3 className="text-xs font-semibold text-white">Nocturnal Mood Sticker Creator</h3>
+          <h3 className="text-xs font-semibold text-ah-text">Nocturnal Mood Sticker Creator</h3>
         </div>
       </div>
 
       {/* Preview Area */}
-      <div className="py-6 flex flex-col items-center justify-center bg-night-bg/60 border border-night-border/60 rounded-2xl">
+      <div className="py-6 flex flex-col items-center justify-center bg-ah-canvas/60 border border-ah-border/60 rounded-2xl">
         <div
           className={`px-4 py-3 rounded-2xl border flex items-center gap-3 shadow-lg ${activeColor.bg} ${activeColor.border} ${activeColor.text}`}
         >
@@ -56,7 +56,7 @@ export const StickerBuilder: React.FC = () => {
 
       {/* Label Input */}
       <div className="space-y-1">
-        <label className="text-[10px] font-semibold text-night-muted uppercase tracking-wider">
+        <label className="text-[10px] font-semibold text-ah-muted uppercase tracking-wider">
           Sticker Caption
         </label>
         <input
@@ -65,13 +65,13 @@ export const StickerBuilder: React.FC = () => {
           value={stickerLabel}
           onChange={(e) => setStickerLabel(e.target.value)}
           placeholder="e.g. STILL AWAKE, QUIET HOURS..."
-          className="w-full px-3 py-2 bg-night-card border border-night-border focus:border-brand-500 rounded-xl text-xs text-white outline-none"
+          className="w-full px-3 py-2 bg-ah-surface-2 border border-ah-border focus:border-brand-500 rounded-xl text-xs text-ah-text outline-none"
         />
       </div>
 
       {/* Icon Selector */}
       <div className="space-y-1">
-        <label className="text-[10px] font-semibold text-night-muted uppercase tracking-wider">
+        <label className="text-[10px] font-semibold text-ah-muted uppercase tracking-wider">
           Badge Symbol
         </label>
         <div className="flex flex-wrap gap-2">
@@ -85,8 +85,8 @@ export const StickerBuilder: React.FC = () => {
                 onClick={() => setSelectedIconId(item.id)}
                 className={`p-2.5 rounded-xl border flex items-center justify-center min-h-touch min-w-touch transition-all ${
                   isSelected
-                    ? 'bg-brand-600 text-white border-brand-500 ring-2 ring-brand-500/50'
-                    : 'bg-night-card text-night-muted border-night-border hover:text-white'
+                    ? 'bg-brand-600 text-ah-text border-brand-500 ring-2 ring-brand-500/50'
+                    : 'bg-ah-surface-2 text-ah-muted border-ah-border hover:text-ah-text'
                 }`}
                 title={item.name}
               >
@@ -99,7 +99,7 @@ export const StickerBuilder: React.FC = () => {
 
       {/* Color Palette */}
       <div className="space-y-1">
-        <label className="text-[10px] font-semibold text-night-muted uppercase tracking-wider">
+        <label className="text-[10px] font-semibold text-ah-muted uppercase tracking-wider">
           Palette Accent
         </label>
         <div className="flex gap-2">
@@ -122,7 +122,7 @@ export const StickerBuilder: React.FC = () => {
       <button
         type="button"
         onClick={handleCopySticker}
-        className="w-full py-3 bg-brand-600 hover:bg-brand-500 text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-2 min-h-touch active:scale-95 transition-transform"
+        className="w-full py-3 bg-brand-600 hover:bg-brand-500 text-ah-text rounded-xl text-xs font-semibold flex items-center justify-center gap-2 min-h-touch active:scale-95 transition-transform"
       >
         {copied ? (
           <>

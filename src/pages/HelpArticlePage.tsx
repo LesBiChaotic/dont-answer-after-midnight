@@ -12,18 +12,18 @@ export const HelpArticlePage: React.FC = () => {
 
   if (!article) {
     return (
-      <div className="flex-1 flex flex-col app-viewport bg-night-bg text-night-text">
+      <div className="flex-1 flex flex-col app-viewport bg-ah-canvas text-ah-text">
         <TopBar showBack title="Article Not Found" />
         <div className="flex-1 flex flex-col items-center justify-center p-6 text-center space-y-3">
-          <HelpCircle className="w-12 h-12 text-night-muted" />
-          <h2 className="text-sm font-bold text-white">Help Article Not Found</h2>
-          <p className="text-xs text-night-muted max-w-xs">
+          <HelpCircle className="w-12 h-12 text-ah-muted" />
+          <h2 className="text-sm font-bold text-ah-text">Help Article Not Found</h2>
+          <p className="text-xs text-ah-muted max-w-xs">
             The requested documentation article could not be located.
           </p>
           <button
             type="button"
             onClick={() => navigate('/help')}
-            className="py-2.5 px-4 bg-brand-600 hover:bg-brand-500 text-white rounded-xl text-xs font-semibold min-h-touch"
+            className="py-2.5 px-4 bg-brand-600 hover:bg-brand-500 text-ah-text rounded-xl text-xs font-semibold min-h-touch"
           >
             Return to Help Center
           </button>
@@ -54,18 +54,18 @@ export const HelpArticlePage: React.FC = () => {
   };
 
   return (
-    <div className="flex-1 flex flex-col app-viewport bg-night-bg text-night-text select-none">
+    <div className="flex-1 flex flex-col app-viewport bg-ah-canvas text-ah-text select-none">
       <TopBar showBack title="Documentation" subtitle={article.category} />
 
       <main className="flex-1 overflow-y-auto p-4 space-y-6 max-w-md mx-auto w-full">
         {/* Article Header Card */}
-        <div className="p-5 bg-night-surface border border-night-border rounded-3xl space-y-3 shadow-xs">
+        <div className="p-5 bg-ah-surface border border-ah-border rounded-3xl space-y-3 shadow-xs">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-950/60 border border-brand-800/60 rounded-full text-[10px] font-mono font-semibold text-brand-300">
             {getCategoryIcon(article.category)}
             <span>{article.category}</span>
           </div>
 
-          <h1 className="text-lg font-bold text-white font-serif tracking-tight leading-snug">
+          <h1 className="text-lg font-bold text-ah-text font-serif tracking-tight leading-snug">
             {article.title}
           </h1>
 
@@ -73,24 +73,24 @@ export const HelpArticlePage: React.FC = () => {
             "{article.summary}"
           </p>
 
-          <div className="text-[10px] font-mono text-night-muted border-t border-night-border/40 pt-2 flex items-center justify-between">
+          <div className="text-[10px] font-mono text-ah-muted border-t border-ah-border/40 pt-2 flex items-center justify-between">
             <span>DOC-ID: {article.id.toUpperCase()}</span>
             <span>Last Updated: {article.lastUpdated}</span>
           </div>
         </div>
 
         {/* Article Body */}
-        <article className="p-5 bg-night-surface border border-night-border rounded-3xl space-y-4 text-xs leading-relaxed text-night-text">
+        <article className="p-5 bg-ah-surface border border-ah-border rounded-3xl space-y-4 text-xs leading-relaxed text-ah-text">
           <div className="prose prose-invert prose-xs max-w-none space-y-3 whitespace-pre-line font-sans">
             {article.body}
           </div>
 
           {/* Keywords & Tags */}
-          <div className="pt-4 border-t border-night-border/50 flex flex-wrap gap-1.5">
+          <div className="pt-4 border-t border-ah-border/50 flex flex-wrap gap-1.5">
             {article.keywords.map((kw) => (
               <span
                 key={kw}
-                className="px-2.5 py-0.5 rounded-full bg-night-card border border-night-border text-[10px] text-brand-300 font-mono"
+                className="px-2.5 py-0.5 rounded-full bg-ah-surface-2 border border-ah-border text-[10px] text-brand-300 font-mono"
               >
                 #{kw}
               </span>
@@ -101,22 +101,22 @@ export const HelpArticlePage: React.FC = () => {
         {/* Related Articles */}
         {relatedArticles.length > 0 && (
           <div className="space-y-2.5">
-            <h2 className="text-xs font-bold text-night-muted uppercase tracking-wider px-1">
+            <h2 className="text-xs font-bold text-ah-muted uppercase tracking-wider px-1">
               Related Documentation
             </h2>
-            <div className="bg-night-surface border border-night-border rounded-3xl overflow-hidden divide-y divide-night-border/50">
+            <div className="bg-ah-surface border border-ah-border rounded-3xl overflow-hidden divide-y divide-ah-border/50">
               {relatedArticles.map((rel: HelpArticle) => (
                 <button
                   key={rel.id}
                   type="button"
                   onClick={() => navigate(`/help/${rel.slug}`)}
-                  className="w-full p-3.5 flex items-center justify-between text-left hover:bg-night-card min-h-touch transition-colors"
+                  className="w-full p-3.5 flex items-center justify-between text-left hover:bg-ah-surface-2 min-h-touch transition-colors"
                 >
                   <div className="space-y-0.5 min-w-0 pr-2">
-                    <h3 className="text-xs font-semibold text-white truncate">{rel.title}</h3>
-                    <p className="text-[10px] text-night-muted truncate">{rel.summary}</p>
+                    <h3 className="text-xs font-semibold text-ah-text truncate">{rel.title}</h3>
+                    <p className="text-[10px] text-ah-muted truncate">{rel.summary}</p>
                   </div>
-                  <ChevronRight className="w-4 h-4 text-night-muted shrink-0" />
+                  <ChevronRight className="w-4 h-4 text-ah-muted shrink-0" />
                 </button>
               ))}
             </div>

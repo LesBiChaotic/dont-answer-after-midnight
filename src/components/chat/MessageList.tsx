@@ -106,7 +106,7 @@ export const MessageList: React.FC<MessageListProps> = ({
         <React.Fragment key={msg.id || index}>
           {showDateSeparator && (
             <div className="flex items-center justify-center my-3">
-              <span className="text-[10px] font-mono font-medium tracking-wide uppercase px-3 py-1 rounded-full bg-[#191625] border border-[#2E2742] text-[#91819A] shadow-xs">
+              <span className="text-[10px] font-mono font-medium tracking-wide uppercase px-3 py-1 rounded-full bg-ah-surface border border-ah-border text-ah-muted shadow-xs">
                 {msgDate}
               </span>
             </div>
@@ -135,7 +135,7 @@ export const MessageList: React.FC<MessageListProps> = ({
         aria-label="Message Conversation History"
       >
         {messages.length === 0 ? (
-          <div className="h-full flex flex-col items-center justify-center text-center p-6 text-[#91819A]">
+          <div className="h-full flex flex-col items-center justify-center text-center p-6 text-ah-muted">
             <p className="text-sm font-medium">No messages in this frequency yet.</p>
             <p className="text-xs mt-1">Send a message below to begin the exchange.</p>
           </div>

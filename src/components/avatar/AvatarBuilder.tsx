@@ -155,26 +155,26 @@ export const AvatarBuilder: React.FC<AvatarBuilderProps> = ({
   };
 
   return (
-    <div className="flex flex-col h-full bg-night-bg text-night-text">
+    <div className="flex flex-col h-full bg-ah-canvas text-ah-text">
       {/* Sticky Top Avatar Live Preview */}
-      <div className="flex flex-col items-center justify-center p-4 bg-night-surface/90 backdrop-blur-md border-b border-night-border shrink-0">
+      <div className="flex flex-col items-center justify-center p-4 bg-ah-surface/90 backdrop-blur-md border-b border-ah-border shrink-0">
         <div className="relative">
           <Avatar config={config} size="xl" />
           <button
             type="button"
             onClick={randomize}
-            className="absolute -top-1 -right-1 p-2 bg-brand-600 hover:bg-brand-500 text-white rounded-full shadow-lg min-w-touch min-h-touch flex items-center justify-center transition-transform active:scale-95"
+            className="absolute -top-1 -right-1 p-2 bg-brand-600 hover:bg-brand-500 text-ah-text rounded-full shadow-lg min-w-touch min-h-touch flex items-center justify-center transition-transform active:scale-95"
             title="Randomize"
             aria-label="Randomize Avatar"
           >
             <Sparkles className="w-4 h-4" />
           </button>
         </div>
-        <p className="mt-2 text-xs text-night-muted">Live Vector Avatar Preview</p>
+        <p className="mt-2 text-xs text-ah-muted">Live Vector Avatar Preview</p>
       </div>
 
       {/* Tabs */}
-      <div className="flex overflow-x-auto scrollbar-none border-b border-night-border bg-night-surface shrink-0 px-2">
+      <div className="flex overflow-x-auto scrollbar-none border-b border-ah-border bg-ah-surface shrink-0 px-2">
         {[
           { id: 'skin', label: 'Skin' },
           { id: 'hair', label: 'Hair' },
@@ -190,7 +190,7 @@ export const AvatarBuilder: React.FC<AvatarBuilderProps> = ({
             className={`px-3 py-3 text-xs font-medium whitespace-nowrap min-h-touch border-b-2 transition-colors ${
               activeTab === tab.id
                 ? 'border-brand-500 text-brand-400 font-semibold'
-                : 'border-transparent text-night-muted hover:text-night-text'
+                : 'border-transparent text-ah-muted hover:text-ah-text'
             }`}
           >
             {tab.label}
@@ -203,7 +203,7 @@ export const AvatarBuilder: React.FC<AvatarBuilderProps> = ({
         {/* SKIN TAB */}
         {activeTab === 'skin' && (
           <div className="space-y-4">
-            <h3 className="text-xs uppercase tracking-wider font-semibold text-night-muted">Skin Tone</h3>
+            <h3 className="text-xs uppercase tracking-wider font-semibold text-ah-muted">Skin Tone</h3>
             <div className="grid grid-cols-3 gap-3">
               {SKIN_TONES.map((item) => (
                 <button
@@ -213,7 +213,7 @@ export const AvatarBuilder: React.FC<AvatarBuilderProps> = ({
                   className={`flex items-center gap-2.5 p-3 rounded-xl border text-left min-h-touch transition-all ${
                     config.skinTone === item.value
                       ? 'border-brand-500 bg-brand-950/30 ring-1 ring-brand-500'
-                      : 'border-night-border bg-night-card hover:border-night-muted'
+                      : 'border-ah-border bg-ah-surface-2 hover:border-ah-muted'
                   }`}
                 >
                   <span
@@ -230,7 +230,7 @@ export const AvatarBuilder: React.FC<AvatarBuilderProps> = ({
         {/* HAIR TAB */}
         {activeTab === 'hair' && (
           <div className="space-y-4">
-            <h3 className="text-xs uppercase tracking-wider font-semibold text-night-muted">Hair Style</h3>
+            <h3 className="text-xs uppercase tracking-wider font-semibold text-ah-muted">Hair Style</h3>
             <div className="grid grid-cols-3 gap-2">
               {HAIR_STYLES.map((style) => (
                 <button
@@ -240,7 +240,7 @@ export const AvatarBuilder: React.FC<AvatarBuilderProps> = ({
                   className={`p-3 rounded-xl border text-center text-xs font-medium min-h-touch transition-all ${
                     config.hair === style.id
                       ? 'border-brand-500 bg-brand-950/30 text-brand-300 ring-1 ring-brand-500'
-                      : 'border-night-border bg-night-card text-night-text'
+                      : 'border-ah-border bg-ah-surface-2 text-ah-text'
                   }`}
                 >
                   {style.label}
@@ -248,7 +248,7 @@ export const AvatarBuilder: React.FC<AvatarBuilderProps> = ({
               ))}
             </div>
 
-            <h3 className="text-xs uppercase tracking-wider font-semibold text-night-muted pt-2">Hair Color</h3>
+            <h3 className="text-xs uppercase tracking-wider font-semibold text-ah-muted pt-2">Hair Color</h3>
             <div className="grid grid-cols-3 gap-2">
               {HAIR_COLORS.map((color) => (
                 <button
@@ -258,7 +258,7 @@ export const AvatarBuilder: React.FC<AvatarBuilderProps> = ({
                   className={`flex items-center gap-2 p-2.5 rounded-xl border text-xs font-medium min-h-touch ${
                     config.hairColor === color.value
                       ? 'border-brand-500 bg-brand-950/30'
-                      : 'border-night-border bg-night-card'
+                      : 'border-ah-border bg-ah-surface-2'
                   }`}
                 >
                   <span className="w-4 h-4 rounded-full border border-white/20 shrink-0" style={{ backgroundColor: color.value }} />
@@ -272,7 +272,7 @@ export const AvatarBuilder: React.FC<AvatarBuilderProps> = ({
         {/* FACE TAB */}
         {activeTab === 'face' && (
           <div className="space-y-4">
-            <h3 className="text-xs uppercase tracking-wider font-semibold text-night-muted">Eyes & Focus</h3>
+            <h3 className="text-xs uppercase tracking-wider font-semibold text-ah-muted">Eyes & Focus</h3>
             <div className="grid grid-cols-2 gap-2">
               {EYE_TYPES.map((eye) => (
                 <button
@@ -280,7 +280,7 @@ export const AvatarBuilder: React.FC<AvatarBuilderProps> = ({
                   type="button"
                   onClick={() => updateConfig({ eyes: eye.id as AvatarConfig['eyes'] })}
                   className={`p-3 rounded-xl border text-xs font-medium min-h-touch ${
-                    config.eyes === eye.id ? 'border-brand-500 bg-brand-950/30 text-brand-300' : 'border-night-border bg-night-card'
+                    config.eyes === eye.id ? 'border-brand-500 bg-brand-950/30 text-brand-300' : 'border-ah-border bg-ah-surface-2'
                   }`}
                 >
                   {eye.label}
@@ -288,7 +288,7 @@ export const AvatarBuilder: React.FC<AvatarBuilderProps> = ({
               ))}
             </div>
 
-            <h3 className="text-xs uppercase tracking-wider font-semibold text-night-muted pt-2">Facial Hair</h3>
+            <h3 className="text-xs uppercase tracking-wider font-semibold text-ah-muted pt-2">Facial Hair</h3>
             <div className="grid grid-cols-2 gap-2">
               {FACIAL_HAIR_TYPES.map((fh) => (
                 <button
@@ -296,7 +296,7 @@ export const AvatarBuilder: React.FC<AvatarBuilderProps> = ({
                   type="button"
                   onClick={() => updateConfig({ facialHair: fh.id as AvatarConfig['facialHair'] })}
                   className={`p-3 rounded-xl border text-xs font-medium min-h-touch ${
-                    config.facialHair === fh.id ? 'border-brand-500 bg-brand-950/30 text-brand-300' : 'border-night-border bg-night-card'
+                    config.facialHair === fh.id ? 'border-brand-500 bg-brand-950/30 text-brand-300' : 'border-ah-border bg-ah-surface-2'
                   }`}
                 >
                   {fh.label}
@@ -309,7 +309,7 @@ export const AvatarBuilder: React.FC<AvatarBuilderProps> = ({
         {/* ACCESSORIES TAB */}
         {activeTab === 'accessories' && (
           <div className="space-y-4">
-            <h3 className="text-xs uppercase tracking-wider font-semibold text-night-muted">Glasses</h3>
+            <h3 className="text-xs uppercase tracking-wider font-semibold text-ah-muted">Glasses</h3>
             <div className="grid grid-cols-2 gap-2">
               {GLASSES_TYPES.map((g) => (
                 <button
@@ -317,7 +317,7 @@ export const AvatarBuilder: React.FC<AvatarBuilderProps> = ({
                   type="button"
                   onClick={() => updateConfig({ glasses: g.id as AvatarConfig['glasses'] })}
                   className={`p-3 rounded-xl border text-xs font-medium min-h-touch ${
-                    config.glasses === g.id ? 'border-brand-500 bg-brand-950/30 text-brand-300' : 'border-night-border bg-night-card'
+                    config.glasses === g.id ? 'border-brand-500 bg-brand-950/30 text-brand-300' : 'border-ah-border bg-ah-surface-2'
                   }`}
                 >
                   {g.label}
@@ -325,7 +325,7 @@ export const AvatarBuilder: React.FC<AvatarBuilderProps> = ({
               ))}
             </div>
 
-            <h3 className="text-xs uppercase tracking-wider font-semibold text-night-muted pt-2">Headwear</h3>
+            <h3 className="text-xs uppercase tracking-wider font-semibold text-ah-muted pt-2">Headwear</h3>
             <div className="grid grid-cols-3 gap-2">
               {HEAD_COVERINGS.map((h) => (
                 <button
@@ -333,7 +333,7 @@ export const AvatarBuilder: React.FC<AvatarBuilderProps> = ({
                   type="button"
                   onClick={() => updateConfig({ headCovering: h.id as AvatarConfig['headCovering'] })}
                   className={`p-3 rounded-xl border text-xs font-medium min-h-touch ${
-                    config.headCovering === h.id ? 'border-brand-500 bg-brand-950/30 text-brand-300' : 'border-night-border bg-night-card'
+                    config.headCovering === h.id ? 'border-brand-500 bg-brand-950/30 text-brand-300' : 'border-ah-border bg-ah-surface-2'
                   }`}
                 >
                   {h.label}
@@ -341,7 +341,7 @@ export const AvatarBuilder: React.FC<AvatarBuilderProps> = ({
               ))}
             </div>
 
-            <h3 className="text-xs uppercase tracking-wider font-semibold text-night-muted pt-2">Piercings</h3>
+            <h3 className="text-xs uppercase tracking-wider font-semibold text-ah-muted pt-2">Piercings</h3>
             <div className="grid grid-cols-2 gap-2">
               {PIERCINGS_TYPES.map((p) => (
                 <button
@@ -349,7 +349,7 @@ export const AvatarBuilder: React.FC<AvatarBuilderProps> = ({
                   type="button"
                   onClick={() => updateConfig({ piercings: p.id as AvatarConfig['piercings'] })}
                   className={`p-3 rounded-xl border text-xs font-medium min-h-touch ${
-                    config.piercings === p.id ? 'border-brand-500 bg-brand-950/30 text-brand-300' : 'border-night-border bg-night-card'
+                    config.piercings === p.id ? 'border-brand-500 bg-brand-950/30 text-brand-300' : 'border-ah-border bg-ah-surface-2'
                   }`}
                 >
                   {p.label}
@@ -362,7 +362,7 @@ export const AvatarBuilder: React.FC<AvatarBuilderProps> = ({
         {/* CLOTHES TAB */}
         {activeTab === 'clothes' && (
           <div className="space-y-4">
-            <h3 className="text-xs uppercase tracking-wider font-semibold text-night-muted">Top Style</h3>
+            <h3 className="text-xs uppercase tracking-wider font-semibold text-ah-muted">Top Style</h3>
             <div className="grid grid-cols-3 gap-2">
               {TOP_TYPES.map((top) => (
                 <button
@@ -370,7 +370,7 @@ export const AvatarBuilder: React.FC<AvatarBuilderProps> = ({
                   type="button"
                   onClick={() => updateConfig({ top: top.id as AvatarConfig['top'] })}
                   className={`p-3 rounded-xl border text-xs font-medium min-h-touch ${
-                    config.top === top.id ? 'border-brand-500 bg-brand-950/30 text-brand-300' : 'border-night-border bg-night-card'
+                    config.top === top.id ? 'border-brand-500 bg-brand-950/30 text-brand-300' : 'border-ah-border bg-ah-surface-2'
                   }`}
                 >
                   {top.label}
@@ -378,7 +378,7 @@ export const AvatarBuilder: React.FC<AvatarBuilderProps> = ({
               ))}
             </div>
 
-            <h3 className="text-xs uppercase tracking-wider font-semibold text-night-muted pt-2">Top Color</h3>
+            <h3 className="text-xs uppercase tracking-wider font-semibold text-ah-muted pt-2">Top Color</h3>
             <div className="grid grid-cols-3 gap-2">
               {TOP_COLORS.map((col) => (
                 <button
@@ -386,7 +386,7 @@ export const AvatarBuilder: React.FC<AvatarBuilderProps> = ({
                   type="button"
                   onClick={() => updateConfig({ topColor: col.value })}
                   className={`flex items-center gap-2 p-2.5 rounded-xl border text-xs font-medium min-h-touch ${
-                    config.topColor === col.value ? 'border-brand-500 bg-brand-950/30' : 'border-night-border bg-night-card'
+                    config.topColor === col.value ? 'border-brand-500 bg-brand-950/30' : 'border-ah-border bg-ah-surface-2'
                   }`}
                 >
                   <span className="w-4 h-4 rounded-full border border-white/20 shrink-0" style={{ backgroundColor: col.value }} />
@@ -400,7 +400,7 @@ export const AvatarBuilder: React.FC<AvatarBuilderProps> = ({
         {/* STYLE TAB */}
         {activeTab === 'style' && (
           <div className="space-y-4">
-            <h3 className="text-xs uppercase tracking-wider font-semibold text-night-muted">Expression / Mood</h3>
+            <h3 className="text-xs uppercase tracking-wider font-semibold text-ah-muted">Expression / Mood</h3>
             <div className="grid grid-cols-3 gap-2">
               {MOOD_TYPES.map((mood) => (
                 <button
@@ -408,7 +408,7 @@ export const AvatarBuilder: React.FC<AvatarBuilderProps> = ({
                   type="button"
                   onClick={() => updateConfig({ mood: mood.id as AvatarConfig['mood'] })}
                   className={`p-3 rounded-xl border text-xs font-medium min-h-touch ${
-                    config.mood === mood.id ? 'border-brand-500 bg-brand-950/30 text-brand-300' : 'border-night-border bg-night-card'
+                    config.mood === mood.id ? 'border-brand-500 bg-brand-950/30 text-brand-300' : 'border-ah-border bg-ah-surface-2'
                   }`}
                 >
                   {mood.label}
@@ -416,7 +416,7 @@ export const AvatarBuilder: React.FC<AvatarBuilderProps> = ({
               ))}
             </div>
 
-            <h3 className="text-xs uppercase tracking-wider font-semibold text-night-muted pt-2">Background Atmosphere</h3>
+            <h3 className="text-xs uppercase tracking-wider font-semibold text-ah-muted pt-2">Background Atmosphere</h3>
             <div className="grid grid-cols-3 gap-2">
               {BACKGROUNDS.map((bg) => (
                 <button
@@ -424,7 +424,7 @@ export const AvatarBuilder: React.FC<AvatarBuilderProps> = ({
                   type="button"
                   onClick={() => updateConfig({ background: bg.id as AvatarConfig['background'] })}
                   className={`p-3 rounded-xl border text-xs font-medium min-h-touch ${
-                    config.background === bg.id ? 'border-brand-500 bg-brand-950/30 text-brand-300' : 'border-night-border bg-night-card'
+                    config.background === bg.id ? 'border-brand-500 bg-brand-950/30 text-brand-300' : 'border-ah-border bg-ah-surface-2'
                   }`}
                 >
                   {bg.label}
@@ -432,7 +432,7 @@ export const AvatarBuilder: React.FC<AvatarBuilderProps> = ({
               ))}
             </div>
 
-            <h3 className="text-xs uppercase tracking-wider font-semibold text-night-muted pt-2">Atmospheric Accent</h3>
+            <h3 className="text-xs uppercase tracking-wider font-semibold text-ah-muted pt-2">Atmospheric Accent</h3>
             <div className="grid grid-cols-2 gap-2">
               {ACCENTS.map((acc) => (
                 <button
@@ -440,7 +440,7 @@ export const AvatarBuilder: React.FC<AvatarBuilderProps> = ({
                   type="button"
                   onClick={() => updateConfig({ accent: acc.id as AvatarConfig['accent'] })}
                   className={`p-3 rounded-xl border text-xs font-medium min-h-touch ${
-                    config.accent === acc.id ? 'border-brand-500 bg-brand-950/30 text-brand-300' : 'border-night-border bg-night-card'
+                    config.accent === acc.id ? 'border-brand-500 bg-brand-950/30 text-brand-300' : 'border-ah-border bg-ah-surface-2'
                   }`}
                 >
                   {acc.label}
@@ -452,12 +452,12 @@ export const AvatarBuilder: React.FC<AvatarBuilderProps> = ({
       </div>
 
       {/* Sticky Bottom Actions */}
-      <div className="p-4 bg-night-surface border-t border-night-border flex gap-3 shrink-0">
+      <div className="p-4 bg-ah-surface border-t border-ah-border flex gap-3 shrink-0">
         {onCancel && (
           <button
             type="button"
             onClick={onCancel}
-            className="flex-1 py-3 px-4 rounded-xl border border-night-border text-night-muted hover:text-night-text font-medium text-sm min-h-touch active:bg-night-card"
+            className="flex-1 py-3 px-4 rounded-xl border border-ah-border text-ah-muted hover:text-ah-text font-medium text-sm min-h-touch active:bg-ah-surface-2"
           >
             Cancel
           </button>
@@ -465,7 +465,7 @@ export const AvatarBuilder: React.FC<AvatarBuilderProps> = ({
         <button
           type="button"
           onClick={() => onSave(config)}
-          className="flex-1 py-3 px-4 rounded-xl bg-brand-600 hover:bg-brand-500 active:bg-brand-700 text-white font-medium text-sm min-h-touch flex items-center justify-center gap-2 shadow-lg transition-transform active:scale-[0.98]"
+          className="flex-1 py-3 px-4 rounded-xl bg-brand-600 hover:bg-brand-500 active:bg-brand-700 text-ah-text font-medium text-sm min-h-touch flex items-center justify-center gap-2 shadow-lg transition-transform active:scale-[0.98]"
         >
           <Check className="w-4 h-4" />
           Save Avatar

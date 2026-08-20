@@ -152,15 +152,15 @@ export const LandingOnboarding: React.FC = () => {
   // ==========================================
   if (!isOnboardingMode) {
     return (
-      <div className="flex-1 flex flex-col app-viewport bg-[#11101A] text-[#F4EEF8] select-none">
+      <div className="flex-1 flex flex-col app-viewport bg-ah-canvas text-ah-text select-none">
         {/* Top Navbar */}
-        <header className="sticky top-0 z-30 flex items-center justify-between px-4 h-14 bg-[#191625]/90 backdrop-blur-xl border-b border-[#2E2742] pt-[max(env(safe-area-inset-top),6px)]">
+        <header className="sticky top-0 z-30 flex items-center justify-between px-4 h-14 bg-ah-surface/90 backdrop-blur-xl border-b border-ah-border pt-[max(env(safe-area-inset-top),6px)]">
           <Logo size="sm" />
 
           <button
             type="button"
             onClick={() => setTheme(settings.theme === 'dark' ? 'light' : 'dark')}
-            className="p-2 text-[#91819A] hover:text-white rounded-full min-h-touch min-w-touch flex items-center justify-center active:bg-[#211C30] transition-colors"
+            className="p-2 text-ah-muted hover:text-ah-text rounded-full min-h-touch min-w-touch flex items-center justify-center active:bg-ah-surface-2 transition-colors"
             aria-label="Toggle theme"
           >
             {settings.theme === 'dark' ? <Sun className="w-4 h-4 text-[#F0A06D]" /> : <Moon className="w-4 h-4 text-[#8197FF]" />}
@@ -185,16 +185,16 @@ export const LandingOnboarding: React.FC = () => {
               </svg>
             </div>
 
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#211C30]/80 border border-[#8197FF]/40 rounded-full text-[10px] font-mono font-semibold text-[#8197FF]">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-ah-surface-2/80 border border-[#8197FF]/40 rounded-full text-[10px] font-mono font-semibold text-[#8197FF]">
               <span className="w-1.5 h-1.5 rounded-full bg-[#69C49A] animate-pulse" />
               <span>NOCTURNAL NETWORK ACTIVE</span>
             </div>
 
             <div className="space-y-1.5">
-              <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-serif leading-tight">
+              <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-ah-text font-serif leading-tight">
                 Stay up. Stay in touch.
               </h1>
-              <p className="text-xs text-[#C9B9D2] leading-relaxed">
+              <p className="text-xs text-ah-text-2 leading-relaxed">
                 A private place for late-night conversations, small communities, archived groups, and the people you don't want to lose track of.
               </p>
             </div>
@@ -214,7 +214,7 @@ export const LandingOnboarding: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setIsOnboardingMode(true)}
-                  className="w-full py-2.5 text-center text-xs text-[#91819A] hover:text-[#F4EEF8] font-medium min-h-touch"
+                  className="w-full py-2.5 text-center text-xs text-ah-muted hover:text-ah-text font-medium min-h-touch"
                 >
                   Edit Persona Profile
                 </button>
@@ -224,7 +224,7 @@ export const LandingOnboarding: React.FC = () => {
 
           {/* 5 Distinct Alternating Tint Feature Cards */}
           <section className="space-y-2.5">
-            <h2 className="text-xs font-bold text-[#91819A] uppercase tracking-wider px-1 font-mono">
+            <h2 className="text-xs font-bold text-ah-muted uppercase tracking-wider px-1 font-mono">
               Platform Features
             </h2>
 
@@ -235,8 +235,8 @@ export const LandingOnboarding: React.FC = () => {
                   <MessageSquare className="w-4 h-4" />
                 </div>
                 <div className="space-y-0.5">
-                  <h3 className="text-xs font-semibold text-white">Private chats</h3>
-                  <p className="text-[11px] text-[#C9B9D2] leading-relaxed">
+                  <h3 className="text-xs font-semibold text-ah-text">Private chats</h3>
+                  <p className="text-[11px] text-ah-text-2 leading-relaxed">
                     Direct messaging with typing pulses, draft persistence, and reaction trays.
                   </p>
                 </div>
@@ -248,8 +248,8 @@ export const LandingOnboarding: React.FC = () => {
                   <Hash className="w-4 h-4" />
                 </div>
                 <div className="space-y-0.5">
-                  <h3 className="text-xs font-semibold text-white">Small rooms</h3>
-                  <p className="text-[11px] text-[#C9B9D2] leading-relaxed">
+                  <h3 className="text-xs font-semibold text-ah-text">Small rooms</h3>
+                  <p className="text-[11px] text-ah-text-2 leading-relaxed">
                     Topic channels with community guidelines, moderator pins, and calm feeds.
                   </p>
                 </div>
@@ -261,8 +261,8 @@ export const LandingOnboarding: React.FC = () => {
                   <Archive className="w-4 h-4" />
                 </div>
                 <div className="space-y-0.5">
-                  <h3 className="text-xs font-semibold text-white">Archive old conversations</h3>
-                  <p className="text-[11px] text-[#C9B9D2] leading-relaxed">
+                  <h3 className="text-xs font-semibold text-ah-text">Archive old conversations</h3>
+                  <p className="text-[11px] text-ah-text-2 leading-relaxed">
                     Explore five legacy communication partitions preserved from 2001 to 2026.
                   </p>
                 </div>
@@ -274,8 +274,8 @@ export const LandingOnboarding: React.FC = () => {
                   <Database className="w-4 h-4" />
                 </div>
                 <div className="space-y-0.5">
-                  <h3 className="text-xs font-semibold text-white">Your data, your controls</h3>
-                  <p className="text-[11px] text-[#C9B9D2] leading-relaxed">
+                  <h3 className="text-xs font-semibold text-ah-text">Your data, your controls</h3>
+                  <p className="text-[11px] text-ah-text-2 leading-relaxed">
                     Local-first IndexedDB storage, strict identity safety, and full JSON exports.
                   </p>
                 </div>
@@ -287,8 +287,8 @@ export const LandingOnboarding: React.FC = () => {
                   <WifiOff className="w-4 h-4" />
                 </div>
                 <div className="space-y-0.5">
-                  <h3 className="text-xs font-semibold text-white">Offline reading</h3>
-                  <p className="text-[11px] text-[#C9B9D2] leading-relaxed">
+                  <h3 className="text-xs font-semibold text-ah-text">Offline reading</h3>
+                  <p className="text-[11px] text-ah-text-2 leading-relaxed">
                     Cached conversations, background offline drafting, and gentle reconnection.
                   </p>
                 </div>
@@ -301,36 +301,36 @@ export const LandingOnboarding: React.FC = () => {
             <p className="text-xs italic text-[#B979FF] leading-relaxed font-serif">
               "The only place that makes 3:00 AM feel like a sanctuary instead of isolation."
             </p>
-            <span className="text-[10px] font-mono text-[#91819A] uppercase tracking-widest block">
+            <span className="text-[10px] font-mono text-ah-muted uppercase tracking-widest block">
               — NIGHT OWLS COMMUNITY
             </span>
           </section>
 
           {/* Footer Links */}
-          <footer className="pt-4 pb-8 border-t border-[#2E2742]/60 text-center space-y-3">
-            <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs font-medium text-[#91819A]">
-              <button type="button" onClick={() => navigate('/safety')} className="hover:text-white min-h-touch flex items-center gap-1">
+          <footer className="pt-4 pb-8 border-t border-ah-border/60 text-center space-y-3">
+            <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs font-medium text-ah-muted">
+              <button type="button" onClick={() => navigate('/safety')} className="hover:text-ah-text min-h-touch flex items-center gap-1">
                 <Shield className="w-3.5 h-3.5 text-[#E07DA5]" />
                 <span>Safety</span>
               </button>
-              <button type="button" onClick={() => navigate('/help')} className="hover:text-white min-h-touch flex items-center gap-1">
+              <button type="button" onClick={() => navigate('/help')} className="hover:text-ah-text min-h-touch flex items-center gap-1">
                 <HelpCircle className="w-3.5 h-3.5 text-[#8197FF]" />
                 <span>Help</span>
               </button>
-              <button type="button" onClick={() => navigate('/safety')} className="hover:text-white min-h-touch flex items-center gap-1">
+              <button type="button" onClick={() => navigate('/safety')} className="hover:text-ah-text min-h-touch flex items-center gap-1">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#69C49A]" />
                 <span>Privacy</span>
               </button>
-              <button type="button" onClick={() => navigate('/settings/accessibility')} className="hover:text-white min-h-touch flex items-center gap-1">
+              <button type="button" onClick={() => navigate('/settings/accessibility')} className="hover:text-ah-text min-h-touch flex items-center gap-1">
                 <Eye className="w-3.5 h-3.5 text-[#57C7C1]" />
                 <span>Accessibility</span>
               </button>
-              <button type="button" onClick={() => navigate('/settings/appearance')} className="hover:text-white min-h-touch flex items-center gap-1">
+              <button type="button" onClick={() => navigate('/settings/appearance')} className="hover:text-ah-text min-h-touch flex items-center gap-1">
                 <Palette className="w-3.5 h-3.5 text-[#B979FF]" />
                 <span>Appearance</span>
               </button>
             </div>
-            <p className="text-[11px] text-[#91819A]/60 font-mono">
+            <p className="text-[11px] text-ah-muted/60 font-mono">
               AFTERHOURS v1.0 • NOCTURNAL SANCTUARY • LOCAL-FIRST
             </p>
           </footer>
@@ -343,9 +343,9 @@ export const LandingOnboarding: React.FC = () => {
   // VIEW B: 4-STEP PERSONA ONBOARDING FLOW
   // ==========================================
   return (
-    <div className="flex-1 flex flex-col app-viewport bg-[#11101A] text-[#F4EEF8] select-none">
+    <div className="flex-1 flex flex-col app-viewport bg-ah-canvas text-ah-text select-none">
       {/* Header */}
-      <header className="px-4 h-14 flex items-center justify-between border-b border-[#2E2742] bg-[#191625]/90 backdrop-blur-md pt-[max(env(safe-area-inset-top),6px)]">
+      <header className="px-4 h-14 flex items-center justify-between border-b border-ah-border bg-ah-surface/90 backdrop-blur-md pt-[max(env(safe-area-inset-top),6px)]">
         <button
           type="button"
           onClick={() => {
@@ -360,14 +360,14 @@ export const LandingOnboarding: React.FC = () => {
           {onboardingStep === 1 ? 'Cancel' : '← Back'}
         </button>
 
-        <span className="text-xs font-mono font-bold tracking-wider text-[#91819A]">
+        <span className="text-xs font-mono font-bold tracking-wider text-ah-muted">
           STEP {onboardingStep} OF 4
         </span>
 
         <button
           type="button"
           onClick={() => setTheme(settings.theme === 'dark' ? 'light' : 'dark')}
-          className="p-2 text-[#91819A] hover:text-white rounded-full min-h-touch min-w-touch flex items-center justify-center"
+          className="p-2 text-ah-muted hover:text-ah-text rounded-full min-h-touch min-w-touch flex items-center justify-center"
           aria-label="Toggle theme"
         >
           {settings.theme === 'dark' ? <Sun className="w-4 h-4 text-[#F0A06D]" /> : <Moon className="w-4 h-4 text-[#8197FF]" />}
@@ -375,7 +375,7 @@ export const LandingOnboarding: React.FC = () => {
       </header>
 
       {/* Progress Bar */}
-      <div className="w-full bg-[#191625] h-1">
+      <div className="w-full bg-ah-surface h-1">
         <div
           className="bg-gradient-to-r from-[#8197FF] to-[#B979FF] h-1 transition-all duration-300 shadow-sm"
           style={{ width: `${(onboardingStep / 4) * 100}%` }}
@@ -393,17 +393,17 @@ export const LandingOnboarding: React.FC = () => {
         {onboardingStep === 1 && (
           <div className="space-y-4 animate-fade-in">
             <div className="space-y-1">
-              <h2 className="text-xl font-bold text-white font-serif tracking-tight">
+              <h2 className="text-xl font-bold text-ah-text font-serif tracking-tight">
                 Create your Persona
               </h2>
-              <p className="text-xs text-[#C9B9D2] leading-relaxed">
+              <p className="text-xs text-ah-text-2 leading-relaxed">
                 Choose a display name and unique handle for nocturnal messaging.
               </p>
             </div>
 
             <div className="space-y-3 pt-2">
               <div>
-                <label className="text-xs font-medium text-[#C9B9D2] block mb-1">
+                <label className="text-xs font-medium text-ah-text-2 block mb-1">
                   Display Name <span className="text-[#8197FF]">*</span>
                 </label>
                 <input
@@ -411,37 +411,37 @@ export const LandingOnboarding: React.FC = () => {
                   placeholder="e.g. Rowan, Sam, NightReader"
                   value={displayName}
                   onChange={(e) => setDisplayName(e.target.value)}
-                  className="w-full px-3.5 py-2.5 bg-[#191625] border border-[#2E2742] focus:border-[#8197FF] rounded-xl text-xs text-[#F4EEF8] placeholder-[#91819A] outline-hidden min-h-touch"
+                  className="w-full px-3.5 py-2.5 bg-ah-surface border border-ah-border focus:border-[#8197FF] rounded-xl text-xs text-ah-text placeholder-[#91819A] outline-hidden min-h-touch"
                   autoFocus
                 />
               </div>
 
               <div>
-                <label className="text-xs font-medium text-[#C9B9D2] block mb-1">
-                  Unique Handle <span className="text-[#91819A]">(Optional)</span>
+                <label className="text-xs font-medium text-ah-text-2 block mb-1">
+                  Unique Handle <span className="text-ah-muted">(Optional)</span>
                 </label>
                 <div className="relative flex items-center">
-                  <span className="absolute left-3.5 text-xs text-[#91819A] font-mono">@</span>
+                  <span className="absolute left-3.5 text-xs text-ah-muted font-mono">@</span>
                   <input
                     type="text"
                     placeholder="handle"
                     value={handle}
                     onChange={(e) => setHandle(e.target.value.toLowerCase().replace(/[^a-z0-9_.]/g, ''))}
-                    className="w-full pl-8 pr-3.5 py-2.5 bg-[#191625] border border-[#2E2742] focus:border-[#8197FF] rounded-xl text-xs font-mono text-[#F4EEF8] placeholder-[#91819A] outline-hidden min-h-touch"
+                    className="w-full pl-8 pr-3.5 py-2.5 bg-ah-surface border border-ah-border focus:border-[#8197FF] rounded-xl text-xs font-mono text-ah-text placeholder-[#91819A] outline-hidden min-h-touch"
                   />
                 </div>
               </div>
 
-              <div className="p-3.5 bg-[#191625] border border-[#2E2742] rounded-2xl flex items-start gap-3">
+              <div className="p-3.5 bg-ah-surface border border-ah-border rounded-2xl flex items-start gap-3">
                 <input
                   type="checkbox"
                   id="agePledge"
                   checked={ageConfirmed}
                   onChange={(e) => setAgeConfirmed(e.target.checked)}
-                  className="mt-0.5 w-5 h-5 shrink-0 rounded-sm border-[#2E2742] text-[#8197FF] focus:ring-[#8197FF] bg-[#211C30]"
+                  className="mt-0.5 w-5 h-5 shrink-0 rounded-sm border-ah-border text-[#8197FF] focus:ring-[#8197FF] bg-ah-surface-2"
                 />
-                <label htmlFor="agePledge" className="text-xs text-[#C9B9D2] leading-relaxed cursor-pointer select-none">
-                  <span className="font-semibold text-white">Adult Confirmation:</span> I confirm that I am 18 years of age or older.
+                <label htmlFor="agePledge" className="text-xs text-ah-text-2 leading-relaxed cursor-pointer select-none">
+                  <span className="font-semibold text-ah-text">Adult Confirmation:</span> I confirm that I am 18 years of age or older.
                 </label>
               </div>
             </div>
@@ -461,10 +461,10 @@ export const LandingOnboarding: React.FC = () => {
         {onboardingStep === 2 && (
           <div className="space-y-4 animate-fade-in">
             <div className="space-y-1">
-              <h2 className="text-xl font-bold text-white font-serif tracking-tight">
+              <h2 className="text-xl font-bold text-ah-text font-serif tracking-tight">
                 Identity & Demographics
               </h2>
-              <p className="text-xs text-[#C9B9D2] leading-relaxed">
+              <p className="text-xs text-ah-text-2 leading-relaxed">
                 All demographic fields are strictly optional. They appear in your profile and help group similar late-night interests.
               </p>
             </div>
@@ -472,7 +472,7 @@ export const LandingOnboarding: React.FC = () => {
             <div className="space-y-3 pt-1">
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="text-xs font-medium text-[#C9B9D2] block mb-1">
+                  <label className="text-xs font-medium text-ah-text-2 block mb-1">
                     Gender Identity
                   </label>
                   <input
@@ -480,12 +480,12 @@ export const LandingOnboarding: React.FC = () => {
                     placeholder="e.g. Non-binary, Woman, Man"
                     value={genderIdentity}
                     onChange={(e) => setGenderIdentity(e.target.value)}
-                    className="w-full px-3 py-2 bg-[#191625] border border-[#2E2742] rounded-xl text-xs text-[#F4EEF8] placeholder-[#91819A] outline-hidden min-h-touch"
+                    className="w-full px-3 py-2 bg-ah-surface border border-ah-border rounded-xl text-xs text-ah-text placeholder-[#91819A] outline-hidden min-h-touch"
                   />
                 </div>
 
                 <div>
-                  <label className="text-xs font-medium text-[#C9B9D2] block mb-1">
+                  <label className="text-xs font-medium text-ah-text-2 block mb-1">
                     Pronouns
                   </label>
                   <input
@@ -493,13 +493,13 @@ export const LandingOnboarding: React.FC = () => {
                     placeholder="e.g. they/them, she/her"
                     value={pronouns}
                     onChange={(e) => setPronouns(e.target.value)}
-                    className="w-full px-3 py-2 bg-[#191625] border border-[#2E2742] rounded-xl text-xs text-[#F4EEF8] placeholder-[#91819A] outline-hidden min-h-touch"
+                    className="w-full px-3 py-2 bg-ah-surface border border-ah-border rounded-xl text-xs text-ah-text placeholder-[#91819A] outline-hidden min-h-touch"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="text-xs font-medium text-[#C9B9D2] block mb-1">
+                <label className="text-xs font-medium text-ah-text-2 block mb-1">
                   Sexuality
                 </label>
                 <input
@@ -507,12 +507,12 @@ export const LandingOnboarding: React.FC = () => {
                   placeholder="e.g. Queer, Bisexual, Ace, Gay, Straight"
                   value={sexuality}
                   onChange={(e) => setSexuality(e.target.value)}
-                  className="w-full px-3 py-2 bg-[#191625] border border-[#2E2742] rounded-xl text-xs text-[#F4EEF8] placeholder-[#91819A] outline-hidden min-h-touch"
+                  className="w-full px-3 py-2 bg-ah-surface border border-ah-border rounded-xl text-xs text-ah-text placeholder-[#91819A] outline-hidden min-h-touch"
                 />
               </div>
 
               <div>
-                <label className="text-xs font-medium text-[#C9B9D2] block mb-1">
+                <label className="text-xs font-medium text-ah-text-2 block mb-1">
                   Short Bio
                 </label>
                 <textarea
@@ -520,12 +520,12 @@ export const LandingOnboarding: React.FC = () => {
                   placeholder="Nocturnal habits, favorite tea, music..."
                   value={bio}
                   onChange={(e) => setBio(e.target.value)}
-                  className="w-full px-3 py-2 bg-[#191625] border border-[#2E2742] rounded-xl text-xs text-[#F4EEF8] placeholder-[#91819A] outline-hidden resize-none"
+                  className="w-full px-3 py-2 bg-ah-surface border border-ah-border rounded-xl text-xs text-ah-text placeholder-[#91819A] outline-hidden resize-none"
                 />
               </div>
 
               <div>
-                <label className="text-xs font-medium text-[#C9B9D2] block mb-1.5">
+                <label className="text-xs font-medium text-ah-text-2 block mb-1.5">
                   Nocturnal Interests
                 </label>
                 <div className="flex flex-wrap gap-1.5">
@@ -539,7 +539,7 @@ export const LandingOnboarding: React.FC = () => {
                         className={`px-3 py-1.5 rounded-full text-xs font-medium min-h-touch transition-all active:scale-95 ${
                           isSelected
                             ? 'bg-[#8197FF] text-[#11101A] font-bold shadow-xs'
-                            : 'bg-[#191625] text-[#91819A] border border-[#2E2742] hover:text-[#F4EEF8]'
+                            : 'bg-ah-surface text-ah-muted border border-ah-border hover:text-ah-text'
                         }`}
                       >
                         {tag}
@@ -565,23 +565,23 @@ export const LandingOnboarding: React.FC = () => {
         {onboardingStep === 3 && (
           <div className="space-y-4 animate-fade-in">
             <div className="space-y-1">
-              <h2 className="text-xl font-bold text-white font-serif tracking-tight">
+              <h2 className="text-xl font-bold text-ah-text font-serif tracking-tight">
                 Avatar & Quiet Hours
               </h2>
-              <p className="text-xs text-[#C9B9D2] leading-relaxed">
+              <p className="text-xs text-ah-text-2 leading-relaxed">
                 Design your vector avatar and specify your delivery window schedule.
               </p>
             </div>
 
             {/* Avatar Preview Card */}
-            <div className="p-4 bg-[#191625] border border-[#2E2742] rounded-3xl flex flex-col items-center gap-3 text-center shadow-md">
+            <div className="p-4 bg-ah-surface border border-ah-border rounded-3xl flex flex-col items-center gap-3 text-center shadow-md">
               <div className="p-1 rounded-3xl ring-2 ring-[#B979FF]/40 shadow-[0_0_20px_rgba(185,121,255,0.25)]">
                 <Avatar config={avatarConfig} size="xl" showStatusDot status="afterhours" />
               </div>
               <button
                 type="button"
                 onClick={() => setIsEditingAvatar(true)}
-                className="flex items-center gap-1.5 px-4 py-2 bg-[#211C30] hover:bg-[#2B243E] border border-[#3E2954] text-[#B979FF] rounded-xl text-xs font-semibold min-h-touch active:scale-95 transition-transform"
+                className="flex items-center gap-1.5 px-4 py-2 bg-ah-surface-2 hover:bg-ah-hover border border-[#3E2954] text-[#B979FF] rounded-xl text-xs font-semibold min-h-touch active:scale-95 transition-transform"
               >
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>Open Vector Avatar Builder</span>
@@ -590,7 +590,7 @@ export const LandingOnboarding: React.FC = () => {
 
             {/* Quiet Hours Window Selector */}
             <div className="space-y-2">
-              <label className="text-xs font-medium text-[#C9B9D2] block flex items-center gap-1.5">
+              <label className="text-xs font-medium text-ah-text-2 block flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-[#8197FF]" />
                 <span>Quiet Hours Window</span>
               </label>
@@ -601,8 +601,8 @@ export const LandingOnboarding: React.FC = () => {
                     key={opt.id}
                     className={`p-3 rounded-2xl border flex items-start gap-3 cursor-pointer transition-all ${
                       quietHours === opt.id
-                        ? 'bg-[#211C30] border-[#8197FF] shadow-xs'
-                        : 'bg-[#191625] border-[#2E2742] text-[#91819A]'
+                        ? 'bg-ah-surface-2 border-[#8197FF] shadow-xs'
+                        : 'bg-ah-surface border-ah-border text-ah-muted'
                     }`}
                   >
                     <input
@@ -611,13 +611,13 @@ export const LandingOnboarding: React.FC = () => {
                       value={opt.id}
                       checked={quietHours === opt.id}
                       onChange={() => setQuietHours(opt.id)}
-                      className="mt-0.5 text-[#8197FF] focus:ring-[#8197FF] bg-[#211C30]"
+                      className="mt-0.5 text-[#8197FF] focus:ring-[#8197FF] bg-ah-surface-2"
                     />
                     <div className="space-y-0.5">
-                      <span className={`text-xs font-bold block ${quietHours === opt.id ? 'text-white' : 'text-[#C9B9D2]'}`}>
+                      <span className={`text-xs font-bold block ${quietHours === opt.id ? 'text-ah-text' : 'text-ah-text-2'}`}>
                         {opt.label}
                       </span>
-                      <p className="text-[11px] text-[#91819A] leading-relaxed">{opt.desc}</p>
+                      <p className="text-[11px] text-ah-muted leading-relaxed">{opt.desc}</p>
                     </div>
                   </label>
                 ))}
@@ -639,15 +639,15 @@ export const LandingOnboarding: React.FC = () => {
         {onboardingStep === 4 && (
           <div className="space-y-4 animate-fade-in">
             <div className="space-y-1">
-              <h2 className="text-xl font-bold text-white font-serif tracking-tight">
+              <h2 className="text-xl font-bold text-ah-text font-serif tracking-tight">
                 Community Sanctuary Rules
               </h2>
-              <p className="text-xs text-[#C9B9D2] leading-relaxed">
+              <p className="text-xs text-ah-text-2 leading-relaxed">
                 AFTERHOURS is maintained as a quiet sanctuary. Please review the core principles:
               </p>
             </div>
 
-            <div className="p-4 bg-[#191625] border border-[#2E2742] rounded-2xl space-y-3 text-xs text-[#C9B9D2] leading-relaxed">
+            <div className="p-4 bg-ah-surface border border-ah-border rounded-2xl space-y-3 text-xs text-ah-text-2 leading-relaxed">
               <div className="flex items-start gap-2.5">
                 <span className="font-bold text-[#8197FF] shrink-0 font-mono">1.</span>
                 <p>Respect late-night quiet hours and avoid aggressive spam or loud media.</p>
@@ -666,16 +666,16 @@ export const LandingOnboarding: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-3.5 bg-[#191625] border border-[#2E2742] rounded-2xl flex items-start gap-3">
+            <div className="p-3.5 bg-ah-surface border border-ah-border rounded-2xl flex items-start gap-3">
               <input
                 type="checkbox"
                 id="rulesPledge"
                 checked={agreedToRules}
                 onChange={(e) => setAgreedToRules(e.target.checked)}
-                className="mt-0.5 w-5 h-5 shrink-0 rounded-sm border-[#2E2742] text-[#8197FF] focus:ring-[#8197FF] bg-[#211C30]"
+                className="mt-0.5 w-5 h-5 shrink-0 rounded-sm border-ah-border text-[#8197FF] focus:ring-[#8197FF] bg-ah-surface-2"
               />
-              <label htmlFor="rulesPledge" className="text-xs text-[#C9B9D2] leading-relaxed cursor-pointer select-none">
-                <span className="font-semibold text-white">I agree</span> to uphold the AFTERHOURS sanctuary rules and enter the network responsibly.
+              <label htmlFor="rulesPledge" className="text-xs text-ah-text-2 leading-relaxed cursor-pointer select-none">
+                <span className="font-semibold text-ah-text">I agree</span> to uphold the AFTERHOURS sanctuary rules and enter the network responsibly.
               </label>
             </div>
 
@@ -686,7 +686,7 @@ export const LandingOnboarding: React.FC = () => {
               className={`w-full py-3.5 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-2 min-h-touch transition-all shadow-lg ${
                 agreedToRules
                   ? 'bg-gradient-to-r from-[#8197FF] to-[#B979FF] text-[#11101A] shadow-[#8197FF]/25 active:scale-95'
-                  : 'bg-[#211C30] text-[#91819A]/40 cursor-not-allowed'
+                  : 'bg-ah-surface-2 text-ah-muted/40 cursor-not-allowed'
               }`}
             >
               <Check className="w-4 h-4" />

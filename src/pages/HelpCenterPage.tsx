@@ -50,19 +50,19 @@ export const HelpCenterPage: React.FC = () => {
   };
 
   return (
-    <div className="flex-1 flex flex-col app-viewport bg-night-bg text-night-text select-none">
+    <div className="flex-1 flex flex-col app-viewport bg-ah-canvas text-ah-text select-none">
       <TopBar showBack title="Help Center" subtitle="Guides, FAQs & Safety Controls" />
 
       <main className="flex-1 overflow-y-auto p-4 space-y-4 max-w-md mx-auto w-full">
         {/* Search Bar */}
         <div className="relative">
-          <Search className="w-4 h-4 absolute left-3.5 top-3.5 text-night-muted" />
+          <Search className="w-4 h-4 absolute left-3.5 top-3.5 text-ah-muted" />
           <input
             type="text"
             placeholder="Search 30+ guides (e.g. block, export, quiet hours)..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-3 bg-night-surface border border-night-border focus:border-brand-500 rounded-2xl text-xs text-night-text placeholder-night-muted outline-none min-h-touch"
+            className="w-full pl-10 pr-4 py-3 bg-ah-surface border border-ah-border focus:border-brand-500 rounded-2xl text-xs text-ah-text placeholder-night-muted outline-none min-h-touch"
           />
         </div>
 
@@ -75,8 +75,8 @@ export const HelpCenterPage: React.FC = () => {
               onClick={() => setSelectedCategory(cat)}
               className={`px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap min-h-touch transition-all ${
                 selectedCategory === cat
-                  ? 'bg-brand-600 border border-brand-500 text-white shadow-xs'
-                  : 'bg-night-card border border-night-border text-night-muted hover:text-white'
+                  ? 'bg-brand-600 border border-brand-500 text-ah-text shadow-xs'
+                  : 'bg-ah-surface-2 border border-ah-border text-ah-muted hover:text-ah-text'
               }`}
             >
               {cat}
@@ -85,17 +85,17 @@ export const HelpCenterPage: React.FC = () => {
         </div>
 
         {/* Results Counter */}
-        <div className="flex items-center justify-between text-[11px] text-night-muted px-1">
+        <div className="flex items-center justify-between text-[11px] text-ah-muted px-1">
           <span>{filteredArticles.length} articles found</span>
           {selectedCategory !== 'All' && <span>Category: {selectedCategory}</span>}
         </div>
 
         {/* Article List */}
-        <div className="bg-night-surface border border-night-border rounded-3xl overflow-hidden divide-y divide-night-border/50">
+        <div className="bg-ah-surface border border-ah-border rounded-3xl overflow-hidden divide-y divide-ah-border/50">
           {filteredArticles.length === 0 ? (
             <div className="p-8 text-center space-y-2">
-              <HelpCircle className="w-8 h-8 text-night-muted mx-auto" />
-              <p className="text-xs text-night-muted">No help articles found matching "{searchQuery}".</p>
+              <HelpCircle className="w-8 h-8 text-ah-muted mx-auto" />
+              <p className="text-xs text-ah-muted">No help articles found matching "{searchQuery}".</p>
               <button
                 type="button"
                 onClick={() => {
@@ -113,16 +113,16 @@ export const HelpCenterPage: React.FC = () => {
                 key={article.id}
                 type="button"
                 onClick={() => navigate(`/help/${article.slug}`)}
-                className="w-full p-4 flex items-start justify-between text-left hover:bg-night-card min-h-touch active:bg-night-hover transition-colors"
+                className="w-full p-4 flex items-start justify-between text-left hover:bg-ah-surface-2 min-h-touch active:bg-ah-hover transition-colors"
               >
                 <div className="flex items-start gap-3 min-w-0 pr-2">
                   <div className="mt-0.5 shrink-0">{getCategoryIcon(article.category)}</div>
                   <div className="space-y-1 min-w-0">
-                    <h3 className="text-xs font-bold text-white leading-snug">{article.title}</h3>
-                    <p className="text-[11px] text-night-muted leading-relaxed line-clamp-2">
+                    <h3 className="text-xs font-bold text-ah-text leading-snug">{article.title}</h3>
+                    <p className="text-[11px] text-ah-muted leading-relaxed line-clamp-2">
                       {article.summary}
                     </p>
-                    <div className="flex items-center gap-2 pt-0.5 text-[10px] text-night-muted font-mono">
+                    <div className="flex items-center gap-2 pt-0.5 text-[10px] text-ah-muted font-mono">
                       <span className="text-brand-400">{article.category}</span>
                       <span>•</span>
                       <span>Updated {article.lastUpdated}</span>
@@ -130,7 +130,7 @@ export const HelpCenterPage: React.FC = () => {
                   </div>
                 </div>
 
-                <ChevronRight className="w-4 h-4 text-night-muted shrink-0 mt-1" />
+                <ChevronRight className="w-4 h-4 text-ah-muted shrink-0 mt-1" />
               </button>
             ))
           )}

@@ -38,11 +38,11 @@ export const BookmarksPage: React.FC = () => {
   );
 
   return (
-    <div className="flex-1 flex flex-col app-viewport bg-[#11101A] text-[#F4EEF8] pb-20">
+    <div className="flex-1 flex flex-col app-viewport bg-ah-canvas text-ah-text pb-20">
       <TopBar title="Bookmarks & Evidence" subtitle="Saved Notes & Logs" showBack />
 
       {/* Categories Filter */}
-      <div className="flex gap-1.5 px-3 py-2.5 overflow-x-auto no-scrollbar border-b border-[#2E2742]/60 shrink-0 bg-[#11101A]">
+      <div className="flex gap-1.5 px-3 py-2.5 overflow-x-auto no-scrollbar border-b border-ah-border/60 shrink-0 bg-ah-canvas">
         {CATEGORIES.map((cat) => (
           <button
             key={cat}
@@ -51,7 +51,7 @@ export const BookmarksPage: React.FC = () => {
             className={`px-3.5 py-1.5 rounded-full text-xs font-medium min-h-touch whitespace-nowrap transition-all select-none ${
               selectedCategory === cat
                 ? 'bg-gradient-to-r from-[#D5AB5E] to-[#F0A06D] text-[#11101A] font-bold shadow-xs'
-                : 'bg-[#191625] text-[#91819A] hover:text-[#F4EEF8] border border-[#2E2742]'
+                : 'bg-ah-surface text-ah-muted hover:text-ah-text border border-ah-border'
             }`}
           >
             {cat}
@@ -62,8 +62,8 @@ export const BookmarksPage: React.FC = () => {
       {/* Bookmarks List */}
       <main className="flex-1 overflow-y-auto p-3 space-y-3">
         {filteredBookmarks.length === 0 ? (
-          <div className="py-20 text-center text-[#91819A] space-y-2">
-            <Bookmark className="w-8 h-8 mx-auto text-[#91819A]/40 mb-2" />
+          <div className="py-20 text-center text-ah-muted space-y-2">
+            <Bookmark className="w-8 h-8 mx-auto text-ah-muted/40 mb-2" />
             <p className="text-sm font-medium">No saved bookmarks in this category.</p>
             <p className="text-xs max-w-xs mx-auto">
               Tap any message in a chat to bookmark it for future investigation.
@@ -92,7 +92,7 @@ export const BookmarksPage: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => removeBookmark(item.id)}
-                    className="p-1.5 text-[#91819A] hover:text-[#E16F86] min-h-touch min-w-touch flex items-center justify-center transition-colors"
+                    className="p-1.5 text-ah-muted hover:text-[#E16F86] min-h-touch min-w-touch flex items-center justify-center transition-colors"
                     aria-label="Remove bookmark"
                   >
                     <Trash2 className="w-4 h-4" />
@@ -100,7 +100,7 @@ export const BookmarksPage: React.FC = () => {
                 </div>
 
                 {/* Message quote */}
-                <div className="p-3.5 bg-[#15121B] border border-[#2E2742] rounded-2xl text-xs text-[#F4EEF8] leading-relaxed select-text space-y-1">
+                <div className="p-3.5 bg-[#15121B] border border-ah-border rounded-2xl text-xs text-ah-text leading-relaxed select-text space-y-1">
                   <div className="font-semibold text-[#8197FF] text-[11px]">
                     {item.message?.senderName || 'Contact'}:
                   </div>
@@ -111,14 +111,14 @@ export const BookmarksPage: React.FC = () => {
 
                 {/* Note */}
                 {item.note && (
-                  <div className="text-xs text-[#C9B9D2] flex items-start gap-1.5 pt-1">
+                  <div className="text-xs text-ah-text-2 flex items-start gap-1.5 pt-1">
                     <CornerDownRight className="w-3.5 h-3.5 text-[#D5AB5E] shrink-0 mt-0.5" />
                     <p className="whitespace-pre-wrap">{item.note}</p>
                   </div>
                 )}
 
                 {/* Footer Metadata */}
-                <div className="flex items-center justify-between pt-2 border-t border-[#2E2742]/50 text-[10px] text-[#91819A] font-mono">
+                <div className="flex items-center justify-between pt-2 border-t border-ah-border/50 text-[10px] text-ah-muted font-mono">
                   <div className="flex items-center gap-1">
                     <Clock className="w-3 h-3 text-[#D5AB5E]" />
                     <span>Saved: {new Date(item.savedAt).toLocaleDateString([], { month: 'short', day: 'numeric', year: 'numeric' })}</span>

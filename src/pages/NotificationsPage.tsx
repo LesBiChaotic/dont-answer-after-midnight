@@ -71,7 +71,7 @@ export const NotificationsPage: React.FC = () => {
   };
 
   return (
-    <div className="flex-1 flex flex-col app-viewport bg-[#11101A] text-[#F4EEF8] pb-20">
+    <div className="flex-1 flex flex-col app-viewport bg-ah-canvas text-ah-text pb-20">
       <TopBar
         showBack
         title="Notifications"
@@ -80,7 +80,7 @@ export const NotificationsPage: React.FC = () => {
           <button
             type="button"
             onClick={markAllAsRead}
-            className="p-2 text-[#91819A] hover:text-[#F4EEF8] text-xs flex items-center gap-1 min-h-touch"
+            className="p-2 text-ah-muted hover:text-ah-text text-xs flex items-center gap-1 min-h-touch"
             title="Mark all as read"
           >
             <CheckCheck className="w-4 h-4 text-[#8197FF]" />
@@ -90,14 +90,14 @@ export const NotificationsPage: React.FC = () => {
       />
 
       {/* Filter Toggle */}
-      <div className="flex px-3 py-2.5 border-b border-[#2E2742]/60 shrink-0 bg-[#11101A]">
+      <div className="flex px-3 py-2.5 border-b border-ah-border/60 shrink-0 bg-ah-canvas">
         <button
           type="button"
           onClick={() => setFilterUnread(!filterUnread)}
           className={`px-3.5 py-1.5 rounded-full text-xs font-semibold border min-h-touch transition-all select-none ${
             filterUnread
               ? 'bg-gradient-to-r from-[#8197FF] to-[#B979FF] text-[#11101A] border-transparent font-bold shadow-xs'
-              : 'bg-[#191625] text-[#91819A] border-[#2E2742] hover:text-[#F4EEF8]'
+              : 'bg-ah-surface text-ah-muted border-ah-border hover:text-ah-text'
           }`}
         >
           {filterUnread ? 'Showing Unread Only' : 'Show All Activity'}
@@ -107,8 +107,8 @@ export const NotificationsPage: React.FC = () => {
       {/* Notifications List */}
       <main className="flex-1 overflow-y-auto divide-y divide-[#2E2742]/40 px-2 py-1 space-y-1">
         {filtered.length === 0 ? (
-          <div className="py-20 text-center text-[#91819A] space-y-2">
-            <Bell className="w-8 h-8 mx-auto text-[#91819A]/40 mb-2" />
+          <div className="py-20 text-center text-ah-muted space-y-2">
+            <Bell className="w-8 h-8 mx-auto text-ah-muted/40 mb-2" />
             <p className="text-sm font-medium">No notifications to display.</p>
             <p className="text-xs">Incoming messages and room alerts will notify you here.</p>
           </div>
@@ -127,8 +127,8 @@ export const NotificationsPage: React.FC = () => {
                 onClick={() => handleNotificationClick(notif.id, notif.targetUrl)}
                 className={`p-3.5 rounded-2xl flex items-start gap-3.5 cursor-pointer transition-all select-none border ${
                   !notif.isRead
-                    ? 'bg-[#211C30] border-[#8197FF]/30 shadow-sm'
-                    : 'bg-[#191625]/60 hover:bg-[#191625] border-transparent hover:border-[#2E2742]'
+                    ? 'bg-ah-surface-2 border-[#8197FF]/30 shadow-sm'
+                    : 'bg-ah-surface/60 hover:bg-ah-surface border-transparent hover:border-ah-border'
                 }`}
               >
                 <div className={`mt-0.5 w-9 h-9 rounded-xl ${style.bg} border ${style.border} flex items-center justify-center ${style.text} shrink-0 shadow-inner`}>
@@ -137,12 +137,12 @@ export const NotificationsPage: React.FC = () => {
 
                 <div className="flex-1 min-w-0 space-y-0.5">
                   <div className="flex items-center justify-between gap-1">
-                    <span className={`text-xs truncate ${!notif.isRead ? 'font-bold text-white' : 'font-semibold text-[#F4EEF8]'}`}>
+                    <span className={`text-xs truncate ${!notif.isRead ? 'font-bold text-ah-text' : 'font-semibold text-ah-text'}`}>
                       {notif.title}
                     </span>
-                    <span className="text-[10px] text-[#91819A] font-mono shrink-0">{timeStr}</span>
+                    <span className="text-[10px] text-ah-muted font-mono shrink-0">{timeStr}</span>
                   </div>
-                  <p className="text-xs text-[#C9B9D2] line-clamp-2 leading-relaxed">{notif.body}</p>
+                  <p className="text-xs text-ah-text-2 line-clamp-2 leading-relaxed">{notif.body}</p>
                 </div>
 
                 {!notif.isRead && (

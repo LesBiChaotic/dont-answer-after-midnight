@@ -42,14 +42,14 @@ export const ThreadHeader: React.FC<ThreadHeaderProps> = ({ thread, activeTyping
   };
 
   return (
-    <header className="sticky top-0 z-30 w-full bg-night-surface/95 backdrop-blur-md border-b border-night-border pt-[max(env(safe-area-inset-top),6px)] select-none">
+    <header className="sticky top-0 z-30 w-full bg-ah-surface/95 backdrop-blur-md border-b border-ah-border pt-[max(env(safe-area-inset-top),6px)] select-none">
       <div className="flex items-center justify-between px-3 h-14">
         {/* Back and Contact Info */}
         <div className="flex items-center gap-2 min-w-0 flex-1">
           <button
             type="button"
             onClick={() => navigate('/chats')}
-            className="p-2 -ml-1 text-night-muted hover:text-night-text min-h-touch min-w-touch flex items-center justify-center rounded-full active:bg-night-card transition-colors"
+            className="p-2 -ml-1 text-ah-muted hover:text-ah-text min-h-touch min-w-touch flex items-center justify-center rounded-full active:bg-ah-surface-2 transition-colors"
             aria-label="Back to inbox"
           >
             <ArrowLeft className="w-5 h-5" />
@@ -74,10 +74,10 @@ export const ThreadHeader: React.FC<ThreadHeaderProps> = ({ thread, activeTyping
           {/* Name & Presence Subtitle */}
           <div className="flex flex-col min-w-0 flex-1 ml-1">
             <div className="flex items-center gap-1.5">
-              <span className="text-sm font-semibold truncate text-night-text">
+              <span className="text-sm font-semibold truncate text-ah-text">
                 {thread.title || participant?.displayName || 'Chat'}
               </span>
-              {isMuted && <BellOff className="w-3 h-3 text-night-muted shrink-0" />}
+              {isMuted && <BellOff className="w-3 h-3 text-ah-muted shrink-0" />}
               {isBlocked && (
                 <span className="text-[10px] bg-red-950/80 text-red-300 border border-red-800/60 px-1.5 rounded-sm">
                   Blocked
@@ -96,9 +96,9 @@ export const ThreadHeader: React.FC<ThreadHeaderProps> = ({ thread, activeTyping
                   </span>
                 </span>
               ) : participant?.statusMessage ? (
-                <span className="text-night-muted truncate">{participant.statusMessage}</span>
+                <span className="text-ah-muted truncate">{participant.statusMessage}</span>
               ) : (
-                <span className="text-night-muted capitalize">{participant?.status || 'Active'}</span>
+                <span className="text-ah-muted capitalize">{participant?.status || 'Active'}</span>
               )}
             </div>
           </div>
@@ -109,7 +109,7 @@ export const ThreadHeader: React.FC<ThreadHeaderProps> = ({ thread, activeTyping
           <button
             type="button"
             onClick={() => setMenuOpen(!menuOpen)}
-            className="p-2 text-night-muted hover:text-night-text min-h-touch min-w-touch flex items-center justify-center rounded-full active:bg-night-card transition-colors"
+            className="p-2 text-ah-muted hover:text-ah-text min-h-touch min-w-touch flex items-center justify-center rounded-full active:bg-ah-surface-2 transition-colors"
             aria-label="Conversation options"
           >
             <MoreVertical className="w-5 h-5" />
@@ -122,11 +122,11 @@ export const ThreadHeader: React.FC<ThreadHeaderProps> = ({ thread, activeTyping
                 className="fixed inset-0 z-40"
                 onClick={() => setMenuOpen(false)}
               />
-              <div className="absolute right-0 top-12 w-52 bg-night-card border border-night-border rounded-2xl shadow-2xl py-1.5 z-50 text-xs text-night-text animate-slide-up">
+              <div className="absolute right-0 top-12 w-52 bg-ah-surface-2 border border-ah-border rounded-2xl shadow-2xl py-1.5 z-50 text-xs text-ah-text animate-slide-up">
                 <button
                   type="button"
                   onClick={handleToggleMute}
-                  className="w-full px-4 py-3 flex items-center gap-3 hover:bg-night-hover min-h-touch text-left transition-colors"
+                  className="w-full px-4 py-3 flex items-center gap-3 hover:bg-ah-hover min-h-touch text-left transition-colors"
                 >
                   {isMuted ? <Bell className="w-4 h-4 text-emerald-400" /> : <BellOff className="w-4 h-4 text-amber-400" />}
                   <span>{isMuted ? 'Unmute Notifications' : 'Mute Notifications'}</span>
@@ -138,7 +138,7 @@ export const ThreadHeader: React.FC<ThreadHeaderProps> = ({ thread, activeTyping
                     togglePinThread(thread.id);
                     setMenuOpen(false);
                   }}
-                  className="w-full px-4 py-3 flex items-center gap-3 hover:bg-night-hover min-h-touch text-left transition-colors"
+                  className="w-full px-4 py-3 flex items-center gap-3 hover:bg-ah-hover min-h-touch text-left transition-colors"
                 >
                   <Sparkles className="w-4 h-4 text-brand-400" />
                   <span>{thread.isPinned ? 'Unpin Conversation' : 'Pin Conversation'}</span>
@@ -151,7 +151,7 @@ export const ThreadHeader: React.FC<ThreadHeaderProps> = ({ thread, activeTyping
                     setMenuOpen(false);
                     navigate('/chats');
                   }}
-                  className="w-full px-4 py-3 flex items-center gap-3 hover:bg-night-hover min-h-touch text-left transition-colors"
+                  className="w-full px-4 py-3 flex items-center gap-3 hover:bg-ah-hover min-h-touch text-left transition-colors"
                 >
                   <Bookmark className="w-4 h-4 text-blue-400" />
                   <span>{thread.isArchived ? 'Unarchive' : 'Archive Thread'}</span>
@@ -161,7 +161,7 @@ export const ThreadHeader: React.FC<ThreadHeaderProps> = ({ thread, activeTyping
                   <button
                     type="button"
                     onClick={handleToggleBlock}
-                    className="w-full px-4 py-3 flex items-center gap-3 hover:bg-night-hover min-h-touch text-left text-red-400 transition-colors border-t border-night-border/60"
+                    className="w-full px-4 py-3 flex items-center gap-3 hover:bg-ah-hover min-h-touch text-left text-red-400 transition-colors border-t border-ah-border/60"
                   >
                     {isBlocked ? <Shield className="w-4 h-4 text-emerald-400" /> : <UserX className="w-4 h-4 text-red-400" />}
                     <span>{isBlocked ? 'Unblock Contact' : 'Block Contact'}</span>

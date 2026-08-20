@@ -41,19 +41,19 @@ export const RoomsListPage: React.FC = () => {
   });
 
   return (
-    <div className="flex-1 flex flex-col app-viewport bg-[#11101A] text-[#F4EEF8] pb-20">
+    <div className="flex-1 flex flex-col app-viewport bg-ah-canvas text-ah-text pb-20">
       <TopBar title="Community Rooms" subtitle="11 Nocturnal Nodes" />
 
       {/* Search & Category Filter */}
-      <div className="px-3 pt-3 space-y-2 shrink-0 bg-[#11101A]">
-        <div className="flex items-center gap-2 bg-[#191625] border border-[#2E2742] focus-within:border-[#57C7C1] rounded-2xl px-3.5 py-2.5 transition-all">
-          <Search className="w-4 h-4 text-[#91819A]" />
+      <div className="px-3 pt-3 space-y-2 shrink-0 bg-ah-canvas">
+        <div className="flex items-center gap-2 bg-ah-surface border border-ah-border focus-within:border-[#57C7C1] rounded-2xl px-3.5 py-2.5 transition-all">
+          <Search className="w-4 h-4 text-ah-muted" />
           <input
             type="text"
             placeholder="Search rooms and topics..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-transparent text-xs text-[#F4EEF8] placeholder-[#91819A] outline-hidden"
+            className="w-full bg-transparent text-xs text-ah-text placeholder-[#91819A] outline-hidden"
           />
         </div>
 
@@ -66,7 +66,7 @@ export const RoomsListPage: React.FC = () => {
               className={`px-3.5 py-1.5 rounded-full text-xs font-medium min-h-touch whitespace-nowrap transition-all select-none ${
                 filterCategory === cat
                   ? 'bg-gradient-to-r from-[#57C7C1] to-[#8197FF] text-[#11101A] font-bold shadow-md shadow-[#57C7C1]/20'
-                  : 'bg-[#191625] text-[#91819A] hover:text-[#F4EEF8] border border-[#2E2742]'
+                  : 'bg-ah-surface text-ah-muted hover:text-ah-text border border-ah-border'
               }`}
             >
               {cat}
@@ -83,7 +83,7 @@ export const RoomsListPage: React.FC = () => {
             <div
               key={room.id}
               onClick={() => navigate(`/rooms/${room.id}`)}
-              className={`p-4 bg-[#191625] hover:bg-[#211C30] border ${accent.border} ${accent.glow} rounded-2xl cursor-pointer transition-all active:scale-[0.99] space-y-2.5 shadow-md`}
+              className={`p-4 bg-ah-surface hover:bg-ah-surface-2 border ${accent.border} ${accent.glow} rounded-2xl cursor-pointer transition-all active:scale-[0.99] space-y-2.5 shadow-md`}
             >
               <div className="flex items-start justify-between gap-2">
                 <div className="flex items-center gap-3">
@@ -91,7 +91,7 @@ export const RoomsListPage: React.FC = () => {
                     <Hash className="w-4 h-4" />
                   </div>
                   <div>
-                    <h2 className="text-sm font-semibold text-white leading-tight">{room.name}</h2>
+                    <h2 className="text-sm font-semibold text-ah-text leading-tight">{room.name}</h2>
                     <span className={`text-[10px] ${accent.text} font-medium tracking-wide`}>{room.category}</span>
                   </div>
                 </div>
@@ -109,7 +109,7 @@ export const RoomsListPage: React.FC = () => {
                   }}
                   className={`px-3 py-1 rounded-full text-xs font-semibold min-h-touch flex items-center gap-1 transition-all active:scale-95 ${
                     room.isJoined
-                      ? 'bg-[#211C30] border border-[#2E2742] text-[#91819A] hover:text-[#E16F86]'
+                      ? 'bg-ah-surface-2 border border-ah-border text-ah-muted hover:text-[#E16F86]'
                       : 'bg-[#57C7C1] hover:bg-[#3F9B9A] text-[#11101A] shadow-xs'
                   }`}
                 >
@@ -127,12 +127,12 @@ export const RoomsListPage: React.FC = () => {
                 </button>
               </div>
 
-              <p className="text-xs text-[#C9B9D2] leading-relaxed line-clamp-2">
+              <p className="text-xs text-ah-text-2 leading-relaxed line-clamp-2">
                 {room.description}
               </p>
 
               {/* Footer Details */}
-              <div className="flex items-center justify-between pt-1 border-t border-[#2E2742]/50 text-[11px] text-[#91819A] font-mono">
+              <div className="flex items-center justify-between pt-1 border-t border-ah-border/50 text-[11px] text-ah-muted font-mono">
                 <div className="flex items-center gap-1">
                   <Users className="w-3 h-3 text-[#57C7C1]" />
                   <span>{room.memberCount} members</span>

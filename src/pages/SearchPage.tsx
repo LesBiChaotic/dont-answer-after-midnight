@@ -95,12 +95,12 @@ export const SearchPage: React.FC = () => {
   );
 
   return (
-    <div className="flex-1 flex flex-col app-viewport bg-[#11101A] text-[#F4EEF8] pb-20">
+    <div className="flex-1 flex flex-col app-viewport bg-ah-canvas text-ah-text pb-20">
       <TopBar title="Search Network" subtitle="Global Index & Archives" />
 
       {/* Search Input Bar */}
-      <div className="p-3 space-y-2.5 bg-[#11101A] shrink-0 border-b border-[#2E2742]/60">
-        <div className="flex items-center gap-2 bg-[#191625] border border-[#2E2742] focus-within:border-[#8197FF] focus-within:shadow-[0_0_12px_rgba(129,151,255,0.25)] rounded-2xl px-3.5 py-2.5 transition-all">
+      <div className="p-3 space-y-2.5 bg-ah-canvas shrink-0 border-b border-ah-border/60">
+        <div className="flex items-center gap-2 bg-ah-surface border border-ah-border focus-within:border-[#8197FF] focus-within:shadow-[0_0_12px_rgba(129,151,255,0.25)] rounded-2xl px-3.5 py-2.5 transition-all">
           <Search className="w-4 h-4 text-[#8197FF] shrink-0" />
           <input
             type="text"
@@ -108,13 +108,13 @@ export const SearchPage: React.FC = () => {
             placeholder="Search people, messages, rooms, archives..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="w-full bg-transparent text-sm text-[#F4EEF8] placeholder-[#91819A] outline-hidden"
+            className="w-full bg-transparent text-sm text-ah-text placeholder-[#91819A] outline-hidden"
           />
           {query && (
             <button
               type="button"
               onClick={() => setQuery('')}
-              className="p-1 text-[#91819A] hover:text-[#F4EEF8]"
+              className="p-1 text-ah-muted hover:text-ah-text"
               aria-label="Clear search"
             >
               <X className="w-4 h-4" />
@@ -124,12 +124,12 @@ export const SearchPage: React.FC = () => {
 
         {/* Across All Versions Toggle */}
         <div className="flex items-center justify-between px-1 text-xs">
-          <label className="flex items-center gap-2 text-[#91819A] cursor-pointer select-none">
+          <label className="flex items-center gap-2 text-ah-muted cursor-pointer select-none">
             <input
               type="checkbox"
               checked={acrossAllVersions}
               onChange={(e) => setAcrossAllVersions(e.target.checked)}
-              className="rounded-sm text-[#8197FF] bg-[#211C30] border-[#2E2742] focus:ring-[#8197FF] w-3.5 h-3.5"
+              className="rounded-sm text-[#8197FF] bg-ah-surface-2 border-ah-border focus:ring-[#8197FF] w-3.5 h-3.5"
             />
             <span className="text-[11px] font-medium flex items-center gap-1">
               <Layers className="w-3 h-3 text-[#8197FF]" />
@@ -155,7 +155,7 @@ export const SearchPage: React.FC = () => {
               className={`px-3.5 py-1 rounded-full text-xs font-medium min-h-touch whitespace-nowrap transition-all select-none ${
                 activeCategory === tab.id
                   ? 'bg-gradient-to-r from-[#8197FF] to-[#57C7C1] text-[#11101A] font-bold shadow-xs'
-                  : 'bg-[#191625] text-[#91819A] hover:text-[#F4EEF8] border border-[#2E2742]'
+                  : 'bg-ah-surface text-ah-muted hover:text-ah-text border border-ah-border'
               }`}
             >
               {tab.label}
@@ -167,15 +167,15 @@ export const SearchPage: React.FC = () => {
       {/* Results Content */}
       <main className="flex-1 overflow-y-auto p-3 space-y-4">
         {!query.trim() ? (
-          <div className="py-20 text-center text-[#91819A] space-y-2">
-            <Search className="w-8 h-8 mx-auto text-[#91819A]/40 mb-2" />
+          <div className="py-20 text-center text-ah-muted space-y-2">
+            <Search className="w-8 h-8 mx-auto text-ah-muted/40 mb-2" />
             <p className="text-sm font-medium">Type to search AFTERHOURS</p>
             <p className="text-xs max-w-xs mx-auto">
               Find contacts, messages, frequencies, legacy board posts, or saved bookmarks.
             </p>
           </div>
         ) : !hasResults ? (
-          <div className="py-20 text-center text-[#91819A] space-y-1">
+          <div className="py-20 text-center text-ah-muted space-y-1">
             <p className="text-sm font-medium">No results found for "{query}"</p>
             <p className="text-xs">Try searching for keywords like "elena", "archive", "coffee", or "midnight".</p>
           </div>
@@ -193,12 +193,12 @@ export const SearchPage: React.FC = () => {
                       <div
                         key={p.id}
                         onClick={() => navigate(`/chats/${threads.find((t) => t.participants.some((tp) => tp.id === p.id))?.id || 'thread_elena_dm'}`)}
-                        className="p-3.5 bg-[#191625] hover:bg-[#211C30] border border-[#2E2742] hover:border-[#8197FF] rounded-2xl cursor-pointer flex items-center gap-3 active:scale-[0.99] transition-all shadow-sm"
+                        className="p-3.5 bg-ah-surface hover:bg-ah-surface-2 border border-ah-border hover:border-[#8197FF] rounded-2xl cursor-pointer flex items-center gap-3 active:scale-[0.99] transition-all shadow-sm"
                       >
                         <Avatar config={p.avatarConfig} size="sm" showStatusDot status={p.status} />
                         <div className="flex-1 min-w-0">
-                          <div className="text-xs font-semibold text-white truncate">{p.displayName}</div>
-                          <div className="text-[10px] text-[#91819A] font-mono">@{p.handle}</div>
+                          <div className="text-xs font-semibold text-ah-text truncate">{p.displayName}</div>
+                          <div className="text-[10px] text-ah-muted font-mono">@{p.handle}</div>
                         </div>
                       </div>
                     ))}
@@ -218,15 +218,15 @@ export const SearchPage: React.FC = () => {
                       <div
                         key={idx}
                         onClick={() => navigate(`/chats/${m.threadId}`)}
-                        className="p-3.5 bg-[#191625] hover:bg-[#211C30] border border-[#2E2742] hover:border-[#57C7C1] rounded-2xl cursor-pointer space-y-1 active:scale-[0.99] transition-all shadow-sm"
+                        className="p-3.5 bg-ah-surface hover:bg-ah-surface-2 border border-ah-border hover:border-[#57C7C1] rounded-2xl cursor-pointer space-y-1 active:scale-[0.99] transition-all shadow-sm"
                       >
                         <div className="flex items-center justify-between text-xs">
-                          <span className="font-semibold text-white truncate">{m.threadTitle}</span>
-                          <span className="text-[10px] text-[#91819A] font-mono">
+                          <span className="font-semibold text-ah-text truncate">{m.threadTitle}</span>
+                          <span className="text-[10px] text-ah-muted font-mono">
                             {new Date(m.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                           </span>
                         </div>
-                        <p className="text-xs text-[#C9B9D2] line-clamp-2 leading-relaxed">{m.content}</p>
+                        <p className="text-xs text-ah-text-2 line-clamp-2 leading-relaxed">{m.content}</p>
                       </div>
                     ))}
                   </div>
@@ -245,14 +245,14 @@ export const SearchPage: React.FC = () => {
                       <div
                         key={r.id}
                         onClick={() => navigate(`/rooms/${r.id}`)}
-                        className="p-3.5 bg-[#191625] hover:bg-[#211C30] border border-[#2E2742] hover:border-[#B979FF] rounded-2xl cursor-pointer flex items-center justify-between active:scale-[0.99] transition-all shadow-sm"
+                        className="p-3.5 bg-ah-surface hover:bg-ah-surface-2 border border-ah-border hover:border-[#B979FF] rounded-2xl cursor-pointer flex items-center justify-between active:scale-[0.99] transition-all shadow-sm"
                       >
                         <div className="flex items-center gap-3">
                           <div className="w-8 h-8 rounded-xl bg-[#2D1B4E] border border-[#B979FF]/40 flex items-center justify-center text-[#B979FF]">
                             <Hash className="w-4 h-4" />
                           </div>
                           <div>
-                            <div className="text-xs font-semibold text-white">{r.name}</div>
+                            <div className="text-xs font-semibold text-ah-text">{r.name}</div>
                             <div className="text-[10px] text-[#B979FF] font-medium">{r.category}</div>
                           </div>
                         </div>
@@ -278,9 +278,9 @@ export const SearchPage: React.FC = () => {
                       >
                         <div className="flex items-center justify-between text-xs">
                           <span className="font-bold text-[#F0A06D]">Partition {am.era}</span>
-                          <span className="text-[10px] text-[#91819A] font-mono">{am.timestamp}</span>
+                          <span className="text-[10px] text-ah-muted font-mono">{am.timestamp}</span>
                         </div>
-                        <p className="text-xs text-[#F4EEF8] font-mono leading-relaxed">{am.content}</p>
+                        <p className="text-xs text-ah-text font-mono leading-relaxed">{am.content}</p>
                       </div>
                     ))}
                   </div>
@@ -306,9 +306,9 @@ export const SearchPage: React.FC = () => {
                             <Bookmark className="w-3 h-3 fill-current" />
                             <span>{bm.category}</span>
                           </span>
-                          <span className="text-[10px] text-[#91819A] font-mono">{bm.savedAt.split('T')[0]}</span>
+                          <span className="text-[10px] text-ah-muted font-mono">{bm.savedAt.split('T')[0]}</span>
                         </div>
-                        <p className="text-xs text-[#C9B9D2] leading-relaxed">{bm.note || 'Saved message bookmark'}</p>
+                        <p className="text-xs text-ah-text-2 leading-relaxed">{bm.note || 'Saved message bookmark'}</p>
                       </div>
                     ))}
                   </div>

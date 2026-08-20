@@ -267,15 +267,15 @@ export async function getStoredSettings(): Promise<SettingsState> {
   try {
     const db = await getDB();
     const settings = await db.get('settings', 'current_settings');
-    if (settings) return settings;
+    if (settings) return { ...INITIAL_SETTINGS, ...settings };
 
     const local = localStorage.getItem('afterhours_settings');
-    if (local) return JSON.parse(local);
+    if (local) return { ...INITIAL_SETTINGS, ...JSON.parse(local) };
 
     return INITIAL_SETTINGS;
   } catch {
     const local = localStorage.getItem('afterhours_settings');
-    return local ? JSON.parse(local) : INITIAL_SETTINGS;
+    return local ? { ...INITIAL_SETTINGS, ...JSON.parse(local) } : INITIAL_SETTINGS;
   }
 }
 

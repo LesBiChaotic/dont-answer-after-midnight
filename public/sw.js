@@ -1,4 +1,4 @@
-const CACHE_NAME = 'afterhours-v2';
+const CACHE_NAME = 'afterhours-v3';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -34,6 +34,13 @@ self.addEventListener('activate', (event) => {
     })
   );
   self.clients.claim();
+});
+
+self.addEventListener('message', (event) => {
+  if (event.data?.type === 'SKIP_WAITING') self.skipWaiting();
+  if (event.data?.type === 'CLEAR_RUNTIME_CACHE') {
+    event.waitUntil(caches.delete(CACHE_NAME));
+  }
 });
 
 self.addEventListener('fetch', (event) => {

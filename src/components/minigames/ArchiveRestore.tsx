@@ -15,18 +15,18 @@ export const ArchiveRestore: React.FC = () => {
   };
 
   return (
-    <div className="p-4 bg-night-surface border border-night-border rounded-3xl space-y-4 select-none">
-      <div className="flex items-center justify-between border-b border-night-border/60 pb-2.5">
+    <div className="p-4 bg-ah-surface border border-ah-border rounded-3xl space-y-4 select-none">
+      <div className="flex items-center justify-between border-b border-ah-border/60 pb-2.5">
         <div className="flex items-center gap-2">
           <Database className="w-4 h-4 text-brand-400" />
-          <h3 className="text-xs font-semibold text-white">Archive Partition CRC Restorer</h3>
+          <h3 className="text-xs font-semibold text-ah-text">Archive Partition CRC Restorer</h3>
         </div>
         <span className="text-[10px] font-mono text-emerald-400">
           {restoredIds.length}/{ARCHIVE_RESTORE_PACKETS.length} Restored
         </span>
       </div>
 
-      <p className="text-xs text-night-muted leading-relaxed">
+      <p className="text-xs text-ah-muted leading-relaxed">
         Align corrupted packet frames across historical platform eras to reconstruct intact log fragments.
       </p>
 
@@ -41,28 +41,28 @@ export const ArchiveRestore: React.FC = () => {
               className={`p-3.5 rounded-2xl border text-xs space-y-2 transition-all ${
                 isRestored
                   ? 'bg-emerald-950/20 border-emerald-800/60 ring-1 ring-emerald-500/20'
-                  : 'bg-night-card border-night-border'
+                  : 'bg-ah-surface-2 border-ah-border'
               }`}
             >
               <div className="flex items-center justify-between font-mono text-[10px]">
                 <span className="font-semibold text-brand-300">
                   [{pkt.era}] {pkt.title}
                 </span>
-                <span className="text-night-muted">{pkt.checksum}</span>
+                <span className="text-ah-muted">{pkt.checksum}</span>
               </div>
 
-              <div className="p-2.5 bg-black/40 border border-night-border rounded-xl font-mono text-[11px] leading-relaxed select-text">
+              <div className="p-2.5 bg-black/40 border border-ah-border rounded-xl font-mono text-[11px] leading-relaxed select-text">
                 {isRestored ? (
                   <span className="text-emerald-300">{pkt.reconstructedSnippet}</span>
                 ) : (
-                  <span className="text-night-muted line-through opacity-70">
+                  <span className="text-ah-muted line-through opacity-70">
                     {pkt.corruptedSnippet}
                   </span>
                 )}
               </div>
 
               <div className="flex items-center justify-between pt-1">
-                <span className="text-[10px] text-night-muted font-mono">
+                <span className="text-[10px] text-ah-muted font-mono">
                   STATUS: {isRestored ? 'VERIFIED_CLEAN' : 'CORRUPTED_CRC'}
                 </span>
 
@@ -74,8 +74,8 @@ export const ArchiveRestore: React.FC = () => {
                     isRestored
                       ? 'bg-emerald-900/60 text-emerald-300 cursor-default'
                       : isProcessing
-                      ? 'bg-brand-800 text-white animate-pulse'
-                      : 'bg-brand-600 hover:bg-brand-500 text-white active:scale-95'
+                      ? 'bg-brand-800 text-ah-text animate-pulse'
+                      : 'bg-brand-600 hover:bg-brand-500 text-ah-text active:scale-95'
                   }`}
                 >
                   {isRestored ? (

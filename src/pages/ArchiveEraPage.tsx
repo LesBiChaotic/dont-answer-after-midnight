@@ -16,13 +16,13 @@ export const ArchiveEraPage: React.FC = () => {
 
   if (!platform) {
     return (
-      <div className="flex-1 flex flex-col items-center justify-center p-6 text-center bg-[#11101A] text-[#F4EEF8] app-viewport">
+      <div className="flex-1 flex flex-col items-center justify-center p-6 text-center bg-ah-canvas text-ah-text app-viewport">
         <h2 className="text-base font-semibold mb-1">Archive Era Not Found</h2>
-        <p className="text-xs text-[#91819A] mb-4">The requested partition index is not mounted.</p>
+        <p className="text-xs text-ah-muted mb-4">The requested partition index is not mounted.</p>
         <button
           type="button"
           onClick={() => navigate('/archive')}
-          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#191625] border border-[#2E2742] text-xs font-medium text-[#F4EEF8]"
+          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-ah-surface border border-ah-border text-xs font-medium text-ah-text"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Back to Archives</span>
@@ -32,7 +32,7 @@ export const ArchiveEraPage: React.FC = () => {
   }
 
   return (
-    <div className="flex-1 flex flex-col app-viewport bg-[#11101A] text-[#F4EEF8]">
+    <div className="flex-1 flex flex-col app-viewport bg-ah-canvas text-ah-text">
       {/* Top Header */}
       <TopBar
         showBack
@@ -45,7 +45,7 @@ export const ArchiveEraPage: React.FC = () => {
             className={`px-3 py-1.5 rounded-full text-xs font-medium border min-h-touch flex items-center gap-1.5 transition-all active:scale-95 ${
               readableMode
                 ? 'bg-gradient-to-r from-[#8197FF] to-[#B979FF] text-[#11101A] border-transparent font-bold shadow-xs'
-                : 'bg-[#191625] text-[#91819A] border-[#2E2742] hover:text-[#F4EEF8]'
+                : 'bg-ah-surface text-ah-muted border-ah-border hover:text-ah-text'
             }`}
           >
             <BookOpen className="w-3.5 h-3.5" />
@@ -59,26 +59,26 @@ export const ArchiveEraPage: React.FC = () => {
         {/* READABLE MODE */}
         {readableMode ? (
           <div className="space-y-3 max-w-xl mx-auto">
-            <div className="p-3 bg-[#211C30] border border-[#8197FF]/30 rounded-xl text-xs text-[#8197FF]">
+            <div className="p-3 bg-ah-surface-2 border border-[#8197FF]/30 rounded-xl text-xs text-[#8197FF]">
               <span className="font-semibold">Standard Reader Enabled:</span> High-contrast uniform typography for comfortable reading.
             </div>
 
             {messages.map((msg) => (
               <article
                 key={msg.id}
-                className="p-4 bg-[#191625] border border-[#2E2742] rounded-2xl space-y-2 select-text shadow-sm"
+                className="p-4 bg-ah-surface border border-ah-border rounded-2xl space-y-2 select-text shadow-sm"
               >
-                <div className="flex items-center justify-between text-xs text-[#91819A] border-b border-[#2E2742]/60 pb-2">
+                <div className="flex items-center justify-between text-xs text-ah-muted border-b border-ah-border/60 pb-2">
                   <div className="flex items-center gap-2">
-                    <span className="font-bold text-white">{msg.senderDisplayName}</span>
+                    <span className="font-bold text-ah-text">{msg.senderDisplayName}</span>
                     <span className="text-[11px] text-[#8197FF]">@{msg.senderHandle}</span>
                   </div>
-                  <span className="font-mono text-[10px] text-[#91819A]">{msg.timestamp}</span>
+                  <span className="font-mono text-[10px] text-ah-muted">{msg.timestamp}</span>
                 </div>
-                <p className="text-xs text-[#F4EEF8] leading-relaxed whitespace-pre-wrap">
+                <p className="text-xs text-ah-text leading-relaxed whitespace-pre-wrap">
                   {msg.content}
                 </p>
-                <div className="text-[10px] text-[#91819A] font-mono pt-1">
+                <div className="text-[10px] text-ah-muted font-mono pt-1">
                   Thread: {msg.threadTitle}
                 </div>
               </article>
@@ -135,13 +135,13 @@ export const ArchiveEraPage: React.FC = () => {
 
                 {messages.map((msg) => (
                   <div key={msg.id} className="py-0.5 leading-relaxed">
-                    <span className="text-[#C9B9D2]/60 mr-2">[{msg.timestamp.split('T')[1]?.slice(0, 5) || '02:00'}]</span>
+                    <span className="text-ah-text-2/60 mr-2">[{msg.timestamp.split('T')[1]?.slice(0, 5) || '02:00'}]</span>
                     {msg.content.startsWith('***') ? (
                       <span className="text-[#F0A06D] italic">{msg.content}</span>
                     ) : (
                       <>
                         <span className="font-bold text-[#57C7C1] mr-1.5">&lt;{msg.senderHandle}&gt;</span>
-                        <span className="text-[#F4EEF8]">{msg.content}</span>
+                        <span className="text-ah-text">{msg.content}</span>
                       </>
                     )}
                   </div>
@@ -161,9 +161,9 @@ export const ArchiveEraPage: React.FC = () => {
                   <div key={msg.id} className="p-3 bg-[#201438] border border-[#482A75] rounded-xl space-y-1 shadow-sm">
                     <div className="flex items-center justify-between text-[10px] text-[#8197FF]">
                       <span className="font-bold">SIG: @{msg.senderHandle}</span>
-                      <span className="text-[#C9B9D2]">{msg.timestamp}</span>
+                      <span className="text-ah-text-2">{msg.timestamp}</span>
                     </div>
-                    <p className="text-[12px] text-[#F4EEF8] leading-relaxed font-sans">{msg.content}</p>
+                    <p className="text-[12px] text-ah-text leading-relaxed font-sans">{msg.content}</p>
                   </div>
                 ))}
               </div>
@@ -172,18 +172,18 @@ export const ArchiveEraPage: React.FC = () => {
             {/* 2013 Nitewire (Coral + Indigo Early Mobile) */}
             {currentEra === '2013' && (
               <div className="bg-[#1A1424] border border-[#452D5A] rounded-3xl p-3.5 space-y-3 font-sans shadow-lg">
-                <div className="bg-[#2B1D3D] p-3 rounded-2xl flex items-center justify-between text-xs text-white shadow-xs">
+                <div className="bg-[#2B1D3D] p-3 rounded-2xl flex items-center justify-between text-xs text-ah-text shadow-xs">
                   <span className="font-bold text-[#F0A06D]">Nitewire Stream</span>
-                  <span className="text-[10px] bg-[#5676C8] text-white px-2.5 py-0.5 rounded-full font-bold">v3.2</span>
+                  <span className="text-[10px] bg-[#5676C8] text-ah-text px-2.5 py-0.5 rounded-full font-bold">v3.2</span>
                 </div>
 
                 {messages.map((msg) => (
                   <div key={msg.id} className="p-3 bg-[#241736] border border-[#3D2557] rounded-2xl space-y-1.5 shadow-sm">
                     <div className="flex items-center justify-between text-xs">
                       <span className="font-bold text-[#F0A06D]">{msg.senderDisplayName}</span>
-                      <span className="text-[10px] text-[#91819A] font-mono">{msg.timestamp}</span>
+                      <span className="text-[10px] text-ah-muted font-mono">{msg.timestamp}</span>
                     </div>
-                    <p className="text-xs text-[#F4EEF8] leading-relaxed">{msg.content}</p>
+                    <p className="text-xs text-ah-text leading-relaxed">{msg.content}</p>
                   </div>
                 ))}
               </div>
@@ -199,10 +199,10 @@ export const ArchiveEraPage: React.FC = () => {
                 {messages.map((msg) => (
                   <div key={msg.id} className="p-3.5 bg-[#1C142B] border border-[#392454] rounded-2xl space-y-1 shadow-sm">
                     <div className="flex items-center justify-between text-xs">
-                      <span className="font-semibold text-[#F4EEF8]">{msg.senderDisplayName}</span>
-                      <span className="text-[10px] text-[#91819A] font-mono">{msg.timestamp}</span>
+                      <span className="font-semibold text-ah-text">{msg.senderDisplayName}</span>
+                      <span className="text-[10px] text-ah-muted font-mono">{msg.timestamp}</span>
                     </div>
-                    <p className="text-xs text-[#C9B9D2] leading-relaxed">{msg.content}</p>
+                    <p className="text-xs text-ah-text-2 leading-relaxed">{msg.content}</p>
                   </div>
                 ))}
               </div>

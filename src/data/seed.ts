@@ -357,6 +357,7 @@ export const INITIAL_SETTINGS: SettingsState = {
   },
   dataSaver: false,
   desktopPreviewEnabled: false,
+  profileFrame: 'none',
 };
 
 // 10. Initial Continuity Records

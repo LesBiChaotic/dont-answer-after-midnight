@@ -42,15 +42,15 @@ export const ChatThreadPage: React.FC = () => {
 
   if (!thread) {
     return (
-      <div className="flex-1 flex flex-col items-center justify-center p-6 text-center bg-night-bg text-night-text app-viewport">
+      <div className="flex-1 flex flex-col items-center justify-center p-6 text-center bg-ah-canvas text-ah-text app-viewport">
         <h2 className="text-base font-semibold mb-1">Conversation Not Found</h2>
-        <p className="text-xs text-night-muted mb-4">
+        <p className="text-xs text-ah-muted mb-4">
           This thread frequency may have expired or been archived.
         </p>
         <button
           type="button"
           onClick={() => navigate('/chats')}
-          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-night-card border border-night-border text-xs font-medium text-night-text hover:bg-night-hover min-h-touch"
+          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-ah-surface-2 border border-ah-border text-xs font-medium text-ah-text hover:bg-ah-hover min-h-touch"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Return to Inbox</span>
@@ -69,7 +69,7 @@ export const ChatThreadPage: React.FC = () => {
   };
 
   return (
-    <div className="flex-1 flex flex-col h-screen max-h-screen bg-night-bg text-night-text overflow-hidden">
+    <div className="flex-1 flex flex-col h-screen max-h-screen bg-ah-canvas text-ah-text overflow-hidden">
       {/* Header */}
       <ThreadHeader thread={thread} activeTyping={activeTyping} />
 
@@ -83,7 +83,7 @@ export const ChatThreadPage: React.FC = () => {
           <button
             type="button"
             onClick={() => setShowFinalModal(true)}
-            className="px-2.5 py-1 bg-brand-600 hover:bg-brand-500 text-white rounded-lg text-[11px] font-semibold flex items-center gap-1 shrink-0 min-h-touch"
+            className="px-2.5 py-1 bg-brand-600 hover:bg-brand-500 text-ah-text rounded-lg text-[11px] font-semibold flex items-center gap-1 shrink-0 min-h-touch"
           >
             <Sparkles className="w-3 h-3" />
             <span>Final Choice</span>
