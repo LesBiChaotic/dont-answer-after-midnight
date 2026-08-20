@@ -37,7 +37,7 @@ export const TopBar: React.FC<TopBarProps> = ({
 
   return (
     <header
-      className={`sticky top-0 z-30 w-full bg-[#191625]/90 backdrop-blur-xl border-b border-[#2E2742] pt-[max(env(safe-area-inset-top),6px)] transition-colors select-none shadow-sm ${className}`}
+      className={`sticky top-0 z-30 w-full bg-ah-surface/90 backdrop-blur-xl border-b border-ah-border pt-[max(env(safe-area-inset-top),6px)] transition-colors select-none shadow-sm ${className}`}
     >
       <div className="flex items-center justify-between px-3 h-14">
         {/* Left Side: Back button or title */}
@@ -46,7 +46,7 @@ export const TopBar: React.FC<TopBarProps> = ({
             <button
               type="button"
               onClick={handleBack}
-              className="p-2 -ml-1 text-[#91819A] hover:text-[#F4EEF8] min-h-touch min-w-touch flex items-center justify-center rounded-full active:bg-[#211C30] transition-colors"
+              className="p-2 -ml-1 text-ah-muted hover:text-ah-text min-h-touch min-w-touch flex items-center justify-center rounded-full active:bg-ah-surface-2 transition-colors"
               aria-label="Go back"
             >
               <ArrowLeft className="w-5 h-5" />
@@ -54,11 +54,11 @@ export const TopBar: React.FC<TopBarProps> = ({
           )}
 
           <div className="flex flex-col min-w-0 flex-1 pr-2">
-            <h1 className="text-sm font-semibold truncate text-[#F4EEF8] leading-tight font-serif tracking-tight">
+            <h1 className="text-sm font-semibold truncate text-ah-text leading-tight font-serif tracking-tight">
               {title}
             </h1>
             {subtitle && (
-              <div className="text-[11px] text-[#91819A] truncate leading-tight mt-0.5 font-mono">
+              <div className="text-[11px] text-ah-muted truncate leading-tight mt-0.5 font-mono">
                 {subtitle}
               </div>
             )}
@@ -73,7 +73,7 @@ export const TopBar: React.FC<TopBarProps> = ({
             <button
               type="button"
               onClick={() => navigate('/notifications')}
-              className="p-2.5 text-[#91819A] hover:text-[#F4EEF8] min-h-touch min-w-touch flex items-center justify-center rounded-full active:bg-[#211C30] relative transition-colors"
+              className="p-2.5 text-ah-muted hover:text-ah-text min-h-touch min-w-touch flex items-center justify-center rounded-full active:bg-ah-surface-2 relative transition-colors"
               aria-label="Notifications"
             >
               <Bell className="w-5 h-5" />
@@ -87,7 +87,7 @@ export const TopBar: React.FC<TopBarProps> = ({
             <button
               type="button"
               onClick={onMenuClick}
-              className="p-2 text-[#91819A] hover:text-[#F4EEF8] min-h-touch min-w-touch flex items-center justify-center rounded-full active:bg-[#211C30] transition-colors"
+              className="p-2 text-ah-muted hover:text-ah-text min-h-touch min-w-touch flex items-center justify-center rounded-full active:bg-ah-surface-2 transition-colors"
               aria-label="Thread menu options"
             >
               <MoreVertical className="w-5 h-5" />

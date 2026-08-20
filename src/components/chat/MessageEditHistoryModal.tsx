@@ -25,17 +25,17 @@ export const MessageEditHistoryModal: React.FC<MessageEditHistoryModalProps> = (
 
   return (
     <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/70 backdrop-blur-xs p-3 animate-fade-in">
-      <div className="w-full max-w-[420px] bg-night-surface border border-night-border rounded-3xl p-4 shadow-2xl space-y-4 animate-slide-up">
+      <div className="w-full max-w-[420px] bg-ah-surface border border-ah-border rounded-3xl p-4 shadow-2xl space-y-4 animate-slide-up">
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-night-border/60 pb-3">
+        <div className="flex items-center justify-between border-b border-ah-border/60 pb-3">
           <div className="flex items-center gap-2">
             <History className="w-4 h-4 text-brand-400" />
-            <h3 className="text-xs font-semibold text-white">Message Edit Revision History</h3>
+            <h3 className="text-xs font-semibold text-ah-text">Message Edit Revision History</h3>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="p-1 text-night-muted hover:text-white min-h-touch min-w-touch flex items-center justify-center"
+            className="p-1 text-ah-muted hover:text-ah-text min-h-touch min-w-touch flex items-center justify-center"
             aria-label="Close edit history"
           >
             <X className="w-4 h-4" />
@@ -58,7 +58,7 @@ export const MessageEditHistoryModal: React.FC<MessageEditHistoryModalProps> = (
         {/* Version List */}
         <div className="space-y-2.5 max-h-72 overflow-y-auto pr-1">
           {versions.length === 0 ? (
-            <div className="p-3 bg-night-card rounded-xl text-xs text-night-muted text-center">
+            <div className="p-3 bg-ah-surface-2 rounded-xl text-xs text-ah-muted text-center">
               No previous revisions recorded for this message.
             </div>
           ) : (
@@ -76,16 +76,16 @@ export const MessageEditHistoryModal: React.FC<MessageEditHistoryModalProps> = (
                   className={`p-3 rounded-2xl border text-xs space-y-1 ${
                     isCurrent
                       ? 'bg-brand-950/20 border-brand-800/60 ring-1 ring-brand-500/30'
-                      : 'bg-night-card border-night-border'
+                      : 'bg-ah-surface-2 border-ah-border'
                   }`}
                 >
-                  <div className="flex items-center justify-between text-[10px] text-night-muted font-mono">
+                  <div className="flex items-center justify-between text-[10px] text-ah-muted font-mono">
                     <span className="font-semibold text-brand-300">
                       Revision {idx + 1} {isCurrent ? '(Current)' : ''}
                     </span>
                     <span>{formattedTime}</span>
                   </div>
-                  <p className="text-xs text-night-text leading-relaxed select-text">
+                  <p className="text-xs text-ah-text leading-relaxed select-text">
                     "{ver.content}"
                   </p>
                 </div>
@@ -98,7 +98,7 @@ export const MessageEditHistoryModal: React.FC<MessageEditHistoryModalProps> = (
         <button
           type="button"
           onClick={onClose}
-          className="w-full py-3 rounded-xl border border-night-border text-night-muted hover:text-white font-medium text-xs min-h-touch active:bg-night-card transition-colors"
+          className="w-full py-3 rounded-xl border border-ah-border text-ah-muted hover:text-ah-text font-medium text-xs min-h-touch active:bg-ah-surface-2 transition-colors"
         >
           Close History
         </button>

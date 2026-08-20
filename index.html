@@ -9,6 +9,22 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="Afterhours" />
     <meta name="description" content="AFTERHOURS - A mobile-first late night communication network." />
+    <script>
+      // Apply the saved palette before CSS and React mount to prevent a dark-theme flash.
+      (() => {
+        const colors = { dark: '#11101A', light: '#F7F2F7', 'dead-signal': '#071522', 'archive-amber': '#17120B', 'crt-green': '#07110B', 'blood-moon': '#17090D', 'something-wrong': '#ECE9DF' };
+        try {
+          const saved = JSON.parse(localStorage.getItem('afterhours_settings') || '{}');
+          const requested = saved.theme || 'dark';
+          const resolved = requested === 'device'
+            ? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+            : requested;
+          document.documentElement.dataset.theme = resolved;
+          document.documentElement.classList.add(resolved === 'light' ? 'light' : 'dark');
+          document.querySelector('#theme-color-meta')?.setAttribute('content', colors[resolved] || colors.dark);
+        } catch { document.documentElement.classList.add('dark'); }
+      })();
+    </script>
     
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="apple-touch-icon" href="./icons/icon-192.svg" />

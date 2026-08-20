@@ -111,8 +111,8 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
             }}
             className={`text-xs px-3 py-1.5 mb-1 rounded-xl border max-w-[85%] truncate cursor-pointer active:scale-95 transition-all border-l-2 ${
               isUser
-                ? 'bg-[#252038] border-l-[#8197FF] border-[#382D52] text-[#C9B9D2]'
-                : 'bg-[#191625] border-l-[#8197FF] border-[#2E2742] text-[#91819A] hover:text-[#F4EEF8]'
+                ? 'bg-[#252038] border-l-[#8197FF] border-[#382D52] text-ah-text-2'
+                : 'bg-ah-surface border-l-[#8197FF] border-ah-border text-ah-muted hover:text-ah-text'
             }`}
           >
             <div className="font-semibold text-[10px] text-[#8197FF]">
@@ -127,8 +127,8 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
           onClick={() => setShowActionModal(true)}
           className={`relative px-4 py-2.5 rounded-2xl cursor-pointer max-w-full break-words shadow-md transition-all active:scale-[0.99] ${
             isUser
-              ? 'bg-gradient-to-br from-[#38265E] to-[#2B1D4B] text-[#F4EEF8] border border-[#4E347A] rounded-br-xs'
-              : 'bg-[#1D1B2C] text-[#F4EEF8] border border-[#2E2742] rounded-bl-xs'
+              ? 'bg-gradient-to-br from-[#38265E] to-[#2B1D4B] text-ah-text border border-[#4E347A] rounded-br-xs'
+              : 'bg-[#1D1B2C] text-ah-text border border-ah-border rounded-bl-xs'
           }`}
         >
           {/* Bookmark Badge */}
@@ -145,7 +145,7 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
 
           {/* Voice Note Module */}
           {message.voiceNote && (
-            <div className="space-y-2 mb-2 p-2.5 rounded-xl bg-[#11101A]/60 border border-[#2E2742]">
+            <div className="space-y-2 mb-2 p-2.5 rounded-xl bg-ah-canvas/60 border border-ah-border">
               <div className="flex items-center gap-3">
                 <button
                   type="button"
@@ -177,7 +177,7 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
                   ))}
                 </div>
 
-                <span className="text-[11px] font-mono text-[#91819A] shrink-0">
+                <span className="text-[11px] font-mono text-ah-muted shrink-0">
                   {message.voiceNote.durationSeconds}s
                 </span>
               </div>
@@ -196,7 +196,7 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
               </button>
 
               {showTranscript && (
-                <p className="text-xs italic bg-[#191625] p-2.5 rounded-lg text-[#C9B9D2] border-l-2 border-[#8197FF]">
+                <p className="text-xs italic bg-ah-surface p-2.5 rounded-lg text-ah-text-2 border-l-2 border-[#8197FF]">
                   "{message.voiceNote.transcriptText}"
                 </p>
               )}
@@ -209,7 +209,7 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
           </p>
 
           {/* Timestamp and Delivery Status */}
-          <div className="flex items-center justify-end gap-1.5 mt-1 text-[10px] text-[#91819A] font-mono">
+          <div className="flex items-center justify-end gap-1.5 mt-1 text-[10px] text-ah-muted font-mono">
             {message.isEdited && (
               <button
                 type="button"
@@ -231,9 +231,9 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
                 {message.status === 'read' ? (
                   <CheckCheck className="w-3.5 h-3.5 text-[#8197FF] stroke-[2.5]" />
                 ) : message.status === 'delivered' ? (
-                  <CheckCheck className="w-3.5 h-3.5 text-[#91819A]" />
+                  <CheckCheck className="w-3.5 h-3.5 text-ah-muted" />
                 ) : message.status === 'sent' ? (
-                  <Check className="w-3.5 h-3.5 text-[#91819A]" />
+                  <Check className="w-3.5 h-3.5 text-ah-muted" />
                 ) : message.status === 'continuity_unresolved' ? (
                   <span className="text-[9px] bg-[#252B3C] px-1 rounded text-[#8FA9FF] font-mono border border-[#3E4663]">
                     Continuity
@@ -256,10 +256,10 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
                   key={emoji}
                   type="button"
                   onClick={() => addReaction(message.id, message.threadId, emoji)}
-                  className="px-2 py-0.5 rounded-full bg-[#211C30] border border-[#2E2742] hover:border-[#8197FF] text-xs flex items-center gap-1 active:scale-90 transition-all shadow-xs"
+                  className="px-2 py-0.5 rounded-full bg-ah-surface-2 border border-ah-border hover:border-[#8197FF] text-xs flex items-center gap-1 active:scale-90 transition-all shadow-xs"
                 >
                   <span>{emoji}</span>
-                  <span className="text-[10px] text-[#C9B9D2] font-mono">{count}</span>
+                  <span className="text-[10px] text-ah-text-2 font-mono">{count}</span>
                 </button>
               );
             })}
@@ -275,23 +275,23 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-[400px] bg-[#191625] border border-[#2E2742] rounded-3xl p-4 space-y-4 animate-slide-up shadow-2xl"
+            className="w-full max-w-[400px] bg-ah-surface border border-ah-border rounded-3xl p-4 space-y-4 animate-slide-up shadow-2xl"
           >
-            <div className="flex items-center justify-between border-b border-[#2E2742] pb-3">
-              <span className="text-xs font-mono uppercase tracking-wider text-[#91819A]">
+            <div className="flex items-center justify-between border-b border-ah-border pb-3">
+              <span className="text-xs font-mono uppercase tracking-wider text-ah-muted">
                 Message Options
               </span>
               <button
                 type="button"
                 onClick={() => setShowActionModal(false)}
-                className="p-1 rounded-full text-[#91819A] hover:text-[#F4EEF8] min-h-touch min-w-touch flex items-center justify-center"
+                className="p-1 rounded-full text-ah-muted hover:text-ah-text min-h-touch min-w-touch flex items-center justify-center"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             {/* Quick Emoji Bar */}
-            <div className="flex items-center justify-around bg-[#211C30] p-2 rounded-2xl border border-[#2E2742]">
+            <div className="flex items-center justify-around bg-ah-surface-2 p-2 rounded-2xl border border-ah-border">
               {EMOJI_OPTIONS.map((emoji) => (
                 <button
                   key={emoji}
@@ -300,7 +300,7 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
                     addReaction(message.id, message.threadId, emoji);
                     setShowActionModal(false);
                   }}
-                  className="text-xl p-2 rounded-xl hover:bg-[#2B243E] active:scale-125 transition-transform"
+                  className="text-xl p-2 rounded-xl hover:bg-ah-hover active:scale-125 transition-transform"
                 >
                   {emoji}
                 </button>
@@ -316,7 +316,7 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
                     onReply(message);
                     setShowActionModal(false);
                   }}
-                  className="flex items-center gap-2 p-3 bg-[#211C30] hover:bg-[#2B243E] rounded-xl text-xs font-medium text-[#F4EEF8] min-h-touch"
+                  className="flex items-center gap-2 p-3 bg-ah-surface-2 hover:bg-ah-hover rounded-xl text-xs font-medium text-ah-text min-h-touch"
                 >
                   <CornerUpLeft className="w-4 h-4 text-[#8197FF]" />
                   <span>Reply</span>
@@ -326,7 +326,7 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
               <button
                 type="button"
                 onClick={handleCopyText}
-                className="flex items-center gap-2 p-3 bg-[#211C30] hover:bg-[#2B243E] rounded-xl text-xs font-medium text-[#F4EEF8] min-h-touch"
+                className="flex items-center gap-2 p-3 bg-ah-surface-2 hover:bg-ah-hover rounded-xl text-xs font-medium text-ah-text min-h-touch"
               >
                 <Copy className="w-4 h-4 text-[#57C7C1]" />
                 <span>{copied ? 'Copied!' : 'Copy Text'}</span>
@@ -335,7 +335,7 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
               <button
                 type="button"
                 onClick={handleToggleBookmark}
-                className="flex items-center gap-2 p-3 bg-[#211C30] hover:bg-[#2B243E] rounded-xl text-xs font-medium text-[#F4EEF8] min-h-touch"
+                className="flex items-center gap-2 p-3 bg-ah-surface-2 hover:bg-ah-hover rounded-xl text-xs font-medium text-ah-text min-h-touch"
               >
                 <Bookmark className="w-4 h-4 text-[#D5AB5E]" />
                 <span>{bookmark ? 'Remove Bookmark' : 'Bookmark'}</span>
@@ -348,7 +348,7 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
                     setShowActionModal(false);
                     setShowEditHistory(true);
                   }}
-                  className="flex items-center gap-2 p-3 bg-[#211C30] hover:bg-[#2B243E] rounded-xl text-xs font-medium text-[#F4EEF8] min-h-touch"
+                  className="flex items-center gap-2 p-3 bg-ah-surface-2 hover:bg-ah-hover rounded-xl text-xs font-medium text-ah-text min-h-touch"
                 >
                   <History className="w-4 h-4 text-[#B979FF]" />
                   <span>Edit History</span>
@@ -358,15 +358,15 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
 
             {/* Bookmark Tag Selector */}
             {showBookmarkPicker && (
-              <div className="p-3 bg-[#211C30] border border-[#2E2742] rounded-2xl space-y-3">
-                <span className="text-xs font-medium text-[#F4EEF8] block">Select Category</span>
+              <div className="p-3 bg-ah-surface-2 border border-ah-border rounded-2xl space-y-3">
+                <span className="text-xs font-medium text-ah-text block">Select Category</span>
                 <div className="flex flex-wrap gap-1.5">
                   {BOOKMARK_CATEGORIES.map((cat) => (
                     <button
                       key={cat}
                       type="button"
                       onClick={() => handleSaveBookmark(cat)}
-                      className="px-3 py-1.5 rounded-xl bg-[#191625] hover:bg-[#8197FF] hover:text-[#11101A] border border-[#2E2742] text-xs text-[#C9B9D2] font-medium active:scale-95"
+                      className="px-3 py-1.5 rounded-xl bg-ah-surface hover:bg-[#8197FF] hover:text-[#11101A] border border-ah-border text-xs text-ah-text-2 font-medium active:scale-95"
                     >
                       {cat}
                     </button>
@@ -377,7 +377,7 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
                   placeholder="Optional bookmark note..."
                   value={bookmarkNote}
                   onChange={(e) => setBookmarkNote(e.target.value)}
-                  className="w-full px-3 py-2 text-xs bg-[#191625] border border-[#2E2742] rounded-xl text-[#F4EEF8] focus:outline-hidden focus:border-[#8197FF]"
+                  className="w-full px-3 py-2 text-xs bg-ah-surface border border-ah-border rounded-xl text-ah-text focus:outline-hidden focus:border-[#8197FF]"
                 />
               </div>
             )}

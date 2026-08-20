@@ -2,6 +2,7 @@ import React from 'react';
 import { OfflineBanner } from '../common/OfflineBanner';
 import { useSettings } from '../../context/SettingsContext';
 import { X, Smartphone } from 'lucide-react';
+import { PWAUpdateToast } from '../common/PWAUpdateToast';
 
 interface MobileContainerProps {
   children: React.ReactNode;
@@ -34,7 +35,7 @@ export const MobileContainer: React.FC<MobileContainerProps> = ({
         </div>
 
         {/* Mobile Phone Device Frame */}
-        <div className="w-full max-w-[390px] h-[844px] max-h-[92vh] bg-night-bg border-4 border-slate-700/80 rounded-[44px] shadow-2xl shadow-black overflow-hidden flex flex-col relative ring-1 ring-white/10">
+        <div className="w-full max-w-[390px] h-[844px] max-h-[92vh] bg-ah-canvas border-4 border-slate-700/80 rounded-[44px] shadow-2xl shadow-black overflow-hidden flex flex-col relative ring-1 ring-white/10">
           {/* Hardware Dynamic Island Notch Mockup */}
           <div className="absolute top-2 left-1/2 -translate-x-1/2 w-24 h-5 bg-black rounded-full z-50 pointer-events-none flex items-center justify-center">
             <div className="w-2.5 h-2.5 rounded-full bg-[#18181b] mr-4" />
@@ -42,6 +43,7 @@ export const MobileContainer: React.FC<MobileContainerProps> = ({
           </div>
 
           <OfflineBanner />
+          <PWAUpdateToast />
           <div className="flex-1 flex flex-col min-h-0 relative overflow-hidden">
             {children}
           </div>
@@ -52,8 +54,9 @@ export const MobileContainer: React.FC<MobileContainerProps> = ({
 
   // Real Mobile Viewport
   return (
-    <div className="app-viewport w-full max-w-[430px] desktop:max-w-[1100px] mx-auto bg-night-bg flex flex-col relative overflow-x-hidden shadow-xl desktop:border-x desktop:border-[#2E2742]">
+    <div className="app-viewport w-full max-w-[430px] desktop:max-w-[1100px] mx-auto bg-ah-canvas flex flex-col relative overflow-x-hidden shadow-xl desktop:border-x desktop:border-ah-border">
       <OfflineBanner />
+      <PWAUpdateToast />
       <div className="flex-1 flex flex-col min-h-0 relative">
         {children}
       </div>

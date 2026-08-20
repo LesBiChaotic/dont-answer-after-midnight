@@ -14,18 +14,18 @@ export const ActivitiesPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<ActivityTab>('trivia');
 
   return (
-    <div className="flex-1 flex flex-col h-full bg-night-bg text-night-text select-none">
+    <div className="flex-1 flex flex-col h-full bg-ah-canvas text-ah-text select-none">
       <TopBar title="Sanctuary Activities" />
 
       {/* Sub-navigation Tabs */}
-      <div className="flex items-center gap-1.5 px-3 py-2 bg-night-surface/60 border-b border-night-border/60 overflow-x-auto no-scrollbar shrink-0">
+      <div className="flex items-center gap-1.5 px-3 py-2 bg-ah-surface/60 border-b border-ah-border/60 overflow-x-auto no-scrollbar shrink-0">
         <button
           type="button"
           onClick={() => setActiveTab('trivia')}
           className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold whitespace-nowrap min-h-touch transition-all ${
             activeTab === 'trivia'
-              ? 'bg-brand-600 text-white shadow-xs'
-              : 'bg-night-card text-night-muted hover:text-white border border-night-border'
+              ? 'bg-brand-600 text-ah-text shadow-xs'
+              : 'bg-ah-surface-2 text-ah-muted hover:text-ah-text border border-ah-border'
           }`}
         >
           <HelpCircle className="w-3.5 h-3.5" />
@@ -37,8 +37,8 @@ export const ActivitiesPage: React.FC = () => {
           onClick={() => setActiveTab('restore')}
           className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold whitespace-nowrap min-h-touch transition-all ${
             activeTab === 'restore'
-              ? 'bg-brand-600 text-white shadow-xs'
-              : 'bg-night-card text-night-muted hover:text-white border border-night-border'
+              ? 'bg-brand-600 text-ah-text shadow-xs'
+              : 'bg-ah-surface-2 text-ah-muted hover:text-ah-text border border-ah-border'
           }`}
         >
           <Database className="w-3.5 h-3.5" />
@@ -50,8 +50,8 @@ export const ActivitiesPage: React.FC = () => {
           onClick={() => setActiveTab('stickers')}
           className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold whitespace-nowrap min-h-touch transition-all ${
             activeTab === 'stickers'
-              ? 'bg-brand-600 text-white shadow-xs'
-              : 'bg-night-card text-night-muted hover:text-white border border-night-border'
+              ? 'bg-brand-600 text-ah-text shadow-xs'
+              : 'bg-ah-surface-2 text-ah-muted hover:text-ah-text border border-ah-border'
           }`}
         >
           <Sparkles className="w-3.5 h-3.5" />
@@ -63,8 +63,8 @@ export const ActivitiesPage: React.FC = () => {
           onClick={() => setActiveTab('search')}
           className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold whitespace-nowrap min-h-touch transition-all ${
             activeTab === 'search'
-              ? 'bg-brand-600 text-white shadow-xs'
-              : 'bg-night-card text-night-muted hover:text-white border border-night-border'
+              ? 'bg-brand-600 text-ah-text shadow-xs'
+              : 'bg-ah-surface-2 text-ah-muted hover:text-ah-text border border-ah-border'
           }`}
         >
           <Search className="w-3.5 h-3.5" />
@@ -76,8 +76,8 @@ export const ActivitiesPage: React.FC = () => {
           onClick={() => setActiveTab('clients')}
           className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold whitespace-nowrap min-h-touch transition-all ${
             activeTab === 'clients'
-              ? 'bg-brand-600 text-white shadow-xs'
-              : 'bg-night-card text-night-muted hover:text-white border border-night-border'
+              ? 'bg-brand-600 text-ah-text shadow-xs'
+              : 'bg-ah-surface-2 text-ah-muted hover:text-ah-text border border-ah-border'
           }`}
         >
           <Layers className="w-3.5 h-3.5" />

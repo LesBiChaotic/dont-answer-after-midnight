@@ -62,16 +62,16 @@ export const ClueNotebookPage: React.FC = () => {
   };
 
   return (
-    <div className="flex-1 flex flex-col h-full bg-night-bg text-night-text select-none">
+    <div className="flex-1 flex flex-col h-full bg-ah-canvas text-ah-text select-none">
       <TopBar title="Continuity Investigation" />
 
       <main className="flex-1 overflow-y-auto p-4 space-y-4 overscroll-contain">
         {/* Status Dashboard Banner */}
-        <div className="p-4 bg-night-surface border border-night-border rounded-3xl space-y-3 shadow-md">
+        <div className="p-4 bg-ah-surface border border-ah-border rounded-3xl space-y-3 shadow-md">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <BookOpen className="w-5 h-5 text-brand-400" />
-              <h2 className="text-xs font-bold text-white uppercase tracking-wider">
+              <h2 className="text-xs font-bold text-ah-text uppercase tracking-wider">
                 Continuity Investigation Log
               </h2>
             </div>
@@ -84,22 +84,22 @@ export const ClueNotebookPage: React.FC = () => {
             <div className="text-[11px] font-semibold text-brand-300 font-mono">
               CURRENT STATUS: {getStageTitle(storyStage)}
             </div>
-            <p className="text-[11px] text-night-muted leading-relaxed">
+            <p className="text-[11px] text-ah-muted leading-relaxed">
               Track reciprocal conversational anomalies, archive backfills, and timeline discrepancies across AFTERHOURS.
             </p>
           </div>
 
           {/* Depth Meter */}
-          <div className="space-y-1.5 pt-2 border-t border-night-border/60">
+          <div className="space-y-1.5 pt-2 border-t border-ah-border/60">
             <div className="flex items-center justify-between text-[10px] font-mono">
-              <span className="text-night-muted">CONTINUITY PROPAGATION DEPTH</span>
+              <span className="text-ah-muted">CONTINUITY PROPAGATION DEPTH</span>
               <span className="text-brand-300 font-semibold">LEVEL {continuityDepth} / 5</span>
             </div>
-            <div className="w-full h-2 bg-night-card rounded-full overflow-hidden border border-night-border flex">
+            <div className="w-full h-2 bg-ah-surface-2 rounded-full overflow-hidden border border-ah-border flex">
               {[1, 2, 3, 4, 5].map((lvl) => (
                 <div
                   key={lvl}
-                  className={`flex-1 border-r border-night-bg last:border-0 transition-all duration-500 ${
+                  className={`flex-1 border-r border-ah-canvas last:border-0 transition-all duration-500 ${
                     continuityDepth >= lvl ? 'bg-gradient-to-r from-brand-500 to-brand-400' : 'bg-transparent'
                   }`}
                 />
@@ -109,9 +109,9 @@ export const ClueNotebookPage: React.FC = () => {
         </div>
 
         {/* Story Access Mode Selector */}
-        <div className="p-3.5 bg-night-surface/70 border border-night-border rounded-2xl space-y-2">
+        <div className="p-3.5 bg-ah-surface/70 border border-ah-border rounded-2xl space-y-2">
           <div className="flex items-center justify-between">
-            <span className="text-[11px] font-semibold text-night-muted uppercase tracking-wider">
+            <span className="text-[11px] font-semibold text-ah-muted uppercase tracking-wider">
               Investigation Access Mode
             </span>
             <Sparkles className="w-3.5 h-3.5 text-brand-400" />
@@ -125,8 +125,8 @@ export const ClueNotebookPage: React.FC = () => {
                 onClick={() => setAccessMode(mode)}
                 className={`py-2 px-1 text-[10px] font-semibold rounded-xl border min-h-touch capitalize transition-all ${
                   accessMode === mode
-                    ? 'bg-brand-600 border-brand-500 text-white shadow-xs'
-                    : 'bg-night-card border-night-border text-night-muted hover:text-white'
+                    ? 'bg-brand-600 border-brand-500 text-ah-text shadow-xs'
+                    : 'bg-ah-surface-2 border-ah-border text-ah-muted hover:text-ah-text'
                 }`}
               >
                 {mode.replace('_', ' ')}
@@ -140,7 +140,7 @@ export const ClueNotebookPage: React.FC = () => {
           <button
             type="button"
             onClick={() => navigate('/chats')}
-            className="p-2.5 bg-night-card border border-night-border rounded-2xl flex flex-col items-center gap-1 text-[10px] font-medium text-night-muted hover:text-white min-h-touch"
+            className="p-2.5 bg-ah-surface-2 border border-ah-border rounded-2xl flex flex-col items-center gap-1 text-[10px] font-medium text-ah-muted hover:text-ah-text min-h-touch"
           >
             <BookOpen className="w-4 h-4 text-brand-400" />
             <span>Inbox</span>
@@ -148,7 +148,7 @@ export const ClueNotebookPage: React.FC = () => {
           <button
             type="button"
             onClick={() => navigate('/bookmarks')}
-            className="p-2.5 bg-night-card border border-night-border rounded-2xl flex flex-col items-center gap-1 text-[10px] font-medium text-night-muted hover:text-white min-h-touch"
+            className="p-2.5 bg-ah-surface-2 border border-ah-border rounded-2xl flex flex-col items-center gap-1 text-[10px] font-medium text-ah-muted hover:text-ah-text min-h-touch"
           >
             <Bookmark className="w-4 h-4 text-amber-400" />
             <span>Bookmarks</span>
@@ -156,7 +156,7 @@ export const ClueNotebookPage: React.FC = () => {
           <button
             type="button"
             onClick={() => navigate('/archive')}
-            className="p-2.5 bg-night-card border border-night-border rounded-2xl flex flex-col items-center gap-1 text-[10px] font-medium text-night-muted hover:text-white min-h-touch"
+            className="p-2.5 bg-ah-surface-2 border border-ah-border rounded-2xl flex flex-col items-center gap-1 text-[10px] font-medium text-ah-muted hover:text-ah-text min-h-touch"
           >
             <Database className="w-4 h-4 text-emerald-400" />
             <span>Archive</span>
@@ -164,7 +164,7 @@ export const ClueNotebookPage: React.FC = () => {
           <button
             type="button"
             onClick={() => navigate('/search')}
-            className="p-2.5 bg-night-card border border-night-border rounded-2xl flex flex-col items-center gap-1 text-[10px] font-medium text-night-muted hover:text-white min-h-touch"
+            className="p-2.5 bg-ah-surface-2 border border-ah-border rounded-2xl flex flex-col items-center gap-1 text-[10px] font-medium text-ah-muted hover:text-ah-text min-h-touch"
           >
             <Search className="w-4 h-4 text-blue-400" />
             <span>Search</span>
@@ -173,7 +173,7 @@ export const ClueNotebookPage: React.FC = () => {
 
         {/* Puzzles List */}
         <div className="space-y-3">
-          <h3 className="text-xs font-bold text-white uppercase tracking-wider">
+          <h3 className="text-xs font-bold text-ah-text uppercase tracking-wider">
             Native Messaging Puzzles ({puzzles.length})
           </h3>
 
@@ -188,8 +188,8 @@ export const ClueNotebookPage: React.FC = () => {
                   puz.isSolved
                     ? 'bg-emerald-950/15 border-emerald-800/60 ring-1 ring-emerald-500/20'
                     : isAccessible
-                    ? 'bg-night-surface border-night-border'
-                    : 'bg-night-surface/40 border-night-border/40 opacity-70'
+                    ? 'bg-ah-surface border-ah-border'
+                    : 'bg-ah-surface/40 border-ah-border/40 opacity-70'
                 }`}
               >
                 {/* Header Row */}
@@ -206,38 +206,38 @@ export const ClueNotebookPage: React.FC = () => {
                         {puz.number}
                       </div>
                     ) : (
-                      <Lock className="w-4 h-4 text-night-muted shrink-0" />
+                      <Lock className="w-4 h-4 text-ah-muted shrink-0" />
                     )}
 
                     <div className="min-w-0">
                       <div className="flex items-center gap-2">
-                        <span className="text-xs font-semibold text-white truncate">
+                        <span className="text-xs font-semibold text-ah-text truncate">
                           {puz.number}. {puz.title}
                         </span>
-                        <span className="text-[9px] font-mono text-night-muted uppercase px-1.5 py-0.5 bg-night-card rounded-md border border-night-border">
+                        <span className="text-[9px] font-mono text-ah-muted uppercase px-1.5 py-0.5 bg-ah-surface-2 rounded-md border border-ah-border">
                           {puz.category}
                         </span>
                       </div>
-                      <p className="text-[11px] text-night-muted truncate mt-0.5">
+                      <p className="text-[11px] text-ah-muted truncate mt-0.5">
                         {puz.shortSummary}
                       </p>
                     </div>
                   </div>
 
-                  <div className="text-night-muted ml-2">
+                  <div className="text-ah-muted ml-2">
                     {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                   </div>
                 </button>
 
                 {/* Expanded Details */}
                 {isExpanded && (
-                  <div className="px-3.5 pb-3.5 pt-1 border-t border-night-border/60 space-y-3 animate-fade-in text-xs">
+                  <div className="px-3.5 pb-3.5 pt-1 border-t border-ah-border/60 space-y-3 animate-fade-in text-xs">
                     {/* Clue Prompt */}
-                    <div className="p-3 bg-night-card rounded-xl border border-night-border space-y-1">
+                    <div className="p-3 bg-ah-surface-2 rounded-xl border border-ah-border space-y-1">
                       <span className="text-[10px] font-mono text-brand-400 font-semibold uppercase">
                         ANOMALY RECORD
                       </span>
-                      <p className="text-xs text-night-text leading-relaxed select-text">
+                      <p className="text-xs text-ah-text leading-relaxed select-text">
                         "{puz.clueSnippet}"
                       </p>
                     </div>
@@ -251,7 +251,7 @@ export const ClueNotebookPage: React.FC = () => {
 
                     {/* 4-Tier Hints */}
                     <div className="space-y-2 pt-1">
-                      <span className="text-[10px] font-semibold text-night-muted uppercase tracking-wider">
+                      <span className="text-[10px] font-semibold text-ah-muted uppercase tracking-wider">
                         Progressive Clue Hints (No Penalty)
                       </span>
 
@@ -264,8 +264,8 @@ export const ClueNotebookPage: React.FC = () => {
                               key={hint.level}
                               className={`p-2.5 rounded-xl border text-xs transition-all ${
                                 isRevealed
-                                  ? 'bg-night-bg/80 border-night-border text-night-text'
-                                  : 'bg-night-card/40 border-night-border/40 text-night-muted'
+                                  ? 'bg-ah-canvas/80 border-ah-border text-ah-text'
+                                  : 'bg-ah-surface-2/40 border-ah-border/40 text-ah-muted'
                               }`}
                             >
                               <div className="flex items-center justify-between mb-1">
@@ -277,7 +277,7 @@ export const ClueNotebookPage: React.FC = () => {
                                   <button
                                     type="button"
                                     onClick={() => revealHint(puz.id, hint.level)}
-                                    className="px-2 py-1 bg-night-surface hover:bg-night-hover border border-night-border text-[10px] text-brand-300 font-semibold rounded-lg min-h-touch flex items-center gap-1"
+                                    className="px-2 py-1 bg-ah-surface hover:bg-ah-hover border border-ah-border text-[10px] text-brand-300 font-semibold rounded-lg min-h-touch flex items-center gap-1"
                                   >
                                     <HelpCircle className="w-3 h-3" />
                                     <span>Reveal</span>
@@ -286,11 +286,11 @@ export const ClueNotebookPage: React.FC = () => {
                               </div>
 
                               {isRevealed ? (
-                                <p className="text-[11px] text-night-text leading-relaxed select-text">
+                                <p className="text-[11px] text-ah-text leading-relaxed select-text">
                                   {hint.text}
                                 </p>
                               ) : (
-                                <p className="text-[10px] text-night-muted italic">
+                                <p className="text-[10px] text-ah-muted italic">
                                   Tap reveal to inspect this level of clue guidance.
                                 </p>
                               )}

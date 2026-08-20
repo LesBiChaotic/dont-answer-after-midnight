@@ -14,7 +14,7 @@ export const AvatarPage: React.FC = () => {
   };
 
   return (
-    <div className="flex-1 flex flex-col h-screen max-h-screen bg-night-bg text-night-text">
+    <div className="flex-1 flex flex-col h-screen max-h-screen bg-ah-canvas text-ah-text">
       <AvatarBuilder
         initialConfig={profile?.avatarConfig || DEFAULT_AVATAR}
         onSave={handleSave}

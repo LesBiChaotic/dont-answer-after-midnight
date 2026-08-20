@@ -13,11 +13,22 @@ import {
   Code,
   Check,
   ShieldCheck,
+  Trophy,
 } from 'lucide-react';
+import { useSettings } from '../context/SettingsContext';
 
 export const ProfilePage: React.FC = () => {
   const navigate = useNavigate();
   const { profile, updateProfile } = useAuthProfile();
+  const { settings } = useSettings();
+
+  const frameClass = {
+    none: 'ring-ah-border',
+    signal: 'ring-cyan-400 shadow-[0_0_24px_rgba(34,211,238,.4)]',
+    archive: 'ring-amber-400 shadow-[0_0_24px_rgba(251,191,36,.4)]',
+    'blood-moon': 'ring-rose-500 shadow-[0_0_24px_rgba(244,63,94,.4)]',
+    continuity: 'ring-violet-400 shadow-[0_0_28px_rgba(167,139,250,.5)]',
+  }[settings.profileFrame || 'none'];
 
   const [isEditingStatus, setIsEditingStatus] = useState(false);
   const [statusText, setStatusText] = useState(profile?.statusMessage || '');
@@ -30,7 +41,7 @@ export const ProfilePage: React.FC = () => {
   };
 
   return (
-    <div className="flex-1 flex flex-col app-viewport bg-[#11101A] text-[#F4EEF8] pb-20">
+    <div className="flex-1 flex flex-col app-viewport bg-ah-canvas text-ah-text pb-20">
       <TopBar
         title="Persona"
         subtitle="Identity & Controls"
@@ -38,7 +49,7 @@ export const ProfilePage: React.FC = () => {
           <button
             type="button"
             onClick={() => navigate('/settings')}
-            className="p-2 text-[#91819A] hover:text-[#F4EEF8] min-h-touch min-w-touch flex items-center justify-center rounded-full active:bg-[#211C30] transition-colors"
+            className="p-2 text-ah-muted hover:text-ah-text min-h-touch min-w-touch flex items-center justify-center rounded-full active:bg-ah-surface-2 transition-colors"
             aria-label="Settings"
           >
             <Settings className="w-5 h-5" />
@@ -50,7 +61,7 @@ export const ProfilePage: React.FC = () => {
         {/* Profile Identity Card (Luminous Halo + Distinct Tint) */}
         <div className="p-5 bg-gradient-to-b from-[#1E162B] to-[#191625] border border-[#3E2954] rounded-3xl space-y-4 shadow-xl text-center flex flex-col items-center">
           <div className="relative">
-            <div className="p-1 rounded-3xl ring-2 ring-[#B979FF]/40 shadow-[0_0_24px_rgba(185,121,255,0.3)]">
+            <div className={`p-1 rounded-3xl ring-2 ${frameClass}`}>
               <Avatar config={profile.avatarConfig} size="xl" showStatusDot status="afterhours" />
             </div>
             <button
@@ -66,20 +77,20 @@ export const ProfilePage: React.FC = () => {
 
           <div className="space-y-1">
             <div className="flex items-center justify-center gap-2">
-              <h2 className="text-lg font-bold text-white tracking-tight font-serif">{profile.displayName}</h2>
+              <h2 className="text-lg font-bold text-ah-text tracking-tight font-serif">{profile.displayName}</h2>
               {profile.ageConfirmedAdult && (
                 <span title="Adult Verified">
                   <ShieldCheck className="w-4 h-4 text-[#69C49A]" />
                 </span>
               )}
             </div>
-            <p className="text-xs text-[#C9B9D2]">
+            <p className="text-xs text-ah-text-2">
               @{profile.handle}
               {profile.pronouns && ` • ${profile.pronouns}`}
               {profile.genderIdentity && ` • ${profile.genderIdentity}`}
               {profile.sexuality && ` • ${profile.sexuality}`}
             </p>
-            <div className="flex items-center justify-center gap-2 pt-0.5 text-[10px] text-[#91819A] font-mono">
+            <div className="flex items-center justify-center gap-2 pt-0.5 text-[10px] text-ah-muted font-mono">
               <span>Joined: {new Date(profile.createdAt).toLocaleDateString([], { month: 'short', year: 'numeric' })}</span>
               <span>•</span>
               <span className="text-[#8197FF]">Quiet Hours: {profile.quietHours || '00:00-08:00'}</span>
@@ -89,13 +100,13 @@ export const ProfilePage: React.FC = () => {
           {/* Inline Status Message */}
           <div className="w-full pt-1">
             {isEditingStatus ? (
-              <div className="flex items-center gap-2 bg-[#211C30] border border-[#8197FF]/50 rounded-2xl p-1.5 shadow-inner">
+              <div className="flex items-center gap-2 bg-ah-surface-2 border border-[#8197FF]/50 rounded-2xl p-1.5 shadow-inner">
                 <input
                   type="text"
                   value={statusText}
                   onChange={(e) => setStatusText(e.target.value)}
                   placeholder="Set status message..."
-                  className="flex-1 bg-transparent px-2.5 text-xs text-[#F4EEF8] outline-hidden"
+                  className="flex-1 bg-transparent px-2.5 text-xs text-ah-text outline-hidden"
                   autoFocus
                 />
                 <button
@@ -113,7 +124,7 @@ export const ProfilePage: React.FC = () => {
                   setStatusText(profile.statusMessage || '');
                   setIsEditingStatus(true);
                 }}
-                className="w-full px-3.5 py-2.5 bg-[#211C30]/70 hover:bg-[#211C30] border border-[#2E2742] rounded-2xl text-xs text-[#91819A] hover:text-[#F4EEF8] flex items-center justify-between min-h-touch transition-all shadow-xs"
+                className="w-full px-3.5 py-2.5 bg-ah-surface-2/70 hover:bg-ah-surface-2 border border-ah-border rounded-2xl text-xs text-ah-muted hover:text-ah-text flex items-center justify-between min-h-touch transition-all shadow-xs"
               >
                 <span className="truncate italic">
                   {profile.statusMessage ? `"${profile.statusMessage}"` : 'Tap to set status message...'}
@@ -125,7 +136,7 @@ export const ProfilePage: React.FC = () => {
 
           {/* Bio */}
           {profile.bio && (
-            <p className="text-xs text-[#C9B9D2] leading-relaxed max-w-xs">{profile.bio}</p>
+            <p className="text-xs text-ah-text-2 leading-relaxed max-w-xs">{profile.bio}</p>
           )}
 
           {/* Interests */}
@@ -134,7 +145,7 @@ export const ProfilePage: React.FC = () => {
               {profile.interests.map((interest) => (
                 <span
                   key={interest}
-                  className="px-3 py-1 rounded-full bg-[#211C30] border border-[#3E2954] text-[10px] text-[#B979FF] font-medium"
+                  className="px-3 py-1 rounded-full bg-ah-surface-2 border border-[#3E2954] text-[10px] text-[#B979FF] font-medium"
                 >
                   #{interest}
                 </span>
@@ -145,25 +156,38 @@ export const ProfilePage: React.FC = () => {
           <button
             type="button"
             onClick={() => navigate('/profile/edit')}
-            className="w-full py-2.5 px-4 bg-[#211C30] hover:bg-[#2B243E] border border-[#2E2742] text-[#F4EEF8] rounded-xl text-xs font-semibold min-h-touch transition-colors shadow-xs"
+            className="w-full py-2.5 px-4 bg-ah-surface-2 hover:bg-ah-hover border border-ah-border text-ah-text rounded-xl text-xs font-semibold min-h-touch transition-colors shadow-xs"
           >
             Edit Profile Details
           </button>
         </div>
 
         {/* Navigation Quick Links (Different Restrained Tints per Category) */}
-        <div className="bg-[#191625] border border-[#2E2742] rounded-3xl overflow-hidden divide-y divide-[#2E2742]/50 text-xs font-medium shadow-md">
+        <div className="bg-ah-surface border border-ah-border rounded-3xl overflow-hidden divide-y divide-[#2E2742]/50 text-xs font-medium shadow-md">
+          <button
+            type="button"
+            onClick={() => navigate('/cabinet')}
+            className="w-full px-4 py-3.5 flex items-center justify-between hover:bg-ah-surface-2 min-h-touch text-left transition-colors"
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-xl bg-ah-surface-3 border border-ah-primary/40 flex items-center justify-center text-ah-primary">
+                <Trophy className="w-4 h-4" />
+              </div>
+              <span className="text-ah-text">Night Cabinet</span>
+            </div>
+            <span className="text-[11px] text-ah-primary font-semibold">Achievements</span>
+          </button>
           {/* Avatar Builder (Lilac) */}
           <button
             type="button"
             onClick={() => navigate('/avatar')}
-            className="w-full px-4 py-3.5 flex items-center justify-between hover:bg-[#211C30] min-h-touch text-left transition-colors"
+            className="w-full px-4 py-3.5 flex items-center justify-between hover:bg-ah-surface-2 min-h-touch text-left transition-colors"
           >
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-xl bg-[#2D1B4E] border border-[#B979FF]/40 flex items-center justify-center text-[#B979FF]">
                 <Sparkles className="w-4 h-4" />
               </div>
-              <span className="text-[#F4EEF8]">Vector Avatar Builder</span>
+              <span className="text-ah-text">Vector Avatar Builder</span>
             </div>
             <span className="text-[11px] text-[#B979FF] font-semibold">Customize</span>
           </button>
@@ -172,13 +196,13 @@ export const ProfilePage: React.FC = () => {
           <button
             type="button"
             onClick={() => navigate('/bookmarks')}
-            className="w-full px-4 py-3.5 flex items-center justify-between hover:bg-[#211C30] min-h-touch text-left transition-colors"
+            className="w-full px-4 py-3.5 flex items-center justify-between hover:bg-ah-surface-2 min-h-touch text-left transition-colors"
           >
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-xl bg-[#2D2418] border border-[#D5AB5E]/40 flex items-center justify-center text-[#D5AB5E]">
                 <Bookmark className="w-4 h-4" />
               </div>
-              <span className="text-[#F4EEF8]">Saved Bookmarks & Evidence</span>
+              <span className="text-ah-text">Saved Bookmarks & Evidence</span>
             </div>
             <span className="text-[11px] text-[#D5AB5E] font-semibold">View</span>
           </button>
@@ -187,13 +211,13 @@ export const ProfilePage: React.FC = () => {
           <button
             type="button"
             onClick={() => navigate('/safety')}
-            className="w-full px-4 py-3.5 flex items-center justify-between hover:bg-[#211C30] min-h-touch text-left transition-colors"
+            className="w-full px-4 py-3.5 flex items-center justify-between hover:bg-ah-surface-2 min-h-touch text-left transition-colors"
           >
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-xl bg-[#2D1A22] border border-[#E07DA5]/40 flex items-center justify-center text-[#E07DA5]">
                 <Shield className="w-4 h-4" />
               </div>
-              <span className="text-[#F4EEF8]">Safety & Block Controls</span>
+              <span className="text-ah-text">Safety & Block Controls</span>
             </div>
             <span className="text-[11px] text-[#E07DA5] font-semibold">Manage</span>
           </button>
@@ -202,13 +226,13 @@ export const ProfilePage: React.FC = () => {
           <button
             type="button"
             onClick={() => navigate('/settings')}
-            className="w-full px-4 py-3.5 flex items-center justify-between hover:bg-[#211C30] min-h-touch text-left transition-colors"
+            className="w-full px-4 py-3.5 flex items-center justify-between hover:bg-ah-surface-2 min-h-touch text-left transition-colors"
           >
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-xl bg-[#142629] border border-[#57C7C1]/40 flex items-center justify-center text-[#57C7C1]">
                 <Settings className="w-4 h-4" />
               </div>
-              <span className="text-[#F4EEF8]">Settings, Themes & Offline Sync</span>
+              <span className="text-ah-text">Settings, Themes & Offline Sync</span>
             </div>
             <span className="text-[11px] text-[#57C7C1] font-semibold">Configure</span>
           </button>
@@ -217,13 +241,13 @@ export const ProfilePage: React.FC = () => {
           <button
             type="button"
             onClick={() => navigate('/internal')}
-            className="w-full px-4 py-3.5 flex items-center justify-between hover:bg-[#211C30] min-h-touch text-left transition-colors"
+            className="w-full px-4 py-3.5 flex items-center justify-between hover:bg-ah-surface-2 min-h-touch text-left transition-colors"
           >
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-xl bg-[#1C2030] border border-[#8FA9FF]/40 flex items-center justify-center text-[#8FA9FF]">
                 <Code className="w-4 h-4" />
               </div>
-              <span className="text-[#F4EEF8]">Internal Continuity Tools</span>
+              <span className="text-ah-text">Internal Continuity Tools</span>
             </div>
             <span className="text-[11px] text-[#8FA9FF] font-mono font-semibold">DEV/ARG</span>
           </button>

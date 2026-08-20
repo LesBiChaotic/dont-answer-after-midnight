@@ -61,6 +61,41 @@ html.light, :root[data-theme='light'] {
   --ah-info: #5676C8;
 }
 
+:root[data-theme='dead-signal'] {
+  --ah-canvas: #071522; --ah-surface: #0B2030; --ah-surface-2: #102B3E; --ah-surface-3: #15384A;
+  --ah-border: #21465A; --ah-hover: #17384A; --ah-text: #E8F6FF; --ah-text-2: #B3D5E6; --ah-muted: #7295A8;
+  --ah-primary: #65C7F2; --ah-primary-hover: #8AD8F7; --ah-periwinkle: #67A9FF; --ah-electric-lilac: #A68AFF;
+  --ah-teal: #4DD5D0; --ah-rose: #E77FA1; --ah-apricot: #F0A36D; --ah-gold: #D8B46D;
+}
+
+:root[data-theme='archive-amber'] {
+  --ah-canvas: #17120B; --ah-surface: #21190F; --ah-surface-2: #2D2114; --ah-surface-3: #382A1A;
+  --ah-border: #4C3822; --ah-hover: #3A2A18; --ah-text: #FFF2D8; --ah-text-2: #DCC49D; --ah-muted: #9D8463;
+  --ah-primary: #E6A85B; --ah-primary-hover: #F3BC76; --ah-periwinkle: #9CA8D8; --ah-electric-lilac: #C596D9;
+  --ah-teal: #75B8A5; --ah-rose: #D57D78; --ah-apricot: #F0A06D; --ah-gold: #E2B45E;
+}
+
+:root[data-theme='crt-green'] {
+  --ah-canvas: #07110B; --ah-surface: #0B1A10; --ah-surface-2: #102418; --ah-surface-3: #173020;
+  --ah-border: #245333; --ah-hover: #183B25; --ah-text: #D8FFE1; --ah-text-2: #9FE6B0; --ah-muted: #639A70;
+  --ah-primary: #64E57F; --ah-primary-hover: #8CF29F; --ah-periwinkle: #81C7A1; --ah-electric-lilac: #A3D68A;
+  --ah-teal: #57D6B1; --ah-rose: #D27B8D; --ah-apricot: #DDA36B; --ah-gold: #C6D56B;
+}
+
+:root[data-theme='blood-moon'] {
+  --ah-canvas: #17090D; --ah-surface: #241015; --ah-surface-2: #31161C; --ah-surface-3: #401D24;
+  --ah-border: #5A2833; --ah-hover: #49202A; --ah-text: #FFECEF; --ah-text-2: #E0B9C0; --ah-muted: #A2767F;
+  --ah-primary: #E45B72; --ah-primary-hover: #F0798D; --ah-periwinkle: #AE7EC7; --ah-electric-lilac: #D06BAE;
+  --ah-teal: #6BB7A9; --ah-rose: #F06F89; --ah-apricot: #E99167; --ah-gold: #CFA35E;
+}
+
+:root[data-theme='something-wrong'] {
+  --ah-canvas: #ECE9DF; --ah-surface: #F7F4EA; --ah-surface-2: #DED9CD; --ah-surface-3: #D3CDC1;
+  --ah-border: #B8B0A2; --ah-hover: #D8D1C4; --ah-text: #191817; --ah-text-2: #4E4A45; --ah-muted: #777068;
+  --ah-primary: #5E66FF; --ah-primary-hover: #424BEE; --ah-periwinkle: #4D58DB; --ah-electric-lilac: #8F4BCC;
+  --ah-teal: #168D88; --ah-rose: #BD3F65; --ah-apricot: #C86C3E; --ah-gold: #9A731E;
+}
+
 html {
   font-family: var(--app-font-family);
   -webkit-tap-highlight-color: transparent;
@@ -86,6 +121,52 @@ body {
   background-color: var(--ah-canvas);
   color: var(--ah-text);
   font-family: var(--app-font-family);
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+body *, body *::before, body *::after {
+  transition-property: background-color, border-color, color, box-shadow, opacity, transform;
+  transition-duration: 180ms;
+}
+
+html[data-theme='something-wrong'] body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.05;
+  background: repeating-linear-gradient(0deg, transparent 0 3px, #111 4px);
+  mix-blend-mode: multiply;
+}
+
+html[data-corruption-depth='3'] body::before,
+html[data-corruption-depth='4'] body::before,
+html[data-corruption-depth='5'] body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0.035;
+  background: repeating-linear-gradient(90deg, transparent 0 37px, var(--ah-primary) 38px, transparent 39px 83px);
+}
+
+html[data-corruption-depth='4'] [data-anomaly],
+html[data-corruption-depth='5'] [data-anomaly] {
+  text-shadow: 1px 0 var(--ah-rose), -1px 0 var(--ah-teal);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html[data-corruption-depth='5'] [data-anomaly] {
+    animation: continuity-drift 7s steps(1, end) infinite;
+  }
+}
+
+@keyframes continuity-drift {
+  0%, 94%, 100% { transform: translateX(0); }
+  95% { transform: translateX(1px); }
+  96% { transform: translateX(-1px); }
 }
 
 /* Keyboard- and notch-safe page geometry. Individual fixed headers and

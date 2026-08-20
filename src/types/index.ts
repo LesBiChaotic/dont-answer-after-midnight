@@ -491,8 +491,17 @@ export interface ContinuityState {
   activeAnomalies: string[];
 }
 
-export type ThemeMode = 'light' | 'dark' | 'device';
+export type ThemeMode =
+  | 'dark'
+  | 'light'
+  | 'dead-signal'
+  | 'archive-amber'
+  | 'crt-green'
+  | 'blood-moon'
+  | 'something-wrong'
+  | 'device';
 export type FontChoice = 'afterhours' | 'device';
+export type ProfileFrame = 'none' | 'signal' | 'archive' | 'blood-moon' | 'continuity';
 
 export interface SoundSettings {
   enabled: boolean; // Default FALSE per engineering master
@@ -520,6 +529,7 @@ export interface SettingsState {
   customQuietHours?: { start: string; end: string };
   dataSaver: boolean;
   desktopPreviewEnabled: boolean;
+  profileFrame: ProfileFrame;
 }
 
 export interface DraftState {

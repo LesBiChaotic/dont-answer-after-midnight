@@ -52,7 +52,7 @@ export const BottomNav: React.FC = () => {
   return (
     <nav
       aria-label="Main Navigation"
-      className="fixed bottom-0 left-0 right-0 max-w-[430px] desktop:max-w-[1100px] mx-auto bg-[#191625]/95 dark:bg-[#191625]/95 backdrop-blur-xl border-t border-[#2E2742] z-40 pb-[max(env(safe-area-inset-bottom),8px)] shadow-2xl"
+      className="fixed bottom-0 left-0 right-0 max-w-[430px] desktop:max-w-[760px] mx-auto bg-ah-surface/95 backdrop-blur-xl border border-b-0 border-ah-border desktop:rounded-t-3xl z-40 pb-[max(env(safe-area-inset-bottom),8px)] shadow-2xl"
     >
       <div className="grid grid-cols-5 items-center justify-around h-14 px-1">
         {navItems.map((item) => {
@@ -65,7 +65,7 @@ export const BottomNav: React.FC = () => {
                 `flex flex-col items-center justify-center min-h-touch min-w-touch relative transition-all duration-150 select-none ${
                   isActive
                     ? `${item.activeColor} font-semibold`
-                    : 'text-[#91819A] hover:text-[#F4EEF8] active:scale-95'
+                    : 'text-ah-muted hover:text-ah-text active:scale-95'
                 }`
               }
             >
@@ -73,7 +73,7 @@ export const BottomNav: React.FC = () => {
                 <>
                   <div
                     className={`relative p-1.5 rounded-xl transition-all ${
-                      isActive ? `bg-[#211C30] ${item.activeGlow}` : ''
+                      isActive ? `bg-ah-surface-2 ${item.activeGlow}` : ''
                     }`}
                   >
                     <Icon

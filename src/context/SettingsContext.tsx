@@ -9,6 +9,7 @@ import {
   BlockedRelationship,
   MutedThread,
   ConversationParticipant,
+  ProfileFrame,
 } from '../types';
 import {
   getStoredSettings,
@@ -30,6 +31,7 @@ interface SettingsContextType {
   updateAccessibilitySettings: (acc: Partial<AccessibilitySettings>) => Promise<void>;
   updateQuietHours: (quietHours: QuietHoursSetting, custom?: { start: string; end: string }) => Promise<void>;
   toggleDesktopPreview: () => void;
+  setProfileFrame: (frame: ProfileFrame) => Promise<void>;
   blockUser: (participant: ConversationParticipant, reason?: string) => Promise<void>;
   unblockUser: (userId: string) => Promise<void>;
   isUserBlocked: (userId: string) => boolean;
@@ -158,6 +160,12 @@ export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     });
   }, []);
 
+  const setProfileFrame = useCallback(async (profileFrame: ProfileFrame) => {
+    const updated: SettingsState = { ...settings, profileFrame };
+    setSettings(updated);
+    await saveStoredSettings(updated);
+  }, [settings]);
+
   const blockUser = useCallback(
     async (participant: ConversationParticipant, reason?: string) => {
       const newBlock: BlockedRelationship = {
@@ -232,6 +240,7 @@ export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         updateAccessibilitySettings,
         updateQuietHours,
         toggleDesktopPreview,
+        setProfileFrame,
         blockUser,
         unblockUser,
         isUserBlocked,

@@ -63,18 +63,18 @@ export const SearchChallenge: React.FC = () => {
   };
 
   return (
-    <div className="p-4 bg-night-surface border border-night-border rounded-3xl space-y-4 select-none">
-      <div className="flex items-center justify-between border-b border-night-border/60 pb-2.5">
+    <div className="p-4 bg-ah-surface border border-ah-border rounded-3xl space-y-4 select-none">
+      <div className="flex items-center justify-between border-b border-ah-border/60 pb-2.5">
         <div className="flex items-center gap-2">
           <Search className="w-4 h-4 text-brand-400" />
-          <h3 className="text-xs font-semibold text-white">Conversation Search Challenge</h3>
+          <h3 className="text-xs font-semibold text-ah-text">Conversation Search Challenge</h3>
         </div>
         <span className="text-[10px] font-mono text-brand-300">
           {challenges.filter((c) => c.completed).length} / {challenges.length} Done
         </span>
       </div>
 
-      <p className="text-xs text-night-muted leading-relaxed">
+      <p className="text-xs text-ah-muted leading-relaxed">
         Test your indexing speed by locating specific message records and log relics across threads and archives.
       </p>
 
@@ -86,7 +86,7 @@ export const SearchChallenge: React.FC = () => {
             className={`p-3 rounded-2xl border text-xs space-y-1 transition-all ${
               ch.completed
                 ? 'bg-emerald-950/20 border-emerald-800/60 text-emerald-200'
-                : 'bg-night-card border-night-border text-night-text'
+                : 'bg-ah-surface-2 border-ah-border text-ah-text'
             }`}
           >
             <div className="flex items-center justify-between font-mono text-[10px]">
@@ -98,32 +98,32 @@ export const SearchChallenge: React.FC = () => {
               )}
             </div>
             <p className="text-xs leading-relaxed">{ch.task}</p>
-            <p className="text-[10px] text-night-muted">Hint: {ch.hint}</p>
+            <p className="text-[10px] text-ah-muted">Hint: {ch.hint}</p>
           </div>
         ))}
       </div>
 
       {/* Search Input Simulation */}
       <form onSubmit={handleTestSearch} className="space-y-2">
-        <div className="flex items-center gap-2 bg-night-card border border-night-border focus-within:border-brand-500 rounded-xl px-3 py-2">
-          <Search className="w-4 h-4 text-night-muted" />
+        <div className="flex items-center gap-2 bg-ah-surface-2 border border-ah-border focus-within:border-brand-500 rounded-xl px-3 py-2">
+          <Search className="w-4 h-4 text-ah-muted" />
           <input
             type="text"
             placeholder="Type verification query..."
             value={queryInput}
             onChange={(e) => setQueryInput(e.target.value)}
-            className="flex-1 bg-transparent text-xs text-white placeholder-night-muted outline-none"
+            className="flex-1 bg-transparent text-xs text-ah-text placeholder-night-muted outline-none"
           />
           <button
             type="submit"
-            className="px-3 py-1 bg-brand-600 hover:bg-brand-500 text-white rounded-lg text-xs font-semibold"
+            className="px-3 py-1 bg-brand-600 hover:bg-brand-500 text-ah-text rounded-lg text-xs font-semibold"
           >
             Verify
           </button>
         </div>
 
         {feedback && (
-          <div className="p-2.5 bg-night-card border border-night-border rounded-xl text-[11px] text-brand-300 flex items-center gap-2">
+          <div className="p-2.5 bg-ah-surface-2 border border-ah-border rounded-xl text-[11px] text-brand-300 flex items-center gap-2">
             <AlertCircle className="w-3.5 h-3.5 shrink-0" />
             <span>{feedback}</span>
           </div>
@@ -134,7 +134,7 @@ export const SearchChallenge: React.FC = () => {
       <button
         type="button"
         onClick={() => navigate('/search')}
-        className="w-full py-2.5 bg-night-card hover:bg-night-hover border border-night-border text-night-text rounded-xl text-xs font-medium flex items-center justify-center gap-2 min-h-touch"
+        className="w-full py-2.5 bg-ah-surface-2 hover:bg-ah-hover border border-ah-border text-ah-text rounded-xl text-xs font-medium flex items-center justify-center gap-2 min-h-touch"
       >
         <span>Open Global Search Engine</span>
         <ArrowRight className="w-3.5 h-3.5 text-brand-400" />

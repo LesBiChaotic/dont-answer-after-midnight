@@ -14,18 +14,18 @@ export const BlockedPage: React.FC = () => {
   }, [checkActionTrigger]);
 
   return (
-    <div className="flex-1 flex flex-col app-viewport bg-night-bg text-night-text">
+    <div className="flex-1 flex flex-col app-viewport bg-ah-canvas text-ah-text">
       <TopBar showBack title="Blocked Contacts" subtitle="Simulated Message Suppression" />
 
       <main className="flex-1 overflow-y-auto p-4 space-y-4">
         {/* Active Block List */}
         <div className="space-y-2">
-          <h2 className="text-xs font-bold text-white uppercase tracking-wider">
+          <h2 className="text-xs font-bold text-ah-text uppercase tracking-wider">
             Active Blocked Contacts ({blockedList.length})
           </h2>
 
           {blockedList.length === 0 ? (
-            <div className="p-4 bg-night-card border border-night-border rounded-2xl text-center text-night-muted text-xs">
+            <div className="p-4 bg-ah-surface-2 border border-ah-border rounded-2xl text-center text-ah-muted text-xs">
               No live contacts currently blocked.
             </div>
           ) : (
@@ -33,18 +33,18 @@ export const BlockedPage: React.FC = () => {
               {blockedList.map((item) => (
                 <div
                   key={item.id}
-                  className="p-3.5 bg-night-surface border border-night-border rounded-2xl flex items-center justify-between gap-3 shadow-xs"
+                  className="p-3.5 bg-ah-surface border border-ah-border rounded-2xl flex items-center justify-between gap-3 shadow-xs"
                 >
                   <div>
-                    <div className="font-semibold text-xs text-white">{item.targetDisplayName}</div>
-                    <div className="text-[11px] text-night-muted">@{item.targetHandle}</div>
+                    <div className="font-semibold text-xs text-ah-text">{item.targetDisplayName}</div>
+                    <div className="text-[11px] text-ah-muted">@{item.targetHandle}</div>
                     <div className="text-[10px] text-red-400/80 mt-1">Blocked: {item.reason || 'Manual block'}</div>
                   </div>
 
                   <button
                     type="button"
                     onClick={() => unblockUser(item.targetUserId)}
-                    className="px-3.5 py-1.5 rounded-xl bg-night-card hover:bg-night-hover border border-night-border text-xs font-semibold text-brand-300 min-h-touch transition-colors"
+                    className="px-3.5 py-1.5 rounded-xl bg-ah-surface-2 hover:bg-ah-hover border border-ah-border text-xs font-semibold text-brand-300 min-h-touch transition-colors"
                   >
                     Unblock
                   </button>
@@ -55,14 +55,14 @@ export const BlockedPage: React.FC = () => {
         </div>
 
         {/* Story-Layer Recovered Historical Block Records */}
-        <div className="space-y-2 pt-2 border-t border-night-border/60">
+        <div className="space-y-2 pt-2 border-t border-ah-border/60">
           <div className="flex items-center gap-2">
             <Clock className="w-4 h-4 text-amber-400" />
-            <h2 className="text-xs font-bold text-white uppercase tracking-wider">
+            <h2 className="text-xs font-bold text-ah-text uppercase tracking-wider">
               Recovered Historical Block Index
             </h2>
           </div>
-          <p className="text-[11px] text-night-muted leading-relaxed">
+          <p className="text-[11px] text-ah-muted leading-relaxed">
             Archived security partition records recovered from previous platform versions (read-only index).
           </p>
 
@@ -76,9 +76,9 @@ export const BlockedPage: React.FC = () => {
                   <span className="font-semibold text-amber-300">
                     [{item.platformEra}] @{item.handle}
                   </span>
-                  <span className="text-night-muted">{item.blockedDate}</span>
+                  <span className="text-ah-muted">{item.blockedDate}</span>
                 </div>
-                <p className="text-xs text-night-text leading-relaxed">
+                <p className="text-xs text-ah-text leading-relaxed">
                   Reason: {item.reason}
                 </p>
                 <p className="text-[10px] text-amber-200/60 font-mono">

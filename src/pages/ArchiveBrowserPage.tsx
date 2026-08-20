@@ -39,7 +39,7 @@ const getEraStyle = (era: string) => {
       };
     default:
       return {
-        badgeBg: 'bg-[#211C30] border-[#8197FF]/40 text-[#8197FF]',
+        badgeBg: 'bg-ah-surface-2 border-[#8197FF]/40 text-[#8197FF]',
         cardBorder: 'border-[#8197FF]/30 hover:border-[#8197FF]',
         accent: 'text-[#8197FF]',
       };
@@ -51,7 +51,7 @@ export const ArchiveBrowserPage: React.FC = () => {
   const { platforms, continuityRecords, readableMode, toggleReadableMode } = useArchive();
 
   return (
-    <div className="flex-1 flex flex-col app-viewport bg-[#11101A] text-[#F4EEF8] pb-20">
+    <div className="flex-1 flex flex-col app-viewport bg-ah-canvas text-ah-text pb-20">
       <TopBar
         title="Legacy Archives"
         subtitle="Historical Platform Partitions"
@@ -62,7 +62,7 @@ export const ArchiveBrowserPage: React.FC = () => {
             className={`px-3 py-1.5 rounded-full text-xs font-medium border min-h-touch flex items-center gap-1.5 transition-all active:scale-95 ${
               readableMode
                 ? 'bg-gradient-to-r from-[#8197FF] to-[#B979FF] text-[#11101A] border-transparent font-bold shadow-xs'
-                : 'bg-[#191625] text-[#91819A] border-[#2E2742] hover:text-[#F4EEF8]'
+                : 'bg-ah-surface text-ah-muted border-ah-border hover:text-ah-text'
             }`}
           >
             <BookOpen className="w-3.5 h-3.5" />
@@ -76,8 +76,8 @@ export const ArchiveBrowserPage: React.FC = () => {
         <div className="mx-3 mt-3 p-3.5 bg-[#252B3C]/80 border border-[#3E4663] rounded-2xl flex items-start gap-2.5 text-xs text-[#8FA9FF] shadow-sm">
           <AlertCircle className="w-4 h-4 text-[#8FA9FF] shrink-0 mt-0.5" />
           <div className="space-y-0.5">
-            <span className="font-semibold text-white">Archive Continuity Indexes Active</span>
-            <p className="text-[11px] text-[#C9B9D2] leading-relaxed">
+            <span className="font-semibold text-ah-text">Archive Continuity Indexes Active</span>
+            <p className="text-[11px] text-ah-text-2 leading-relaxed">
               {continuityRecords.length} historical anomaly records cross-referenced across mounted platform eras.
             </p>
           </div>
@@ -86,7 +86,7 @@ export const ArchiveBrowserPage: React.FC = () => {
 
       {/* Eras List */}
       <main className="flex-1 overflow-y-auto p-3 space-y-3">
-        <h2 className="text-[11px] font-semibold text-[#91819A] uppercase tracking-wider px-1 font-mono">
+        <h2 className="text-[11px] font-semibold text-ah-muted uppercase tracking-wider px-1 font-mono">
           Mounted Platform Partitions (2001 – 2026)
         </h2>
 
@@ -96,7 +96,7 @@ export const ArchiveBrowserPage: React.FC = () => {
             <div
               key={platform.id}
               onClick={() => navigate(`/archive/${platform.era}`)}
-              className={`p-4 bg-[#191625] hover:bg-[#211C30] border ${style.cardBorder} rounded-2xl cursor-pointer transition-all active:scale-[0.99] space-y-2.5 shadow-md`}
+              className={`p-4 bg-ah-surface hover:bg-ah-surface-2 border ${style.cardBorder} rounded-2xl cursor-pointer transition-all active:scale-[0.99] space-y-2.5 shadow-md`}
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
@@ -104,10 +104,10 @@ export const ArchiveBrowserPage: React.FC = () => {
                     {platform.era}
                   </div>
                   <div>
-                    <h3 className="text-sm font-semibold text-white leading-tight">
+                    <h3 className="text-sm font-semibold text-ah-text leading-tight">
                       {platform.title}
                     </h3>
-                    <div className="flex items-center gap-2 text-[10px] text-[#91819A] font-mono mt-0.5">
+                    <div className="flex items-center gap-2 text-[10px] text-ah-muted font-mono mt-0.5">
                       <span className={style.accent}>{platform.codeName}</span>
                       <span>•</span>
                       <span>{platform.yearRange}</span>
@@ -115,14 +115,14 @@ export const ArchiveBrowserPage: React.FC = () => {
                   </div>
                 </div>
 
-                <ChevronRight className="w-5 h-5 text-[#91819A]" />
+                <ChevronRight className="w-5 h-5 text-ah-muted" />
               </div>
 
-              <p className="text-xs text-[#C9B9D2] leading-relaxed">
+              <p className="text-xs text-ah-text-2 leading-relaxed">
                 {platform.description}
               </p>
 
-              <div className="flex items-center justify-between text-[11px] text-[#91819A] pt-2 border-t border-[#2E2742]/50 font-mono">
+              <div className="flex items-center justify-between text-[11px] text-ah-muted pt-2 border-t border-ah-border/50 font-mono">
                 <div className="flex items-center gap-1.5">
                   <Database className={`w-3.5 h-3.5 ${style.accent}`} />
                   <span>{platform.recordCount} indexed logs</span>

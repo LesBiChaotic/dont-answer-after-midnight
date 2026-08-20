@@ -22,7 +22,7 @@ export const InboxPage: React.FC = () => {
   });
 
   return (
-    <div className="flex-1 flex flex-col app-viewport bg-[#11101A] text-[#F4EEF8] pb-20">
+    <div className="flex-1 flex flex-col app-viewport bg-ah-canvas text-ah-text pb-20">
       {/* Top Header */}
       <TopBar
         title="AFTERHOURS"
@@ -33,7 +33,7 @@ export const InboxPage: React.FC = () => {
             <button
               type="button"
               onClick={() => navigate('/notebook')}
-              className="p-2 text-[#8197FF] hover:text-[#B979FF] min-h-touch min-w-touch flex items-center justify-center rounded-full active:bg-[#211C30] transition-colors"
+              className="p-2 text-[#8197FF] hover:text-[#B979FF] min-h-touch min-w-touch flex items-center justify-center rounded-full active:bg-ah-surface-2 transition-colors"
               title="Continuity Investigation Notebook"
               aria-label="Investigation Notebook"
             >
@@ -42,7 +42,7 @@ export const InboxPage: React.FC = () => {
             <button
               type="button"
               onClick={() => navigate('/activities')}
-              className="p-2 text-[#D5AB5E] hover:text-[#F0A06D] min-h-touch min-w-touch flex items-center justify-center rounded-full active:bg-[#211C30] transition-colors"
+              className="p-2 text-[#D5AB5E] hover:text-[#F0A06D] min-h-touch min-w-touch flex items-center justify-center rounded-full active:bg-ah-surface-2 transition-colors"
               title="Sanctuary Activities"
               aria-label="Activities"
             >
@@ -51,7 +51,7 @@ export const InboxPage: React.FC = () => {
             <button
               type="button"
               onClick={() => navigate('/search')}
-              className="p-2 text-[#91819A] hover:text-[#F4EEF8] min-h-touch min-w-touch flex items-center justify-center rounded-full active:bg-[#211C30] transition-colors"
+              className="p-2 text-ah-muted hover:text-ah-text min-h-touch min-w-touch flex items-center justify-center rounded-full active:bg-ah-surface-2 transition-colors"
               aria-label="Search"
             >
               <Search className="w-4 h-4" />
@@ -61,7 +61,7 @@ export const InboxPage: React.FC = () => {
       />
 
       {/* Filter Tabs */}
-      <div className="flex px-3 pt-3 pb-2.5 gap-1.5 overflow-x-auto no-scrollbar shrink-0 border-b border-[#2E2742]/60 bg-[#11101A]">
+      <div className="flex px-3 pt-3 pb-2.5 gap-1.5 overflow-x-auto no-scrollbar shrink-0 border-b border-ah-border/60 bg-ah-canvas">
         {[
           { id: 'all', label: 'All' },
           { id: 'unread', label: 'Unread' },
@@ -75,7 +75,7 @@ export const InboxPage: React.FC = () => {
             className={`px-3.5 py-1.5 rounded-full text-xs font-medium min-h-touch transition-all select-none ${
               activeTab === tab.id
                 ? 'bg-gradient-to-r from-[#8197FF] to-[#B979FF] text-[#11101A] font-bold shadow-md shadow-[#8197FF]/20'
-                : 'bg-[#191625] text-[#91819A] hover:text-[#F4EEF8] border border-[#2E2742]'
+                : 'bg-ah-surface text-ah-muted hover:text-ah-text border border-ah-border'
             }`}
           >
             {tab.label}
@@ -86,8 +86,8 @@ export const InboxPage: React.FC = () => {
       {/* Thread List */}
       <main className="flex-1 overflow-y-auto divide-y divide-[#2E2742]/40 px-2 py-1 space-y-1">
         {filteredThreads.length === 0 ? (
-          <div className="py-20 px-6 text-center text-[#91819A] space-y-2">
-            <Moon className="w-8 h-8 mx-auto text-[#91819A]/40 mb-2" />
+          <div className="py-20 px-6 text-center text-ah-muted space-y-2">
+            <Moon className="w-8 h-8 mx-auto text-ah-muted/40 mb-2" />
             <p className="text-sm font-medium">No conversations in this view.</p>
             <p className="text-xs">Incoming messages and room activity will populate here.</p>
           </div>
@@ -112,10 +112,10 @@ export const InboxPage: React.FC = () => {
                 onClick={() => navigate(`/chats/${thread.id}`)}
                 className={`w-full px-3.5 py-3 rounded-2xl flex items-center gap-3.5 text-left transition-all min-h-touch select-none border ${
                   isUnread
-                    ? 'bg-[#211C30] border-[#8197FF]/30 shadow-md shadow-[#8197FF]/5'
+                    ? 'bg-ah-surface-2 border-[#8197FF]/30 shadow-md shadow-[#8197FF]/5'
                     : isPinned
-                    ? 'bg-[#191625]/90 border-[#382D52]'
-                    : 'bg-[#191625]/50 hover:bg-[#191625] border-transparent hover:border-[#2E2742]'
+                    ? 'bg-ah-surface/90 border-[#382D52]'
+                    : 'bg-ah-surface/50 hover:bg-ah-surface border-transparent hover:border-ah-border'
                 }`}
               >
                 {/* Avatar with Halo Ring */}
@@ -134,7 +134,7 @@ export const InboxPage: React.FC = () => {
                       />
                     </div>
                   ) : (
-                    <div className="w-12 h-12 rounded-2xl bg-[#191625] border border-[#2E2742] flex items-center justify-center text-[#91819A]">
+                    <div className="w-12 h-12 rounded-2xl bg-ah-surface border border-ah-border flex items-center justify-center text-ah-muted">
                       <MessageSquare className="w-5 h-5" />
                     </div>
                   )}
@@ -144,7 +144,7 @@ export const InboxPage: React.FC = () => {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between gap-1 mb-1">
                     <div className="flex items-center gap-1.5 truncate">
-                      <span className={`text-sm truncate ${isUnread ? 'font-bold text-white' : 'font-medium text-[#F4EEF8]'}`}>
+                      <span className={`text-sm truncate ${isUnread ? 'font-bold text-ah-text' : 'font-medium text-ah-text'}`}>
                         {thread.title || participant?.displayName || 'Chat'}
                       </span>
                       {participant?.isModerator && (
@@ -153,14 +153,14 @@ export const InboxPage: React.FC = () => {
                         </span>
                       )}
                       {thread.isPinned && <Pin className="w-3 h-3 text-[#8197FF] fill-current shrink-0" />}
-                      {thread.isMuted && <BellOff className="w-3 h-3 text-[#91819A] shrink-0" />}
+                      {thread.isMuted && <BellOff className="w-3 h-3 text-ah-muted shrink-0" />}
                     </div>
 
-                    <span className="text-[11px] text-[#91819A] font-mono shrink-0">{formattedTime}</span>
+                    <span className="text-[11px] text-ah-muted font-mono shrink-0">{formattedTime}</span>
                   </div>
 
                   <div className="flex items-center justify-between gap-2">
-                    <p className={`text-xs truncate leading-normal ${isUnread ? 'text-[#C9B9D2] font-medium' : 'text-[#91819A]'}`}>
+                    <p className={`text-xs truncate leading-normal ${isUnread ? 'text-ah-text-2 font-medium' : 'text-ah-muted'}`}>
                       {isTyping ? (
                         <span className="text-[#8197FF] font-medium animate-pulse">typing...</span>
                       ) : thread.lastMessage ? (

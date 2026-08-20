@@ -7,28 +7,39 @@ export function applyTheme(mode: ThemeMode): void {
   const root = document.documentElement;
   const metaThemeColor = document.getElementById('theme-color-meta');
 
-  let isDark = false;
-  if (mode === 'dark') {
-    isDark = true;
-  } else if (mode === 'light') {
-    isDark = false;
-  } else if (mode === 'device') {
-    isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  }
+  const deviceIsDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches ?? true;
+  const resolvedMode: Exclude<ThemeMode, 'device'> =
+    mode === 'device' ? (deviceIsDark ? 'dark' : 'light') : mode;
+  const isDark = resolvedMode !== 'light';
+
+  root.dataset.theme = resolvedMode;
 
   if (isDark) {
     root.classList.add('dark');
     root.classList.remove('light');
     if (metaThemeColor) {
-      metaThemeColor.setAttribute('content', '#0c0d12');
+      metaThemeColor.setAttribute('content', getThemeColor(resolvedMode));
     }
   } else {
     root.classList.add('light');
     root.classList.remove('dark');
     if (metaThemeColor) {
-      metaThemeColor.setAttribute('content', '#f8f9fa');
+      metaThemeColor.setAttribute('content', getThemeColor(resolvedMode));
     }
   }
+}
+
+function getThemeColor(mode: Exclude<ThemeMode, 'device'>): string {
+  const colors: Record<Exclude<ThemeMode, 'device'>, string> = {
+    dark: '#11101A',
+    light: '#F7F2F7',
+    'dead-signal': '#071522',
+    'archive-amber': '#17120B',
+    'crt-green': '#07110B',
+    'blood-moon': '#17090D',
+    'something-wrong': '#ECE9DF',
+  };
+  return colors[mode];
 }
 
 export function applyFont(font: FontChoice): void {

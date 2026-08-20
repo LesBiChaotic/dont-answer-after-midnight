@@ -26,9 +26,9 @@ export class AppErrorBoundary extends React.Component<
     if (!this.state.hasError) return this.props.children;
 
     return (
-      <main className="app-viewport flex items-center justify-center bg-night-bg px-5 py-10 text-night-text">
+      <main className="app-viewport flex items-center justify-center bg-ah-canvas px-5 py-10 text-ah-text">
         <section
-          className="w-full max-w-md rounded-3xl border border-night-border bg-night-surface p-6 text-center shadow-2xl"
+          className="w-full max-w-md rounded-3xl border border-ah-border bg-ah-surface p-6 text-center shadow-2xl"
           role="alert"
           aria-live="assertive"
         >
@@ -36,13 +36,13 @@ export class AppErrorBoundary extends React.Component<
             Signal interrupted
           </p>
           <h1 className="mt-3 font-serif text-2xl font-bold">AFTERHOURS failed to mount.</h1>
-          <p className="mt-3 text-sm leading-relaxed text-night-muted">
+          <p className="mt-3 text-sm leading-relaxed text-ah-muted">
             Your local profile and messages are still stored on this device. Reload to reconnect.
           </p>
           <button
             type="button"
             onClick={this.reload}
-            className="mt-6 min-h-touch w-full rounded-2xl bg-brand-400 px-4 py-3 font-semibold text-night-bg transition-colors hover:bg-brand-300"
+            className="mt-6 min-h-touch w-full rounded-2xl bg-brand-400 px-4 py-3 font-semibold text-ah-canvas transition-colors hover:bg-brand-300"
           >
             Reload AFTERHOURS
           </button>
