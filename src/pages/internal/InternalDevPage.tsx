@@ -35,11 +35,11 @@ export const InternalDevPage: React.FC = () => {
 
       <main className="flex-1 overflow-y-auto p-4 space-y-4 max-w-md mx-auto w-full font-mono text-xs">
         {/* Banner */}
-        <div className="p-3 bg-indigo-950/40 border border-indigo-800/50 rounded-2xl flex items-start gap-2.5 text-indigo-300">
+        <div className="p-3 bg-ah-surface-2 border border-indigo-800/50 rounded-2xl flex items-start gap-2.5 text-ah-text">
           <Terminal className="w-4 h-4 text-indigo-400 shrink-0 mt-0.5" />
           <div className="space-y-0.5">
             <span className="font-semibold">AFTERHOURS CONTINUITY RUNTIME</span>
-            <p className="text-[11px] text-indigo-200/80 leading-tight">
+            <p className="text-[11px] text-ah-text-2 leading-tight">
               Developer tools for inspecting narrative continuity and event triggers.
             </p>
           </div>
@@ -73,7 +73,7 @@ export const InternalDevPage: React.FC = () => {
             onClick={handleTriggerTestNotification}
             className="w-full py-3 px-4 bg-ah-surface-2 hover:bg-ah-hover border border-ah-border text-ah-text rounded-xl text-xs font-semibold flex items-center justify-center gap-2 min-h-touch active:scale-95 transition-all shadow-xs"
           >
-            {notificationSent ? <Check className="w-4 h-4 text-emerald-300" /> : <Bell className="w-4 h-4 text-brand-400" />}
+            {notificationSent ? <Check className="w-4 h-4 text-ah-text" /> : <Bell className="w-4 h-4 text-brand-400" />}
             <span>{notificationSent ? 'Dispatched!' : 'Trigger Continuity Notification'}</span>
           </button>
         </div>
@@ -114,14 +114,14 @@ export const InternalDevPage: React.FC = () => {
             {continuityRecords.map((rec) => (
               <div
                 key={rec.id}
-                className="p-3 bg-black/40 border border-ah-border rounded-xl text-[11px] space-y-1 text-emerald-400"
+                className="p-3 bg-ah-surface-3 border border-ah-border rounded-xl text-[11px] space-y-1 text-emerald-400"
               >
                 <div className="flex items-center justify-between text-[10px] text-ah-muted">
                   <span>TYPE: {rec.recordType}</span>
                   <span>ENTITY: {rec.entityId}</span>
                 </div>
-                <p className="text-slate-200">{rec.description}</p>
-                <div className="text-[9px] text-indigo-300">REF: {rec.evidenceRef}</div>
+                <p className="text-ah-text-2">{rec.description}</p>
+                <div className="text-[9px] text-ah-text">REF: {rec.evidenceRef}</div>
               </div>
             ))}
           </div>

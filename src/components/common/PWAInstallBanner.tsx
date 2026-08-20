@@ -102,13 +102,13 @@ export const PWAInstallBanner: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-3 gap-2 text-[10px] text-ah-muted font-mono pt-0.5">
-        <span className="text-center py-1 bg-black/40 rounded-lg border border-ah-border">⚡ Instant Launch</span>
-        <span className="text-center py-1 bg-black/40 rounded-lg border border-ah-border">📦 Offline Sync</span>
-        <span className="text-center py-1 bg-black/40 rounded-lg border border-ah-border">📱 Fullscreen</span>
+        <span className="text-center py-1 bg-ah-surface-3 rounded-lg border border-ah-border">⚡ Instant Launch</span>
+        <span className="text-center py-1 bg-ah-surface-3 rounded-lg border border-ah-border">📦 Offline Sync</span>
+        <span className="text-center py-1 bg-ah-surface-3 rounded-lg border border-ah-border">📱 Fullscreen</span>
       </div>
 
       {isIOS ? (
-        <div className="p-2 bg-black/50 border border-ah-border rounded-xl text-[11px] text-ah-muted flex items-center gap-2">
+        <div className="p-2 bg-ah-surface-3 border border-ah-border rounded-xl text-[11px] text-ah-muted flex items-center gap-2">
           <Share className="w-4 h-4 text-brand-400 shrink-0" />
           <span>Tap <strong>Share</strong> in Safari, then select <strong>Add to Home Screen</strong>.</span>
         </div>

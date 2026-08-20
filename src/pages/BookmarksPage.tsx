@@ -77,15 +77,15 @@ export const BookmarksPage: React.FC = () => {
                 key={item.id}
                 className={`p-4 rounded-3xl space-y-3 shadow-md border ${
                   isOurList
-                    ? 'bg-[#21182B] border-[#8FA9FF]/50 shadow-[0_0_16px_rgba(143,169,255,0.15)]'
-                    : 'bg-[#201A15] border-[#4D3F28]'
+                    ? 'bg-ah-surface-2 border-[#8FA9FF]/50 shadow-[0_0_16px_rgba(143,169,255,0.15)]'
+                    : 'bg-ah-surface-2 border-[#4D3F28]'
                 }`}
               >
                 <div className="flex items-center justify-between">
                   <span className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider ${
                     isOurList
-                      ? 'bg-[#2D1E42] text-[#8FA9FF] border border-[#8FA9FF]/40'
-                      : 'bg-[#362B1A] text-[#D5AB5E] border border-[#D5AB5E]/40'
+                      ? 'bg-ah-surface-2 text-[#8FA9FF] border border-[#8FA9FF]/40'
+                      : 'bg-ah-surface-2 text-[#D5AB5E] border border-[#D5AB5E]/40'
                   }`}>
                     {item.category}
                   </span>
@@ -100,7 +100,7 @@ export const BookmarksPage: React.FC = () => {
                 </div>
 
                 {/* Message quote */}
-                <div className="p-3.5 bg-[#15121B] border border-ah-border rounded-2xl text-xs text-ah-text leading-relaxed select-text space-y-1">
+                <div className="p-3.5 bg-ah-surface-2 border border-ah-border rounded-2xl text-xs text-ah-text leading-relaxed select-text space-y-1">
                   <div className="font-semibold text-[#8197FF] text-[11px]">
                     {item.message?.senderName || 'Contact'}:
                   </div>

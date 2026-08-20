@@ -70,10 +70,10 @@ export const BlockedPage: React.FC = () => {
             {HISTORICAL_BLOCK_RECORDS.map((item) => (
               <div
                 key={item.id}
-                className="p-3.5 bg-amber-950/20 border border-amber-800/50 rounded-2xl space-y-1.5"
+                className="p-3.5 bg-ah-surface-2 border border-amber-800/50 rounded-2xl space-y-1.5"
               >
                 <div className="flex items-center justify-between font-mono text-[10px]">
-                  <span className="font-semibold text-amber-300">
+                  <span className="font-semibold text-ah-text">
                     [{item.platformEra}] @{item.handle}
                   </span>
                   <span className="text-ah-muted">{item.blockedDate}</span>
@@ -81,7 +81,7 @@ export const BlockedPage: React.FC = () => {
                 <p className="text-xs text-ah-text leading-relaxed">
                   Reason: {item.reason}
                 </p>
-                <p className="text-[10px] text-amber-200/60 font-mono">
+                <p className="text-[10px] text-ah-text-2 font-mono">
                   Partition: {item.recoveredFromPartition}
                 </p>
               </div>

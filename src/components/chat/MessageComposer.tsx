@@ -99,7 +99,7 @@ export const MessageComposer: React.FC<MessageComposerProps> = ({
     <div className="sticky bottom-0 z-30 w-full bg-ah-surface/95 backdrop-blur-xl border-t border-ah-border pb-[max(env(safe-area-inset-bottom),10px)] select-none shadow-xl">
       {/* Replying Banner */}
       {replyingTo && (
-        <div className="flex items-center justify-between px-4 py-2 bg-[#252038] border-b border-[#382D52] text-xs">
+        <div className="flex items-center justify-between px-4 py-2 bg-ah-surface-2 border-b border-[#382D52] text-xs">
           <div className="flex flex-col min-w-0 pr-2">
             <span className="text-[#8197FF] font-semibold text-[11px]">
               Replying to {replyingTo.senderName}
@@ -150,7 +150,7 @@ export const MessageComposer: React.FC<MessageComposerProps> = ({
           type="button"
           onClick={() => setShowEmojiPicker(!showEmojiPicker)}
           className={`p-2.5 min-h-touch min-w-touch flex items-center justify-center rounded-full transition-colors shrink-0 ${
-            showEmojiPicker ? 'text-[#B979FF] bg-[#252038]' : 'text-ah-muted hover:text-ah-text active:bg-ah-surface-2'
+            showEmojiPicker ? 'text-[#B979FF] bg-ah-surface-2' : 'text-ah-muted hover:text-ah-text active:bg-ah-surface-2'
           }`}
           aria-label="Toggle emoji picker"
         >
@@ -189,7 +189,7 @@ export const MessageComposer: React.FC<MessageComposerProps> = ({
 
       {/* Attachment Modal */}
       {showAttachmentModal && (
-        <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/60 backdrop-blur-xs p-3 animate-fade-in">
+        <div className="fixed inset-0 z-50 flex items-end justify-center bg-ah-surface-3 backdrop-blur-xs p-3 animate-fade-in">
           <div className="w-full max-w-[400px] bg-ah-surface border border-ah-border rounded-3xl p-4 shadow-2xl space-y-3 animate-slide-up">
             <h3 className="text-xs font-semibold text-ah-muted tracking-wider uppercase font-mono">
               Attach System Resource

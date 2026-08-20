@@ -11,35 +11,35 @@ const getNotifCategoryStyle = (type: NotificationType) => {
     case 'message':
       return {
         icon: MessageSquare,
-        bg: 'bg-[#1E2540]',
+        bg: 'bg-ah-surface-2',
         border: 'border-[#8197FF]/40',
         text: 'text-[#8197FF]',
       };
     case 'mention':
       return {
         icon: Sparkles,
-        bg: 'bg-[#2D1B4E]',
+        bg: 'bg-ah-surface-2',
         border: 'border-[#B979FF]/40',
         text: 'text-[#B979FF]',
       };
     case 'room_post':
       return {
         icon: Hash,
-        bg: 'bg-[#152D2C]',
+        bg: 'bg-ah-surface-2',
         border: 'border-[#57C7C1]/40',
         text: 'text-[#57C7C1]',
       };
     case 'safety_alert':
       return {
         icon: ShieldAlert,
-        bg: 'bg-[#331722]',
+        bg: 'bg-ah-surface-2',
         border: 'border-[#E07DA5]/40',
         text: 'text-[#E07DA5]',
       };
     case 'archive_alert':
       return {
         icon: Database,
-        bg: 'bg-[#1C2033]',
+        bg: 'bg-ah-surface-2',
         border: 'border-[#8FA9FF]/40',
         text: 'text-[#8FA9FF]',
       };
@@ -47,7 +47,7 @@ const getNotifCategoryStyle = (type: NotificationType) => {
     default:
       return {
         icon: Info,
-        bg: 'bg-[#2E2015]',
+        bg: 'bg-ah-surface-2',
         border: 'border-[#F0A06D]/40',
         text: 'text-[#F0A06D]',
       };

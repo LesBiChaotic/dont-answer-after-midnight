@@ -12,10 +12,10 @@ const STICKER_ICONS = [
 ];
 
 const BADGE_COLORS = [
-  { name: 'Indigo', bg: 'bg-indigo-950/80', border: 'border-indigo-500', text: 'text-indigo-300' },
-  { name: 'Slate', bg: 'bg-slate-900/80', border: 'border-slate-500', text: 'text-slate-300' },
-  { name: 'Emerald', bg: 'bg-emerald-950/80', border: 'border-emerald-500', text: 'text-emerald-300' },
-  { name: 'Amber', bg: 'bg-amber-950/80', border: 'border-amber-500', text: 'text-amber-300' },
+  { name: 'Indigo', bg: 'bg-ah-surface-2', border: 'border-indigo-500', text: 'text-ah-text' },
+  { name: 'Slate', bg: 'bg-slate-900/80', border: 'border-slate-500', text: 'text-ah-text' },
+  { name: 'Emerald', bg: 'bg-ah-surface-2', border: 'border-emerald-500', text: 'text-ah-text' },
+  { name: 'Amber', bg: 'bg-ah-surface-2', border: 'border-amber-500', text: 'text-ah-text' },
   { name: 'Rose', bg: 'bg-rose-950/80', border: 'border-rose-500', text: 'text-rose-300' },
 ];
 

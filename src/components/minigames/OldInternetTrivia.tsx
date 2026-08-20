@@ -85,9 +85,9 @@ export const OldInternetTrivia: React.FC = () => {
               let btnStyle = 'bg-ah-surface-2 border-ah-border text-ah-text hover:bg-ah-hover';
               if (isAnswered) {
                 if (isCorrect) {
-                  btnStyle = 'bg-emerald-950/40 border-emerald-500 text-emerald-200 ring-1 ring-emerald-500/50';
+                  btnStyle = 'bg-ah-surface-2 border-emerald-500 text-ah-text-2 ring-1 ring-emerald-500/50';
                 } else if (isSelected) {
-                  btnStyle = 'bg-red-950/40 border-red-500 text-red-200 ring-1 ring-red-500/50';
+                  btnStyle = 'bg-ah-surface-2 border-red-500 text-ah-text-2 ring-1 ring-red-500/50';
                 }
               }
 

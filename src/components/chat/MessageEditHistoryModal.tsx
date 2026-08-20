@@ -24,7 +24,7 @@ export const MessageEditHistoryModal: React.FC<MessageEditHistoryModalProps> = (
   const versions = message.versions || [];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/70 backdrop-blur-xs p-3 animate-fade-in">
+    <div className="fixed inset-0 z-50 flex items-end justify-center bg-ah-surface-3 backdrop-blur-xs p-3 animate-fade-in">
       <div className="w-full max-w-[420px] bg-ah-surface border border-ah-border rounded-3xl p-4 shadow-2xl space-y-4 animate-slide-up">
         {/* Header */}
         <div className="flex items-center justify-between border-b border-ah-border/60 pb-3">
@@ -44,11 +44,11 @@ export const MessageEditHistoryModal: React.FC<MessageEditHistoryModalProps> = (
 
         {/* Anomaly Hint if multi-version temporal sequence exists */}
         {versions.length > 2 && (
-          <div className="p-3 bg-indigo-950/40 border border-indigo-800/50 rounded-2xl flex items-start gap-2.5 text-xs text-indigo-200">
+          <div className="p-3 bg-ah-surface-2 border border-indigo-800/50 rounded-2xl flex items-start gap-2.5 text-xs text-ah-text-2">
             <AlertCircle className="w-4 h-4 text-indigo-400 shrink-0 mt-0.5" />
             <div className="space-y-0.5">
-              <span className="font-semibold text-indigo-300">Server Audit Timestamp Anomaly</span>
-              <p className="text-[11px] text-indigo-200/80 leading-relaxed">
+              <span className="font-semibold text-ah-text">Server Audit Timestamp Anomaly</span>
+              <p className="text-[11px] text-ah-text-2 leading-relaxed">
                 Revision logs indicate reverse temporal backfill across server timestamps.
               </p>
             </div>
