@@ -1,4 +1,4 @@
-const CACHE_NAME = 'afterhours-v3';
+const CACHE_NAME = 'afterhours-v4';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -47,7 +47,34 @@ self.addEventListener('fetch', (event) => {
   // Only handle http/https requests
   if (!event.request.url.startsWith('http')) return;
 
-  // Stale-while-revalidate strategy for same-origin navigation & assets
+  // Navigations must prefer the network. Serving stale index.html can point at
+  // hashed JavaScript files removed by a newer GitHub Pages deployment,
+  // resulting in a completely blank application shell.
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request)
+        .then((networkResponse) => {
+          if (networkResponse?.ok) {
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put('./index.html', networkResponse.clone());
+              cache.put('./', networkResponse.clone());
+            });
+          }
+          return networkResponse;
+        })
+        .catch(async () => {
+          return (await caches.match('./index.html'))
+            || (await caches.match('./'))
+            || new Response('AFTERHOURS is offline.', {
+              status: 503,
+              headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+            });
+        })
+    );
+    return;
+  }
+
+  // Stable same-origin assets remain cache-first with background refresh.
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
       const fetchPromise = fetch(event.request)
@@ -60,12 +87,7 @@ self.addEventListener('fetch', (event) => {
           }
           return networkResponse;
         })
-        .catch(async () => {
-          // If offline and requesting navigation, return index.html
-          if (event.request.mode === 'navigate') {
-            return (await caches.match('./index.html')) || (await caches.match('./'));
-          }
-
+        .catch(() => {
           return new Response('AFTERHOURS is offline.', {
             status: 503,
             headers: { 'Content-Type': 'text/plain; charset=utf-8' },
