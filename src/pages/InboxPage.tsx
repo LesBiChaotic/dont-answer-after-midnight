@@ -4,6 +4,7 @@ import { useChat } from '../context/ChatContext';
 import { Avatar } from '../components/common/Avatar';
 import { TopBar } from '../components/layout/TopBar';
 import { BottomNav } from '../components/layout/BottomNav';
+import { NetworkPulse } from '../components/inbox/NetworkPulse';
 import { Search, Pin, BellOff, Users, Moon, MessageSquare, BookOpen, Sparkles } from 'lucide-react';
 
 type InboxTab = 'all' | 'unread' | 'groups' | 'archived';
@@ -59,6 +60,10 @@ export const InboxPage: React.FC = () => {
           </div>
         }
       />
+
+      {activeTab === 'all' && (
+        <NetworkPulse threads={threads} onOpenThread={(threadId) => navigate(`/chats/${threadId}`)} />
+      )}
 
       {/* Filter Tabs */}
       <div className="flex px-3 pt-3 pb-2.5 gap-1.5 overflow-x-auto no-scrollbar shrink-0 border-b border-ah-border/60 bg-ah-canvas">

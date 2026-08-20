@@ -23,6 +23,7 @@ import { SEEDED_COMMUNITY_ROOMS } from './communityRoomsData';
 import { LEGACY_ARCHIVE_LOGS } from './legacyArchiveData';
 import { INTERNAL_DOCS } from './internalDocsData';
 import { HELP_ARTICLES } from './helpCenterData';
+import { POPULATION_MESSAGES, POPULATION_NOTIFICATIONS, POPULATION_BOOKMARKS } from './populationExpansion';
 
 export const DEFAULT_AVATAR: AvatarConfig = {
   skinTone: '#E0AC69',
@@ -84,6 +85,7 @@ export const INITIAL_MESSAGES: Message[] = [
   ...SEEDED_DM_THREADS.flatMap((d) => d.messages),
   ...SEEDED_GROUP_THREADS.flatMap((g) => g.messages),
   ...SEEDED_COMMUNITY_ROOMS.flatMap((r) => r.messages),
+  ...POPULATION_MESSAGES,
 ];
 
 // 3. All 11 Community Rooms
@@ -127,6 +129,7 @@ export const INITIAL_BOOKMARKS: MessageBookmark[] = [
     savedAt: '2017-04-12T03:19:00Z', // Saved in 2017 despite 2026 account!
     note: 'OUR LIST:\n1. batteries\n2. send Felix archive\n3. finish room banner\n4. buy tea\n5. don\'t answer me after midnight',
   },
+  ...POPULATION_BOOKMARKS,
 ];
 
 // 5. 100+ Notification Variants (Normal Dominates, Rare Late Continuity)
@@ -207,6 +210,7 @@ export const INITIAL_NOTIFICATIONS: Notification[] = [
     isRead: true,
     senderHandle: 'chloe.z',
   },
+  ...POPULATION_NOTIFICATIONS,
 ];
 
 // 6. Blocked & Muted Lists

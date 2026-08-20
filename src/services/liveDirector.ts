@@ -68,9 +68,31 @@ class LiveDirectorService {
     const userText = userMessage.content.toLowerCase();
     const currentStage = continuityService.getState().currentStage;
 
-    // Determine respondent and content based on thread and narrative stage
-    let respondent = SEEDED_PARTICIPANTS.elena;
-    let replyText = 'Thanks for the update. Let me check the index on my end.';
+    // Default to an actual member of the active conversation so every contact
+    // has a voice, rather than making Elena mysteriously answer for everyone.
+    const availableRespondents = thread.participants.filter((participant) => participant.id !== userMessage.senderId);
+    let respondent = availableRespondents[Math.floor(Math.random() * availableRespondents.length)]
+      || thread.participants[0]
+      || SEEDED_PARTICIPANTS.elena;
+    const conversationalReplies = userText.includes('?')
+      ? [
+          'I think so, but give me a minute to check what I saved from last night.',
+          'Short answer: probably. Long answer: I have three tabs open and a theory.',
+          'Maybe. What made you notice it now?',
+        ]
+      : userText.includes('archive') || userText.includes('log')
+        ? [
+            'I have a related fragment in my saves. Sending the useful part when I find it.',
+            'That lines up with an old timestamp I bookmarked. Weirdly, down to the minute.',
+            'Adding it to the pile of things the archive insists are coincidences.',
+          ]
+        : [
+            'Okay, that got my attention. Keep going.',
+            'Noted. I was about to log off, and now I absolutely am not.',
+            'I saw something adjacent to that earlier. Let me pull it back up.',
+            'You say that like it is normal midnight information.',
+          ];
+    let replyText = conversationalReplies[Math.floor(Math.random() * conversationalReplies.length)];
     let typingDuration = 2400; // 2.4s
 
     if (threadId === 'thread_ren_dm') {

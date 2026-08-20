@@ -227,6 +227,48 @@ export async function initializeDatabaseSeed(): Promise<void> {
     await tx.done;
     console.log('[Storage] Seed complete.');
   }
+
+  await migratePopulationExpansion(db);
+}
+
+const POPULATION_VERSION = '2';
+const POPULATION_VERSION_KEY = 'afterhours_population_version';
+
+async function migratePopulationExpansion(db: IDBPDatabase<AfterhoursDB>): Promise<void> {
+  if (localStorage.getItem(POPULATION_VERSION_KEY) === POPULATION_VERSION) return;
+
+  console.log('[Storage] Applying non-destructive population expansion...');
+  let insertedMessages = 0;
+  let insertedNotifications = 0;
+  let insertedBookmarks = 0;
+
+  for (const message of INITIAL_MESSAGES) {
+    if (!(await db.get('messages', message.id))) {
+      await db.put('messages', message);
+      insertedMessages += 1;
+    }
+  }
+
+  for (const notification of INITIAL_NOTIFICATIONS) {
+    if (!(await db.get('notifications', notification.id))) {
+      await db.put('notifications', notification);
+      insertedNotifications += 1;
+    }
+  }
+
+  for (const bookmark of INITIAL_BOOKMARKS) {
+    if (!(await db.get('bookmarks', bookmark.id))) {
+      await db.put('bookmarks', bookmark);
+      insertedBookmarks += 1;
+    }
+  }
+
+  localStorage.setItem(POPULATION_VERSION_KEY, POPULATION_VERSION);
+  console.log('[Storage] Population expansion complete.', {
+    insertedMessages,
+    insertedNotifications,
+    insertedBookmarks,
+  });
 }
 
 // PROFILE ACCESSORS
