@@ -15,12 +15,12 @@ export const SafetyHubPage: React.FC = () => {
 
       <main className="flex-1 overflow-y-auto p-4 space-y-4">
         {/* Top Guidelines Banner */}
-        <div className="p-4 bg-emerald-950/30 border border-emerald-800/50 rounded-2xl space-y-2">
-          <div className="flex items-center gap-2 text-emerald-300 font-semibold text-xs">
+        <div className="p-4 bg-ah-surface-2 border border-emerald-800/50 rounded-2xl space-y-2">
+          <div className="flex items-center gap-2 text-ah-text font-semibold text-xs">
             <Shield className="w-4 h-4" />
             <span>Fictional Application Discretion</span>
           </div>
-          <p className="text-xs text-emerald-200/80 leading-relaxed">
+          <p className="text-xs text-ah-text-2 leading-relaxed">
             AFTERHOURS never accesses your device contacts, real SMS, camera, microphone, or location. All interactions are self-contained simulated nocturnal network narratives.
           </p>
         </div>

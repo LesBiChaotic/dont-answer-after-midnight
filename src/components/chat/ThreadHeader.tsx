@@ -79,7 +79,7 @@ export const ThreadHeader: React.FC<ThreadHeaderProps> = ({ thread, activeTyping
               </span>
               {isMuted && <BellOff className="w-3 h-3 text-ah-muted shrink-0" />}
               {isBlocked && (
-                <span className="text-[10px] bg-red-950/80 text-red-300 border border-red-800/60 px-1.5 rounded-sm">
+                <span className="text-[10px] bg-ah-surface-2 text-ah-text border border-red-800/60 px-1.5 rounded-sm">
                   Blocked
                 </span>
               )}

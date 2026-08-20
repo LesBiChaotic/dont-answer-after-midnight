@@ -9,31 +9,31 @@ const getEraStyle = (era: string) => {
   switch (era) {
     case '2001':
       return {
-        badgeBg: 'bg-[#182238] border-[#3D8A69]/40 text-[#69C49A]',
+        badgeBg: 'bg-ah-surface-2 border-[#3D8A69]/40 text-[#69C49A]',
         cardBorder: 'border-[#3D8A69]/30 hover:border-[#69C49A]',
         accent: 'text-[#69C49A]',
       };
     case '2004':
       return {
-        badgeBg: 'bg-[#162734] border-[#57C7C1]/40 text-[#57C7C1]',
+        badgeBg: 'bg-ah-surface-2 border-[#57C7C1]/40 text-[#57C7C1]',
         cardBorder: 'border-[#57C7C1]/30 hover:border-[#57C7C1]',
         accent: 'text-[#57C7C1]',
       };
     case '2008':
       return {
-        badgeBg: 'bg-[#291B3D] border-[#B979FF]/40 text-[#B979FF]',
+        badgeBg: 'bg-ah-surface-2 border-[#B979FF]/40 text-[#B979FF]',
         cardBorder: 'border-[#B979FF]/30 hover:border-[#B979FF]',
         accent: 'text-[#B979FF]',
       };
     case '2013':
       return {
-        badgeBg: 'bg-[#2E1E28] border-[#F0A06D]/40 text-[#F0A06D]',
+        badgeBg: 'bg-ah-surface-2 border-[#F0A06D]/40 text-[#F0A06D]',
         cardBorder: 'border-[#F0A06D]/30 hover:border-[#F0A06D]',
         accent: 'text-[#F0A06D]',
       };
     case '2018':
       return {
-        badgeBg: 'bg-[#251B38] border-[#B58AF4]/40 text-[#B58AF4]',
+        badgeBg: 'bg-ah-surface-2 border-[#B58AF4]/40 text-[#B58AF4]',
         cardBorder: 'border-[#B58AF4]/30 hover:border-[#B58AF4]',
         accent: 'text-[#B58AF4]',
       };
@@ -73,7 +73,7 @@ export const ArchiveBrowserPage: React.FC = () => {
 
       {/* Continuity Anomaly Alert Banner if records exist */}
       {continuityRecords.length > 0 && (
-        <div className="mx-3 mt-3 p-3.5 bg-[#252B3C]/80 border border-[#3E4663] rounded-2xl flex items-start gap-2.5 text-xs text-[#8FA9FF] shadow-sm">
+        <div className="mx-3 mt-3 p-3.5 bg-ah-surface-2/80 border border-[#3E4663] rounded-2xl flex items-start gap-2.5 text-xs text-[#8FA9FF] shadow-sm">
           <AlertCircle className="w-4 h-4 text-[#8FA9FF] shrink-0 mt-0.5" />
           <div className="space-y-0.5">
             <span className="font-semibold text-ah-text">Archive Continuity Indexes Active</span>

@@ -59,7 +59,7 @@ export const ProfilePage: React.FC = () => {
 
       <main className="flex-1 overflow-y-auto p-4 space-y-4">
         {/* Profile Identity Card (Luminous Halo + Distinct Tint) */}
-        <div className="p-5 bg-gradient-to-b from-[#1E162B] to-[#191625] border border-[#3E2954] rounded-3xl space-y-4 shadow-xl text-center flex flex-col items-center">
+        <div className="p-5 bg-gradient-to-b from-ah-surface-2 to-ah-surface border border-ah-border rounded-3xl space-y-4 shadow-xl text-center flex flex-col items-center">
           <div className="relative">
             <div className={`p-1 rounded-3xl ring-2 ${frameClass}`}>
               <Avatar config={profile.avatarConfig} size="xl" showStatusDot status="afterhours" />
@@ -93,7 +93,7 @@ export const ProfilePage: React.FC = () => {
             <div className="flex items-center justify-center gap-2 pt-0.5 text-[10px] text-ah-muted font-mono">
               <span>Joined: {new Date(profile.createdAt).toLocaleDateString([], { month: 'short', year: 'numeric' })}</span>
               <span>•</span>
-              <span className="text-[#8197FF]">Quiet Hours: {profile.quietHours || '00:00-08:00'}</span>
+              <span className="text-ah-periwinkle">Quiet Hours: {profile.quietHours || '00:00-08:00'}</span>
             </div>
           </div>
 
@@ -145,7 +145,7 @@ export const ProfilePage: React.FC = () => {
               {profile.interests.map((interest) => (
                 <span
                   key={interest}
-                  className="px-3 py-1 rounded-full bg-ah-surface-2 border border-[#3E2954] text-[10px] text-[#B979FF] font-medium"
+                  className="px-3 py-1 rounded-full bg-ah-surface-2 border border-ah-border text-[10px] text-ah-electric-lilac font-medium"
                 >
                   #{interest}
                 </span>
@@ -163,7 +163,7 @@ export const ProfilePage: React.FC = () => {
         </div>
 
         {/* Navigation Quick Links (Different Restrained Tints per Category) */}
-        <div className="bg-ah-surface border border-ah-border rounded-3xl overflow-hidden divide-y divide-[#2E2742]/50 text-xs font-medium shadow-md">
+        <div className="bg-ah-surface border border-ah-border rounded-3xl overflow-hidden divide-y divide-ah-border/50 text-xs font-medium shadow-md">
           <button
             type="button"
             onClick={() => navigate('/cabinet')}
@@ -184,12 +184,12 @@ export const ProfilePage: React.FC = () => {
             className="w-full px-4 py-3.5 flex items-center justify-between hover:bg-ah-surface-2 min-h-touch text-left transition-colors"
           >
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-xl bg-[#2D1B4E] border border-[#B979FF]/40 flex items-center justify-center text-[#B979FF]">
+              <div className="w-8 h-8 rounded-xl bg-ah-surface-3 border border-ah-electric-lilac/40 flex items-center justify-center text-ah-electric-lilac">
                 <Sparkles className="w-4 h-4" />
               </div>
               <span className="text-ah-text">Vector Avatar Builder</span>
             </div>
-            <span className="text-[11px] text-[#B979FF] font-semibold">Customize</span>
+            <span className="text-[11px] text-ah-electric-lilac font-semibold">Customize</span>
           </button>
 
           {/* Bookmarks (Gold) */}
@@ -199,12 +199,12 @@ export const ProfilePage: React.FC = () => {
             className="w-full px-4 py-3.5 flex items-center justify-between hover:bg-ah-surface-2 min-h-touch text-left transition-colors"
           >
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-xl bg-[#2D2418] border border-[#D5AB5E]/40 flex items-center justify-center text-[#D5AB5E]">
+              <div className="w-8 h-8 rounded-xl bg-ah-surface-3 border border-ah-gold/40 flex items-center justify-center text-ah-gold">
                 <Bookmark className="w-4 h-4" />
               </div>
               <span className="text-ah-text">Saved Bookmarks & Evidence</span>
             </div>
-            <span className="text-[11px] text-[#D5AB5E] font-semibold">View</span>
+            <span className="text-[11px] text-ah-gold font-semibold">View</span>
           </button>
 
           {/* Safety (Rose) */}
@@ -214,12 +214,12 @@ export const ProfilePage: React.FC = () => {
             className="w-full px-4 py-3.5 flex items-center justify-between hover:bg-ah-surface-2 min-h-touch text-left transition-colors"
           >
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-xl bg-[#2D1A22] border border-[#E07DA5]/40 flex items-center justify-center text-[#E07DA5]">
+              <div className="w-8 h-8 rounded-xl bg-ah-surface-3 border border-ah-rose/40 flex items-center justify-center text-ah-rose">
                 <Shield className="w-4 h-4" />
               </div>
               <span className="text-ah-text">Safety & Block Controls</span>
             </div>
-            <span className="text-[11px] text-[#E07DA5] font-semibold">Manage</span>
+            <span className="text-[11px] text-ah-rose font-semibold">Manage</span>
           </button>
 
           {/* Settings (Teal) */}
@@ -229,12 +229,12 @@ export const ProfilePage: React.FC = () => {
             className="w-full px-4 py-3.5 flex items-center justify-between hover:bg-ah-surface-2 min-h-touch text-left transition-colors"
           >
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-xl bg-[#142629] border border-[#57C7C1]/40 flex items-center justify-center text-[#57C7C1]">
+              <div className="w-8 h-8 rounded-xl bg-ah-surface-3 border border-ah-teal/40 flex items-center justify-center text-ah-teal">
                 <Settings className="w-4 h-4" />
               </div>
               <span className="text-ah-text">Settings, Themes & Offline Sync</span>
             </div>
-            <span className="text-[11px] text-[#57C7C1] font-semibold">Configure</span>
+            <span className="text-[11px] text-ah-teal font-semibold">Configure</span>
           </button>
 
           {/* Internal Tools (Cold Violet) */}
@@ -244,12 +244,12 @@ export const ProfilePage: React.FC = () => {
             className="w-full px-4 py-3.5 flex items-center justify-between hover:bg-ah-surface-2 min-h-touch text-left transition-colors"
           >
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-xl bg-[#1C2030] border border-[#8FA9FF]/40 flex items-center justify-center text-[#8FA9FF]">
+              <div className="w-8 h-8 rounded-xl bg-ah-surface-3 border border-ah-info/40 flex items-center justify-center text-ah-info">
                 <Code className="w-4 h-4" />
               </div>
               <span className="text-ah-text">Internal Continuity Tools</span>
             </div>
-            <span className="text-[11px] text-[#8FA9FF] font-mono font-semibold">DEV/ARG</span>
+            <span className="text-[11px] text-ah-info font-mono font-semibold">DEV/ARG</span>
           </button>
         </div>
       </main>

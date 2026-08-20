@@ -19,7 +19,7 @@ export const MobileContainer: React.FC<MobileContainerProps> = ({
     return (
       <div className="app-viewport w-full bg-[#08090d] flex flex-col items-center justify-center p-4 sm:p-6 overflow-hidden">
         {/* Top Control Bar */}
-        <div className="w-full max-w-[390px] flex items-center justify-between py-2 px-3 mb-2 bg-slate-900/90 border border-slate-800 rounded-full text-xs text-slate-300">
+        <div className="w-full max-w-[390px] flex items-center justify-between py-2 px-3 mb-2 bg-slate-900/90 border border-slate-800 rounded-full text-xs text-ah-text">
           <div className="flex items-center gap-2">
             <Smartphone className="w-3.5 h-3.5 text-brand-400" />
             <span className="font-mono text-[11px]">390 × 844 Mobile Device</span>
@@ -27,7 +27,7 @@ export const MobileContainer: React.FC<MobileContainerProps> = ({
           <button
             type="button"
             onClick={toggleDesktopPreview}
-            className="flex min-h-touch min-w-touch items-center justify-center gap-1 text-[11px] px-3 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors"
+            className="flex min-h-touch min-w-touch items-center justify-center gap-1 text-[11px] px-3 rounded-full bg-slate-800 hover:bg-slate-700 text-ah-text transition-colors"
           >
             <span>Exit</span>
             <X className="w-3 h-3" />

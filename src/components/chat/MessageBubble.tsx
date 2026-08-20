@@ -111,7 +111,7 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
             }}
             className={`text-xs px-3 py-1.5 mb-1 rounded-xl border max-w-[85%] truncate cursor-pointer active:scale-95 transition-all border-l-2 ${
               isUser
-                ? 'bg-[#252038] border-l-[#8197FF] border-[#382D52] text-ah-text-2'
+                ? 'bg-ah-surface-2 border-l-[#8197FF] border-[#382D52] text-ah-text-2'
                 : 'bg-ah-surface border-l-[#8197FF] border-ah-border text-ah-muted hover:text-ah-text'
             }`}
           >
@@ -127,8 +127,8 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
           onClick={() => setShowActionModal(true)}
           className={`relative px-4 py-2.5 rounded-2xl cursor-pointer max-w-full break-words shadow-md transition-all active:scale-[0.99] ${
             isUser
-              ? 'bg-gradient-to-br from-[#38265E] to-[#2B1D4B] text-ah-text border border-[#4E347A] rounded-br-xs'
-              : 'bg-[#1D1B2C] text-ah-text border border-ah-border rounded-bl-xs'
+              ? 'bg-gradient-to-br from-ah-primary to-ah-electric-lilac text-ah-text border border-[#4E347A] rounded-br-xs'
+              : 'bg-ah-surface-3 text-ah-text border border-ah-border rounded-bl-xs'
           }`}
         >
           {/* Bookmark Badge */}
@@ -235,7 +235,7 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
                 ) : message.status === 'sent' ? (
                   <Check className="w-3.5 h-3.5 text-ah-muted" />
                 ) : message.status === 'continuity_unresolved' ? (
-                  <span className="text-[9px] bg-[#252B3C] px-1 rounded text-[#8FA9FF] font-mono border border-[#3E4663]">
+                  <span className="text-[9px] bg-ah-surface-2 px-1 rounded text-[#8FA9FF] font-mono border border-[#3E4663]">
                     Continuity
                   </span>
                 ) : (
@@ -271,7 +271,7 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
       {showActionModal && (
         <div
           onClick={() => setShowActionModal(false)}
-          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-end justify-center p-3 animate-fade-in"
+          className="fixed inset-0 z-50 bg-ah-surface-3 backdrop-blur-xs flex items-end justify-center p-3 animate-fade-in"
         >
           <div
             onClick={(e) => e.stopPropagation()}

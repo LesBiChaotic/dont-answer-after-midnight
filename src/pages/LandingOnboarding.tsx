@@ -172,7 +172,7 @@ export const LandingOnboarding: React.FC = () => {
           <PWAInstallBanner />
 
           {/* Hero Section (Controlled Plum to Periwinkle Gradient) */}
-          <section className="relative p-6 rounded-3xl bg-gradient-to-br from-[#2D1B4E] via-[#1E1730] to-[#141122] border border-[#6E45C7]/50 shadow-2xl space-y-4 overflow-hidden text-left">
+          <section className="relative p-6 rounded-3xl bg-gradient-to-br from-ah-surface-2 via-ah-surface to-ah-surface border border-[#6E45C7]/50 shadow-2xl space-y-4 overflow-hidden text-left">
             {/* Abstract Chat Constellation SVG */}
             <div className="absolute top-2 right-2 w-36 h-36 opacity-30 pointer-events-none">
               <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -230,8 +230,8 @@ export const LandingOnboarding: React.FC = () => {
 
             <div className="grid grid-cols-1 gap-2.5">
               {/* 1. Private Chats (Lavender Tint) */}
-              <div className="p-4 bg-[#1E172E] border border-[#4B3573] rounded-2xl flex items-start gap-3.5 shadow-sm">
-                <div className="w-9 h-9 rounded-xl bg-[#2D1B4E] border border-[#B979FF]/40 flex items-center justify-center text-[#B979FF] shrink-0">
+              <div className="p-4 bg-ah-surface-2 border border-[#4B3573] rounded-2xl flex items-start gap-3.5 shadow-sm">
+                <div className="w-9 h-9 rounded-xl bg-ah-surface-2 border border-[#B979FF]/40 flex items-center justify-center text-[#B979FF] shrink-0">
                   <MessageSquare className="w-4 h-4" />
                 </div>
                 <div className="space-y-0.5">
@@ -243,8 +243,8 @@ export const LandingOnboarding: React.FC = () => {
               </div>
 
               {/* 2. Small Rooms (Blue/Periwinkle Tint) */}
-              <div className="p-4 bg-[#161D2E] border border-[#2B3E68] rounded-2xl flex items-start gap-3.5 shadow-sm">
-                <div className="w-9 h-9 rounded-xl bg-[#1D2947] border border-[#8197FF]/40 flex items-center justify-center text-[#8197FF] shrink-0">
+              <div className="p-4 bg-ah-surface-2 border border-[#2B3E68] rounded-2xl flex items-start gap-3.5 shadow-sm">
+                <div className="w-9 h-9 rounded-xl bg-ah-surface-3 border border-[#8197FF]/40 flex items-center justify-center text-[#8197FF] shrink-0">
                   <Hash className="w-4 h-4" />
                 </div>
                 <div className="space-y-0.5">
@@ -256,8 +256,8 @@ export const LandingOnboarding: React.FC = () => {
               </div>
 
               {/* 3. Archive Old Conversations (Teal Tint) */}
-              <div className="p-4 bg-[#132223] border border-[#214F4D] rounded-2xl flex items-start gap-3.5 shadow-sm">
-                <div className="w-9 h-9 rounded-xl bg-[#173636] border border-[#57C7C1]/40 flex items-center justify-center text-[#57C7C1] shrink-0">
+              <div className="p-4 bg-ah-surface-2 border border-[#214F4D] rounded-2xl flex items-start gap-3.5 shadow-sm">
+                <div className="w-9 h-9 rounded-xl bg-ah-surface-3 border border-[#57C7C1]/40 flex items-center justify-center text-[#57C7C1] shrink-0">
                   <Archive className="w-4 h-4" />
                 </div>
                 <div className="space-y-0.5">
@@ -269,8 +269,8 @@ export const LandingOnboarding: React.FC = () => {
               </div>
 
               {/* 4. Your Data, Your Controls (Gold Tint) */}
-              <div className="p-4 bg-[#231D14] border border-[#4D3F28] rounded-2xl flex items-start gap-3.5 shadow-sm">
-                <div className="w-9 h-9 rounded-xl bg-[#362D1B] border border-[#D5AB5E]/40 flex items-center justify-center text-[#D5AB5E] shrink-0">
+              <div className="p-4 bg-ah-surface-2 border border-[#4D3F28] rounded-2xl flex items-start gap-3.5 shadow-sm">
+                <div className="w-9 h-9 rounded-xl bg-ah-surface-3 border border-[#D5AB5E]/40 flex items-center justify-center text-[#D5AB5E] shrink-0">
                   <Database className="w-4 h-4" />
                 </div>
                 <div className="space-y-0.5">
@@ -282,8 +282,8 @@ export const LandingOnboarding: React.FC = () => {
               </div>
 
               {/* 5. Offline Reading (Rose Tint) */}
-              <div className="p-4 bg-[#22161E] border border-[#4F2D40] rounded-2xl flex items-start gap-3.5 shadow-sm">
-                <div className="w-9 h-9 rounded-xl bg-[#381F2E] border border-[#E07DA5]/40 flex items-center justify-center text-[#E07DA5] shrink-0">
+              <div className="p-4 bg-ah-surface-2 border border-[#4F2D40] rounded-2xl flex items-start gap-3.5 shadow-sm">
+                <div className="w-9 h-9 rounded-xl bg-ah-surface-3 border border-[#E07DA5]/40 flex items-center justify-center text-[#E07DA5] shrink-0">
                   <WifiOff className="w-4 h-4" />
                 </div>
                 <div className="space-y-0.5">
@@ -297,7 +297,7 @@ export const LandingOnboarding: React.FC = () => {
           </section>
 
           {/* Community Quote */}
-          <section className="p-5 bg-gradient-to-br from-[#1E162B] to-[#191625] border border-[#3E2954] rounded-2xl text-center space-y-2 shadow-sm">
+          <section className="p-5 bg-gradient-to-br from-ah-surface-2 to-ah-surface border border-[#3E2954] rounded-2xl text-center space-y-2 shadow-sm">
             <p className="text-xs italic text-[#B979FF] leading-relaxed font-serif">
               "The only place that makes 3:00 AM feel like a sanctuary instead of isolation."
             </p>
@@ -384,7 +384,7 @@ export const LandingOnboarding: React.FC = () => {
 
       <main className="flex-1 overflow-y-auto p-4 max-w-md mx-auto w-full space-y-5">
         {error && (
-          <div className="p-3 bg-[#381F26] border border-[#E16F86]/60 rounded-2xl text-xs text-[#E16F86] animate-shake">
+          <div className="p-3 bg-ah-surface-3 border border-[#E16F86]/60 rounded-2xl text-xs text-[#E16F86] animate-shake">
             {error}
           </div>
         )}

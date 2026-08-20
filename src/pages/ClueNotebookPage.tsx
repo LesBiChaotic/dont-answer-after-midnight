@@ -75,7 +75,7 @@ export const ClueNotebookPage: React.FC = () => {
                 Continuity Investigation Log
               </h2>
             </div>
-            <span className="text-[10px] font-mono text-emerald-400 font-semibold px-2 py-0.5 bg-emerald-950/60 border border-emerald-800/60 rounded-full">
+            <span className="text-[10px] font-mono text-emerald-400 font-semibold px-2 py-0.5 bg-ah-surface-2 border border-emerald-800/60 rounded-full">
               {solvedCount} / {puzzles.length} Solved
             </span>
           </div>
@@ -186,7 +186,7 @@ export const ClueNotebookPage: React.FC = () => {
                 key={puz.id}
                 className={`rounded-2xl border transition-all overflow-hidden ${
                   puz.isSolved
-                    ? 'bg-emerald-950/15 border-emerald-800/60 ring-1 ring-emerald-500/20'
+                    ? 'bg-ah-surface-2 border-emerald-800/60 ring-1 ring-emerald-500/20'
                     : isAccessible
                     ? 'bg-ah-surface border-ah-border'
                     : 'bg-ah-surface/40 border-ah-border/40 opacity-70'
@@ -243,7 +243,7 @@ export const ClueNotebookPage: React.FC = () => {
                     </div>
 
                     {puz.unlockedArtifactTitle && (
-                      <div className="text-[11px] text-emerald-300 flex items-center gap-1.5 font-mono">
+                      <div className="text-[11px] text-ah-text flex items-center gap-1.5 font-mono">
                         <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
                         <span>Artifact: {puz.unlockedArtifactTitle}</span>
                       </div>

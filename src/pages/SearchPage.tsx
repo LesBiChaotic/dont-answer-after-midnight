@@ -248,7 +248,7 @@ export const SearchPage: React.FC = () => {
                         className="p-3.5 bg-ah-surface hover:bg-ah-surface-2 border border-ah-border hover:border-[#B979FF] rounded-2xl cursor-pointer flex items-center justify-between active:scale-[0.99] transition-all shadow-sm"
                       >
                         <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-xl bg-[#2D1B4E] border border-[#B979FF]/40 flex items-center justify-center text-[#B979FF]">
+                          <div className="w-8 h-8 rounded-xl bg-ah-surface-2 border border-[#B979FF]/40 flex items-center justify-center text-[#B979FF]">
                             <Hash className="w-4 h-4" />
                           </div>
                           <div>
@@ -274,7 +274,7 @@ export const SearchPage: React.FC = () => {
                       <div
                         key={am.id}
                         onClick={() => navigate(`/archive/${am.era}`)}
-                        className="p-3.5 bg-[#1E1728] border border-[#482A52] rounded-2xl cursor-pointer space-y-1 active:scale-[0.99] transition-all shadow-sm"
+                        className="p-3.5 bg-ah-surface-2 border border-[#482A52] rounded-2xl cursor-pointer space-y-1 active:scale-[0.99] transition-all shadow-sm"
                       >
                         <div className="flex items-center justify-between text-xs">
                           <span className="font-bold text-[#F0A06D]">Partition {am.era}</span>
@@ -299,7 +299,7 @@ export const SearchPage: React.FC = () => {
                       <div
                         key={bm.id}
                         onClick={() => navigate(`/chats/${bm.threadId}`)}
-                        className="p-3.5 bg-[#231D14] border border-[#4D3F28] rounded-2xl cursor-pointer space-y-1 active:scale-[0.99] transition-all shadow-sm"
+                        className="p-3.5 bg-ah-surface-2 border border-[#4D3F28] rounded-2xl cursor-pointer space-y-1 active:scale-[0.99] transition-all shadow-sm"
                       >
                         <div className="flex items-center justify-between text-xs">
                           <span className="font-bold text-[#D5AB5E] flex items-center gap-1">

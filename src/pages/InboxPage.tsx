@@ -121,7 +121,7 @@ export const InboxPage: React.FC = () => {
                 {/* Avatar with Halo Ring */}
                 <div className="relative shrink-0">
                   {thread.type === 'group' ? (
-                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#2D1B4E] to-[#141122] border border-[#B979FF]/40 flex items-center justify-center text-[#B979FF] shadow-inner">
+                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-ah-surface-2 to-ah-surface border border-[#B979FF]/40 flex items-center justify-center text-[#B979FF] shadow-inner">
                       <Users className="w-6 h-6" />
                     </div>
                   ) : participant ? (
@@ -148,7 +148,7 @@ export const InboxPage: React.FC = () => {
                         {thread.title || participant?.displayName || 'Chat'}
                       </span>
                       {participant?.isModerator && (
-                        <span className="px-1.5 py-0.2 rounded bg-[#252038] text-[#B979FF] border border-[#4D357F] text-[10px] font-semibold">
+                        <span className="px-1.5 py-0.2 rounded bg-ah-surface-2 text-[#B979FF] border border-[#4D357F] text-[10px] font-semibold">
                           MOD
                         </span>
                       )}

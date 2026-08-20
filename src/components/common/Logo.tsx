@@ -24,7 +24,7 @@ export const Logo: React.FC<LogoProps> = ({
     <div data-anomaly className={`inline-flex items-center gap-2.5 select-none ${className}`}>
       {/* Official AFTERHOURS Badge: Deep Plum with Luminous Lilac Arcs & Center Star */}
       <div
-        className={`${current.box} rounded-2xl bg-gradient-to-br from-[#2D1B4E] to-[#141122] border border-[#6E45C7]/40 shadow-lg shadow-[#6E45C7]/20 flex items-center justify-center relative shrink-0`}
+        className={`${current.box} rounded-2xl bg-gradient-to-br from-ah-surface-2 to-ah-surface border border-[#6E45C7]/40 shadow-lg shadow-[#6E45C7]/20 flex items-center justify-center relative shrink-0`}
       >
         <svg
           viewBox="0 0 36 36"

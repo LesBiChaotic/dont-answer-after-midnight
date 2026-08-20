@@ -102,7 +102,7 @@ export const DataExportPage: React.FC = () => {
                 <span>SIMULATED_DATA_STREAM</span>
                 <span>{exportJson.length} bytes</span>
               </div>
-              <pre className="p-3 bg-black/50 border border-ah-border rounded-xl text-[10px] font-mono text-emerald-400 overflow-x-auto max-h-60 overflow-y-auto leading-tight select-text">
+              <pre className="p-3 bg-ah-surface-3 border border-ah-border rounded-xl text-[10px] font-mono text-emerald-400 overflow-x-auto max-h-60 overflow-y-auto leading-tight select-text">
                 {exportJson}
               </pre>
             </div>
@@ -122,13 +122,13 @@ export const DataExportPage: React.FC = () => {
         </div>
 
         {/* Database Reset Danger Zone */}
-        <div className="p-4 bg-red-950/20 border border-red-900/40 rounded-3xl space-y-3">
+        <div className="p-4 bg-ah-surface-2 border border-red-900/40 rounded-3xl space-y-3">
           <div className="space-y-1">
-            <h3 className="text-xs font-semibold text-red-300 flex items-center gap-1.5">
+            <h3 className="text-xs font-semibold text-ah-text flex items-center gap-1.5">
               <AlertTriangle className="w-4 h-4 text-red-400" />
               <span>Reset Database to Initial State</span>
             </h3>
-            <p className="text-[11px] text-red-200/70 leading-relaxed">
+            <p className="text-[11px] text-ah-text-2 leading-relaxed">
               Clears local IndexedDB storage and reloads the initial seeded threads and rooms.
             </p>
           </div>
@@ -157,7 +157,7 @@ export const DataExportPage: React.FC = () => {
             <button
               type="button"
               onClick={() => setShowResetConfirm(true)}
-              className="w-full py-3 px-4 bg-red-950/60 hover:bg-red-900/60 border border-red-800 text-red-200 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 min-h-touch transition-colors"
+              className="w-full py-3 px-4 bg-ah-surface-2 hover:bg-ah-surface-2 border border-red-800 text-ah-text-2 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 min-h-touch transition-colors"
             >
               <RefreshCw className="w-4 h-4" />
               <span>Reset All Application Data</span>

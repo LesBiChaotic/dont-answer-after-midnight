@@ -40,7 +40,7 @@ export const ArchiveRestore: React.FC = () => {
               key={pkt.id}
               className={`p-3.5 rounded-2xl border text-xs space-y-2 transition-all ${
                 isRestored
-                  ? 'bg-emerald-950/20 border-emerald-800/60 ring-1 ring-emerald-500/20'
+                  ? 'bg-ah-surface-2 border-emerald-800/60 ring-1 ring-emerald-500/20'
                   : 'bg-ah-surface-2 border-ah-border'
               }`}
             >
@@ -51,9 +51,9 @@ export const ArchiveRestore: React.FC = () => {
                 <span className="text-ah-muted">{pkt.checksum}</span>
               </div>
 
-              <div className="p-2.5 bg-black/40 border border-ah-border rounded-xl font-mono text-[11px] leading-relaxed select-text">
+              <div className="p-2.5 bg-ah-surface-3 border border-ah-border rounded-xl font-mono text-[11px] leading-relaxed select-text">
                 {isRestored ? (
-                  <span className="text-emerald-300">{pkt.reconstructedSnippet}</span>
+                  <span className="text-ah-text">{pkt.reconstructedSnippet}</span>
                 ) : (
                   <span className="text-ah-muted line-through opacity-70">
                     {pkt.corruptedSnippet}
@@ -72,7 +72,7 @@ export const ArchiveRestore: React.FC = () => {
                   onClick={() => handleRestore(pkt.id)}
                   className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 min-h-touch transition-all ${
                     isRestored
-                      ? 'bg-emerald-900/60 text-emerald-300 cursor-default'
+                      ? 'bg-ah-surface-2 text-ah-text cursor-default'
                       : isProcessing
                       ? 'bg-brand-800 text-ah-text animate-pulse'
                       : 'bg-brand-600 hover:bg-brand-500 text-ah-text active:scale-95'
@@ -80,7 +80,7 @@ export const ArchiveRestore: React.FC = () => {
                 >
                   {isRestored ? (
                     <>
-                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-300" />
+                      <ShieldCheck className="w-3.5 h-3.5 text-ah-text" />
                       <span>Aligned</span>
                     </>
                   ) : isProcessing ? (

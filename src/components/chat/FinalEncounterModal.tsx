@@ -19,7 +19,7 @@ export const FinalEncounterModal: React.FC<FinalEncounterModalProps> = ({ onClos
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/80 backdrop-blur-md p-3 animate-fade-in">
+    <div className="fixed inset-0 z-50 flex items-end justify-center bg-ah-surface-3 backdrop-blur-md p-3 animate-fade-in">
       <div className="w-full max-w-[430px] bg-ah-surface border border-ah-border rounded-3xl p-5 shadow-2xl space-y-4 animate-slide-up max-h-[90vh] overflow-y-auto">
         {/* If an ending was chosen, display the ending screen */}
         {endingResult ? (
@@ -39,7 +39,7 @@ export const FinalEncounterModal: React.FC<FinalEncounterModalProps> = ({ onClos
               {endingResult.narrativeText}
             </div>
 
-            <div className="p-3 bg-black/40 border border-ah-border rounded-xl text-[11px] text-ah-muted flex items-center justify-between font-mono">
+            <div className="p-3 bg-ah-surface-3 border border-ah-border rounded-xl text-[11px] text-ah-muted flex items-center justify-between font-mono">
               <span>FINAL_DEPTH: Level {endingResult.continuityDepth}</span>
               <span>STATE: COMMITTED</span>
             </div>

@@ -27,12 +27,12 @@ export const SoundSettings: React.FC = () => {
 
       <main className="flex-1 overflow-y-auto p-4 space-y-5 max-w-md mx-auto w-full">
         {/* Safety & Design Notice */}
-        <div className="p-4 bg-indigo-950/30 border border-indigo-800/40 rounded-2xl text-xs space-y-1.5 text-indigo-200">
-          <div className="font-semibold text-indigo-300 flex items-center gap-1.5">
+        <div className="p-4 bg-ah-surface-2 border border-indigo-800/40 rounded-2xl text-xs space-y-1.5 text-ah-text-2">
+          <div className="font-semibold text-ah-text flex items-center gap-1.5">
             <VolumeX className="w-4 h-4 text-indigo-400" />
             <span>Off by Default (Zero Audio-Gated Clues)</span>
           </div>
-          <p className="text-[11px] leading-relaxed text-indigo-200/80">
+          <p className="text-[11px] leading-relaxed text-ah-text-2">
             Per design rules, sound is completely optional. No screams, jumpscares, or puzzles will ever require audio to solve.
           </p>
         </div>

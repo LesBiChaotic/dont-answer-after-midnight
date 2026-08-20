@@ -24,7 +24,7 @@ export const OfflineBanner: React.FC = () => {
   return (
     <div
       role="alert"
-      className="bg-amber-950/90 text-amber-200 border-b border-amber-800/60 px-3 py-2 text-xs flex items-center gap-2.5 animate-slide-up select-none shrink-0"
+      className="bg-ah-surface-2 text-ah-text-2 border-b border-amber-800/60 px-3 py-2 text-xs flex items-center gap-2.5 animate-slide-up select-none shrink-0"
     >
       <WifiOff className="w-4 h-4 shrink-0 text-amber-400" />
       <span className="leading-tight">

@@ -85,7 +85,7 @@ export const SearchChallenge: React.FC = () => {
             key={ch.id}
             className={`p-3 rounded-2xl border text-xs space-y-1 transition-all ${
               ch.completed
-                ? 'bg-emerald-950/20 border-emerald-800/60 text-emerald-200'
+                ? 'bg-ah-surface-2 border-emerald-800/60 text-ah-text-2'
                 : 'bg-ah-surface-2 border-ah-border text-ah-text'
             }`}
           >
