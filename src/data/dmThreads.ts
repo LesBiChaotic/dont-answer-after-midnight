@@ -1,0 +1,835 @@
+import { ConversationThread, Message } from '../types';
+import { SEEDED_CHARACTERS } from './characters';
+
+export const SEEDED_DM_THREADS: { thread: ConversationThread; messages: Message[] }[] = [
+  // 1. Elena Vance (Primary DM contact)
+  {
+    thread: {
+      id: 'thread_elena_dm',
+      type: 'dm',
+      title: 'Elena Vance',
+      participants: [
+        SEEDED_CHARACTERS.find((c) => c.id === 'user_elena_v')!.participant,
+      ],
+      unreadCount: 0,
+      isPinned: true,
+      isMuted: false,
+      isArchived: false,
+      createdAt: '2026-08-01T01:14:00Z',
+      updatedAt: '2026-08-20T21:40:00Z',
+    },
+    messages: [
+      {
+        id: 'elena_msg_01',
+        threadId: 'thread_elena_dm',
+        senderId: 'user_elena_v',
+        senderHandle: 'elena.v',
+        senderName: 'Elena Vance',
+        content: 'hey, did you end up finding that old tea shop on 4th street?',
+        timestamp: '2026-08-18T01:10:00Z',
+        status: 'read',
+        reactions: [],
+      },
+      {
+        id: 'elena_msg_02',
+        threadId: 'thread_elena_dm',
+        senderId: 'current_user',
+        senderHandle: 'rowan',
+        senderName: 'You',
+        content: 'yeah! the one with the green awning. they had the loose-leaf roasted oolong you mentioned.',
+        timestamp: '2026-08-18T01:12:30Z',
+        status: 'read',
+        reactions: [],
+      },
+      {
+        id: 'elena_msg_03',
+        threadId: 'thread_elena_dm',
+        senderId: 'user_elena_v',
+        senderHandle: 'elena.v',
+        senderName: 'Elena Vance',
+        content: 'so glad you found it. brews best at 90°C for about 3 minutes. don\'t let it steep too long or it gets bitter.',
+        timestamp: '2026-08-18T01:14:10Z',
+        status: 'read',
+        reactions: [],
+      },
+      {
+        id: 'elena_msg_04',
+        threadId: 'thread_elena_dm',
+        senderId: 'user_elena_v',
+        senderHandle: 'elena.v',
+        senderName: 'Elena Vance',
+        content: 'also, i was sorting through some 2008 BBS archives earlier tonight.',
+        timestamp: '2026-08-19T02:00:00Z',
+        status: 'read',
+        reactions: [],
+      },
+      {
+        id: 'elena_msg_05',
+        threadId: 'thread_elena_dm',
+        senderId: 'current_user',
+        senderHandle: 'rowan',
+        senderName: 'You',
+        content: 'find anything interesting in the old logs?',
+        timestamp: '2026-08-19T02:02:15Z',
+        status: 'read',
+        reactions: [],
+      },
+      {
+        id: 'elena_msg_06',
+        threadId: 'thread_elena_dm',
+        senderId: 'user_elena_v',
+        senderHandle: 'elena.v',
+        senderName: 'Elena Vance',
+        content: 'mostly mundane chat about dial-up noise and weather. but someone in Hushrooms quoted this exact line: "i don\'t think the archive should keep this"',
+        timestamp: '2026-08-19T02:05:00Z',
+        status: 'read',
+        reactions: [],
+        replySnippet: {
+          senderName: 'Archive Relic',
+          text: "i don't think the archive should keep this",
+        },
+      },
+      {
+        id: 'elena_msg_07',
+        threadId: 'thread_elena_dm',
+        senderId: 'user_elena_v',
+        senderHandle: 'elena.v',
+        senderName: 'Elena Vance',
+        content: 'see you later',
+        timestamp: '2026-08-20T21:40:00Z',
+        status: 'read',
+        reactions: [],
+        isEdited: true,
+        versions: [
+          { id: 'v1', content: 'see you again', editedAt: '2026-08-20T21:38:00Z' },
+          { id: 'v2', content: 'see you last night', editedAt: '2026-08-20T21:39:00Z' },
+          { id: 'v3', content: 'see you tonight', editedAt: '2026-08-20T21:39:45Z' },
+          { id: 'v4', content: 'see you later', editedAt: '2026-08-20T21:40:00Z' },
+        ],
+      },
+    ],
+  },
+
+  // 2. Ren Okafor (Night shift nurse)
+  {
+    thread: {
+      id: 'thread_ren_dm',
+      type: 'dm',
+      title: 'Ren Okafor',
+      participants: [
+        SEEDED_CHARACTERS.find((c) => c.id === 'user_ren_o')!.participant,
+      ],
+      unreadCount: 1,
+      isPinned: true,
+      isMuted: false,
+      isArchived: false,
+      createdAt: '2026-08-05T03:00:00Z',
+      updatedAt: '2026-08-20T22:15:00Z',
+    },
+    messages: [
+      {
+        id: 'ren_msg_01',
+        threadId: 'thread_ren_dm',
+        senderId: 'user_ren_o',
+        senderHandle: 'renfieldnotes',
+        senderName: 'Ren Okafor',
+        content: 'floor is finally quiet. 3 admissions between 11pm and 1am.',
+        timestamp: '2026-08-19T01:30:00Z',
+        status: 'read',
+        reactions: [],
+      },
+      {
+        id: 'ren_msg_02',
+        threadId: 'thread_ren_dm',
+        senderId: 'current_user',
+        senderHandle: 'rowan',
+        senderName: 'You',
+        content: 'how\'s the hospital coffee holding up tonight?',
+        timestamp: '2026-08-19T01:32:00Z',
+        status: 'read',
+        reactions: [],
+      },
+      {
+        id: 'ren_msg_03',
+        threadId: 'thread_ren_dm',
+        senderId: 'user_ren_o',
+        senderHandle: 'renfieldnotes',
+        senderName: 'Ren Okafor',
+        content: 'tastes like lukewarm battery acid as usual haha. but it keeps me awake for charting.',
+        timestamp: '2026-08-19T01:34:00Z',
+        status: 'read',
+        reactions: [],
+      },
+      {
+        id: 'ren_msg_04',
+        threadId: 'thread_ren_dm',
+        senderId: 'user_ren_o',
+        senderHandle: 'renfieldnotes',
+        senderName: 'Ren Okafor',
+        content: 'did you ever finish that list?',
+        timestamp: '2026-08-20T22:15:00Z',
+        status: 'delivered',
+        reactions: [],
+      },
+    ],
+  },
+
+  // 3. Felix Arden
+  {
+    thread: {
+      id: 'thread_felix_dm',
+      type: 'dm',
+      title: 'Felix Arden',
+      participants: [
+        SEEDED_CHARACTERS.find((c) => c.id === 'user_felix_a')!.participant,
+      ],
+      unreadCount: 0,
+      isPinned: false,
+      isMuted: false,
+      isArchived: false,
+      createdAt: '2026-08-10T02:00:00Z',
+      updatedAt: '2026-08-20T21:00:00Z',
+    },
+    messages: [
+      {
+        id: 'felix_msg_01',
+        threadId: 'thread_felix_dm',
+        senderId: 'user_felix_a',
+        senderHandle: 'felix.a',
+        senderName: 'Felix Arden',
+        content: 'decompiled a 2004 mIRC script pack today. someone wrote a full custom bot for tracking quiet hours.',
+        timestamp: '2026-08-20T19:00:00Z',
+        status: 'read',
+        reactions: [],
+      },
+      {
+        id: 'felix_msg_02',
+        threadId: 'thread_felix_dm',
+        senderId: 'current_user',
+        senderHandle: 'rowan',
+        senderName: 'You',
+        content: 'what did the bot do? auto-mute users?',
+        timestamp: '2026-08-20T19:15:00Z',
+        status: 'read',
+        reactions: [],
+      },
+      {
+        id: 'felix_msg_03',
+        threadId: 'thread_felix_dm',
+        senderId: 'user_felix_a',
+        senderHandle: 'felix.a',
+        senderName: 'Felix Arden',
+        content: 'it set channel mode +m at midnight and kicked anyone using caps lock haha. pure 2004 etiquette.',
+        timestamp: '2026-08-20T21:00:00Z',
+        status: 'read',
+        reactions: [],
+      },
+    ],
+  },
+
+  // 4. Mara Vale
+  {
+    thread: {
+      id: 'thread_mara_dm',
+      type: 'dm',
+      title: 'Mara Vale',
+      participants: [
+        SEEDED_CHARACTERS.find((c) => c.id === 'user_mara_v')!.participant,
+      ],
+      unreadCount: 0,
+      isPinned: false,
+      isMuted: false,
+      isArchived: false,
+      createdAt: '2026-08-08T01:00:00Z',
+      updatedAt: '2026-08-20T20:30:00Z',
+    },
+    messages: [
+      {
+        id: 'mara_msg_01',
+        threadId: 'thread_mara_dm',
+        senderId: 'user_mara_v',
+        senderHandle: 'mara.v',
+        senderName: 'Mara Vale',
+        content: 'thanks for keeping an eye on #night-owls earlier. the spam filter caught those audio links without volume warnings.',
+        timestamp: '2026-08-20T20:25:00Z',
+        status: 'read',
+        reactions: [],
+      },
+      {
+        id: 'mara_msg_02',
+        threadId: 'thread_mara_dm',
+        senderId: 'current_user',
+        senderHandle: 'rowan',
+        senderName: 'You',
+        content: 'happy to help! love how quiet the rooms stay at night.',
+        timestamp: '2026-08-20T20:30:00Z',
+        status: 'read',
+        reactions: [],
+      },
+    ],
+  },
+
+  // 5. Noor Pradana
+  {
+    thread: {
+      id: 'thread_noor_dm',
+      type: 'dm',
+      title: 'Noor Pradana',
+      participants: [
+        SEEDED_CHARACTERS.find((c) => c.id === 'user_noor_p')!.participant,
+      ],
+      unreadCount: 0,
+      isPinned: false,
+      isMuted: false,
+      isArchived: false,
+      createdAt: '2026-08-12T04:00:00Z',
+      updatedAt: '2026-08-20T18:45:00Z',
+    },
+    messages: [
+      {
+        id: 'noor_msg_01',
+        threadId: 'thread_noor_dm',
+        senderId: 'user_noor_p',
+        senderHandle: 'noor.p',
+        senderName: 'Noor Pradana',
+        content: 'pushed the offline draft sync patch. if you type in airplane mode, your draft stays in IndexedDB.',
+        timestamp: '2026-08-20T18:30:00Z',
+        status: 'read',
+        reactions: [],
+      },
+      {
+        id: 'noor_msg_02',
+        threadId: 'thread_noor_dm',
+        senderId: 'current_user',
+        senderHandle: 'rowan',
+        senderName: 'You',
+        content: 'tested it earlier, works seamlessly without scroll jumps!',
+        timestamp: '2026-08-20T18:45:00Z',
+        status: 'read',
+        reactions: [],
+      },
+    ],
+  },
+
+  // 6. Celia March
+  {
+    thread: {
+      id: 'thread_celia_dm',
+      type: 'dm',
+      title: 'Celia March',
+      participants: [
+        SEEDED_CHARACTERS.find((c) => c.id === 'user_celia_m')!.participant,
+      ],
+      unreadCount: 0,
+      isPinned: false,
+      isMuted: false,
+      isArchived: false,
+      createdAt: '2026-08-04T12:00:00Z',
+      updatedAt: '2026-08-20T17:20:00Z',
+    },
+    messages: [
+      {
+        id: 'celia_msg_01',
+        threadId: 'thread_celia_dm',
+        senderId: 'user_celia_m',
+        senderHandle: 'celia.m',
+        senderName: 'Celia March',
+        content: 'we updated the Safety Hub documentation. all historical block partitions from 2014 are strictly read-only.',
+        timestamp: '2026-08-20T17:10:00Z',
+        status: 'read',
+        reactions: [],
+      },
+    ],
+  },
+
+  // 7. Mina Bell
+  {
+    thread: {
+      id: 'thread_mina_dm',
+      type: 'dm',
+      title: 'Mina Bell',
+      participants: [
+        SEEDED_CHARACTERS.find((c) => c.id === 'user_mina_b')!.participant,
+      ],
+      unreadCount: 0,
+      isPinned: false,
+      isMuted: false,
+      isArchived: false,
+      createdAt: '2026-08-14T03:00:00Z',
+      updatedAt: '2026-08-20T21:10:00Z',
+    },
+    messages: [
+      {
+        id: 'mina_msg_01',
+        threadId: 'thread_mina_dm',
+        senderId: 'user_mina_b',
+        senderHandle: 'mina.b',
+        senderName: 'Mina Bell',
+        content: 'theo is convinced there\'s an anomaly in the night logs. i told him it\'s literally just Redis garbage collection at 3am.',
+        timestamp: '2026-08-20T21:00:00Z',
+        status: 'read',
+        reactions: [],
+      },
+      {
+        id: 'mina_msg_02',
+        threadId: 'thread_mina_dm',
+        senderId: 'current_user',
+        senderHandle: 'rowan',
+        senderName: 'You',
+        content: 'you really don\'t think anything weird is happening with the old timestamps?',
+        timestamp: '2026-08-20T21:05:00Z',
+        status: 'read',
+        reactions: [],
+      },
+    ],
+  },
+
+  // 8. Theo Sato
+  {
+    thread: {
+      id: 'thread_theo_dm',
+      type: 'dm',
+      title: 'Theo Sato',
+      participants: [
+        SEEDED_CHARACTERS.find((c) => c.id === 'user_theo_s')!.participant,
+      ],
+      unreadCount: 0,
+      isPinned: false,
+      isMuted: false,
+      isArchived: false,
+      createdAt: '2026-08-11T05:00:00Z',
+      updatedAt: '2026-08-20T20:45:00Z',
+    },
+    messages: [
+      {
+        id: 'theo_msg_01',
+        threadId: 'thread_theo_dm',
+        senderId: 'user_theo_s',
+        senderHandle: 'theo.s',
+        senderName: 'Theo Sato',
+        content: 'the traffic drop between 00:00 and 04:00 is consistent every night. drops from 40k sockets to 3.1k.',
+        timestamp: '2026-08-20T20:40:00Z',
+        status: 'read',
+        reactions: [],
+      },
+    ],
+  },
+
+  // 9. Inez Harrow
+  {
+    thread: {
+      id: 'thread_inez_dm',
+      type: 'dm',
+      title: 'Inez Harrow',
+      participants: [
+        SEEDED_CHARACTERS.find((c) => c.id === 'user_inez_h')!.participant,
+      ],
+      unreadCount: 0,
+      isPinned: false,
+      isMuted: false,
+      isArchived: false,
+      createdAt: '2026-08-07T02:00:00Z',
+      updatedAt: '2026-08-19T23:00:00Z',
+    },
+    messages: [
+      {
+        id: 'inez_msg_01',
+        threadId: 'thread_inez_dm',
+        senderId: 'user_inez_h',
+        senderHandle: 'inez.h',
+        senderName: 'Inez Harrow',
+        content: 'some advice from someone who ran rooms in 2008: if you see an old thread you don\'t remember starting, just let it sit. don\'t answer it after midnight.',
+        timestamp: '2026-08-19T22:50:00Z',
+        status: 'read',
+        reactions: [],
+      },
+    ],
+  },
+
+  // 10. Jonah Pike
+  {
+    thread: {
+      id: 'thread_jonah_dm',
+      type: 'dm',
+      title: 'Jonah Pike',
+      participants: [
+        SEEDED_CHARACTERS.find((c) => c.id === 'user_jonah_p')!.participant,
+      ],
+      unreadCount: 0,
+      isPinned: false,
+      isMuted: false,
+      isArchived: false,
+      createdAt: '2026-08-15T02:00:00Z',
+      updatedAt: '2026-08-20T22:25:00Z',
+    },
+    messages: [
+      {
+        id: 'jonah_msg_01',
+        threadId: 'thread_jonah_dm',
+        senderId: 'user_jonah_p',
+        senderHandle: 'jonah.p',
+        senderName: 'Jonah Pike',
+        content: 'grilled cheddar and smoked paprika on sourdough. 03:15 masterpiece.',
+        timestamp: '2026-08-20T22:20:00Z',
+        status: 'read',
+        reactions: [],
+      },
+    ],
+  },
+
+  // 11. Julian K.
+  {
+    thread: {
+      id: 'thread_julian_dm',
+      type: 'dm',
+      title: 'Julian K.',
+      participants: [
+        SEEDED_CHARACTERS.find((c) => c.id === 'user_julian_k')!.participant,
+      ],
+      unreadCount: 0,
+      isPinned: false,
+      isMuted: false,
+      isArchived: false,
+      createdAt: '2026-08-09T03:00:00Z',
+      updatedAt: '2026-08-20T21:50:00Z',
+    },
+    messages: [
+      {
+        id: 'julian_msg_01',
+        threadId: 'thread_julian_dm',
+        senderId: 'user_julian_k',
+        senderHandle: 'julian_k',
+        senderName: 'Julian K.',
+        content: 'recorded the ambient room tone from that old telecom substation. expanding transcript for you:',
+        timestamp: '2026-08-20T21:48:00Z',
+        status: 'read',
+        reactions: [],
+        voiceNote: {
+          durationSeconds: 12,
+          waveform: [0.2, 0.4, 0.6, 0.8, 0.7, 0.5, 0.3, 0.2, 0.4, 0.6, 0.5, 0.2],
+          transcriptText: "the fourth time we stopped talking. do not answer after midnight.",
+          speakerName: 'Julian K.',
+        },
+      },
+    ],
+  },
+
+  // 12. Marcus Bell
+  {
+    thread: {
+      id: 'thread_marcus_dm',
+      type: 'dm',
+      title: 'Marcus Bell',
+      participants: [
+        SEEDED_CHARACTERS.find((c) => c.id === 'user_marcus_b')!.participant,
+      ],
+      unreadCount: 0,
+      isPinned: false,
+      isMuted: false,
+      isArchived: false,
+      createdAt: '2026-08-16T01:00:00Z',
+      updatedAt: '2026-08-20T22:10:00Z',
+    },
+    messages: [
+      {
+        id: 'marcus_msg_01',
+        threadId: 'thread_marcus_dm',
+        senderId: 'user_marcus_b',
+        senderHandle: 'marcus.b',
+        senderName: 'Marcus Bell',
+        content: 'the rain on 4th street is reflecting the neon signs perfectly tonight.',
+        timestamp: '2026-08-20T22:08:00Z',
+        status: 'read',
+        reactions: [],
+      },
+    ],
+  },
+
+  // 13. Maya Lin
+  {
+    thread: {
+      id: 'thread_maya_dm',
+      type: 'dm',
+      title: 'Maya Lin',
+      participants: [
+        SEEDED_CHARACTERS.find((c) => c.id === 'user_maya_l')!.participant,
+      ],
+      unreadCount: 0,
+      isPinned: false,
+      isMuted: false,
+      isArchived: false,
+      createdAt: '2026-08-17T02:00:00Z',
+      updatedAt: '2026-08-20T21:30:00Z',
+    },
+    messages: [
+      {
+        id: 'maya_msg_01',
+        threadId: 'thread_maya_dm',
+        senderId: 'user_maya_l',
+        senderHandle: 'maya_l',
+        senderName: 'Maya Lin',
+        content: 'finally resolved the flexbox clipping issue on 320px screens. mobile-first layouts take patience.',
+        timestamp: '2026-08-20T21:30:00Z',
+        status: 'read',
+        reactions: [],
+      },
+    ],
+  },
+
+  // 14. Samira Cruz
+  {
+    thread: {
+      id: 'thread_samira_dm',
+      type: 'dm',
+      title: 'Samira Cruz',
+      participants: [
+        SEEDED_CHARACTERS.find((c) => c.id === 'user_samira_c')!.participant,
+      ],
+      unreadCount: 0,
+      isPinned: false,
+      isMuted: false,
+      isArchived: false,
+      createdAt: '2026-08-18T00:00:00Z',
+      updatedAt: '2026-08-20T22:00:00Z',
+    },
+    messages: [
+      {
+        id: 'samira_msg_01',
+        threadId: 'thread_samira_dm',
+        senderId: 'user_samira_c',
+        senderHandle: 'samira.c',
+        senderName: 'Samira Cruz',
+        content: 'perseid meteor shower peak is at 03:30 AM. clear skies from the observatory roof.',
+        timestamp: '2026-08-20T22:00:00Z',
+        status: 'read',
+        reactions: [],
+      },
+    ],
+  },
+
+  // 15. Dave Cho
+  {
+    thread: {
+      id: 'thread_dave_dm',
+      type: 'dm',
+      title: 'Dave Cho',
+      participants: [
+        SEEDED_CHARACTERS.find((c) => c.id === 'user_dave_c')!.participant,
+      ],
+      unreadCount: 0,
+      isPinned: false,
+      isMuted: false,
+      isArchived: false,
+      createdAt: '2026-08-10T14:00:00Z',
+      updatedAt: '2026-08-20T21:15:00Z',
+    },
+    messages: [
+      {
+        id: 'dave_msg_01',
+        threadId: 'thread_dave_dm',
+        senderId: 'user_dave_c',
+        senderHandle: 'dave_c',
+        senderName: 'Dave Cho',
+        content: 'found an old bucket-brigade delay chip from 1982 in a salvage bin. warm analog repeats.',
+        timestamp: '2026-08-20T21:15:00Z',
+        status: 'read',
+        reactions: [],
+      },
+    ],
+  },
+
+  // 16. Chloe Zhang
+  {
+    thread: {
+      id: 'thread_chloe_dm',
+      type: 'dm',
+      title: 'Chloe Zhang',
+      participants: [
+        SEEDED_CHARACTERS.find((c) => c.id === 'user_chloe_z')!.participant,
+      ],
+      unreadCount: 0,
+      isPinned: false,
+      isMuted: false,
+      isArchived: false,
+      createdAt: '2026-08-08T10:00:00Z',
+      updatedAt: '2026-08-20T21:00:00Z',
+    },
+    messages: [
+      {
+        id: 'chloe_msg_01',
+        threadId: 'thread_chloe_dm',
+        senderId: 'user_chloe_z',
+        senderHandle: 'chloe.z',
+        senderName: 'Chloe Zhang',
+        content: 'we\'re discussing chapter 8 of House of Leaves in #book-club tonight at midnight if you want to drop in.',
+        timestamp: '2026-08-20T21:00:00Z',
+        status: 'read',
+        reactions: [],
+      },
+    ],
+  },
+
+  // 17. Hannah Scott
+  {
+    thread: {
+      id: 'thread_hannah_dm',
+      type: 'dm',
+      title: 'Hannah Scott',
+      participants: [
+        {
+          id: 'user_hannah_s',
+          displayName: 'Hannah Scott',
+          handle: 'hannah.s',
+          status: 'afterhours',
+          avatarConfig: SEEDED_CHARACTERS[0].avatarConfig,
+        },
+      ],
+      unreadCount: 0,
+      isPinned: false,
+      isMuted: false,
+      isArchived: false,
+      createdAt: '2026-08-15T04:00:00Z',
+      updatedAt: '2026-08-20T20:10:00Z',
+    },
+    messages: [
+      {
+        id: 'hannah_msg_01',
+        threadId: 'thread_hannah_dm',
+        senderId: 'user_hannah_s',
+        senderHandle: 'hannah.s',
+        senderName: 'Hannah Scott',
+        content: 'drawing monochrome ink illustrations of old radio towers. coffee is kicking in.',
+        timestamp: '2026-08-20T20:10:00Z',
+        status: 'read',
+        reactions: [],
+      },
+    ],
+  },
+
+  // 18. Owen Miller
+  {
+    thread: {
+      id: 'thread_owen_dm',
+      type: 'dm',
+      title: 'Owen Miller',
+      participants: [
+        {
+          id: 'user_owen_m',
+          displayName: 'Owen Miller',
+          handle: 'owen.m',
+          status: 'idle',
+          avatarConfig: SEEDED_CHARACTERS[0].avatarConfig,
+        },
+      ],
+      unreadCount: 0,
+      isPinned: false,
+      isMuted: false,
+      isArchived: false,
+      createdAt: '2026-08-14T02:00:00Z',
+      updatedAt: '2026-08-20T19:40:00Z',
+    },
+    messages: [
+      {
+        id: 'owen_msg_01',
+        threadId: 'thread_owen_dm',
+        senderId: 'user_owen_m',
+        senderHandle: 'owen.m',
+        senderName: 'Owen Miller',
+        content: 'checked the acoustic isolation in the bedroom closet. -42dB floor noise. perfect for midnight voice notes.',
+        timestamp: '2026-08-20T19:40:00Z',
+        status: 'read',
+        reactions: [],
+      },
+    ],
+  },
+
+  // 19. Lucas Vance
+  {
+    thread: {
+      id: 'thread_lucas_dm',
+      type: 'dm',
+      title: 'Lucas Vance',
+      participants: [
+        {
+          id: 'user_lucas_v',
+          displayName: 'Lucas Vance',
+          handle: 'lucas_v',
+          status: 'afterhours',
+          avatarConfig: SEEDED_CHARACTERS[0].avatarConfig,
+        },
+      ],
+      unreadCount: 0,
+      isPinned: false,
+      isMuted: false,
+      isArchived: false,
+      createdAt: '2026-08-13T01:00:00Z',
+      updatedAt: '2026-08-20T18:15:00Z',
+    },
+    messages: [
+      {
+        id: 'lucas_msg_01',
+        threadId: 'thread_lucas_dm',
+        senderId: 'user_lucas_v',
+        senderHandle: 'lucas_v',
+        senderName: 'Lucas Vance',
+        content: 'walked past the old relay station near the railroad tracks. the building is sealed but the power meter is still spinning.',
+        timestamp: '2026-08-20T18:15:00Z',
+        status: 'read',
+        reactions: [],
+      },
+    ],
+  },
+
+  // 20. @beforeyou
+  {
+    thread: {
+      id: 'thread_beforeyou_dm',
+      type: 'dm',
+      title: '@beforeyou',
+      participants: [
+        SEEDED_CHARACTERS.find((c) => c.id === 'user_beforeyou')!.participant,
+      ],
+      unreadCount: 0,
+      isPinned: false,
+      isMuted: false,
+      isArchived: false,
+      createdAt: '2009-10-14T02:22:00Z',
+      updatedAt: '2026-08-20T22:30:00Z',
+    },
+    messages: [
+      {
+        id: 'before_msg_01',
+        threadId: 'thread_beforeyou_dm',
+        senderId: 'user_beforeyou',
+        senderHandle: 'beforeyou',
+        senderName: '@beforeyou',
+        content: 'you still hate olives right',
+        timestamp: '2009-10-14T02:22:00Z',
+        status: 'delivered_previously',
+        reactions: [],
+      },
+      {
+        id: 'before_msg_02',
+        threadId: 'thread_beforeyou_dm',
+        senderId: 'user_beforeyou',
+        senderHandle: 'beforeyou',
+        senderName: '@beforeyou',
+        content: 'you blocked me last time',
+        timestamp: '2014-08-19T01:14:00Z',
+        status: 'delivered_previously',
+        reactions: [],
+      },
+      {
+        id: 'before_msg_03',
+        threadId: 'thread_beforeyou_dm',
+        senderId: 'user_beforeyou',
+        senderHandle: 'beforeyou',
+        senderName: '@beforeyou',
+        content: 'do you remember me now?',
+        timestamp: '2026-08-20T22:30:00Z',
+        status: 'delivered',
+        reactions: [],
+      },
+    ],
+  },
+];

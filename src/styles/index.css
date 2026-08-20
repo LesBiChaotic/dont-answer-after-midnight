@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --app-font-family: Inter, Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color-scheme: dark light;
+
+  /* DARK MODE (DEFAULT) — Midnight Plum + Ink Blue + Luminous Accents */
+  --ah-canvas: #11101A;
+  --ah-surface: #191625;
+  --ah-surface-2: #211C30;
+  --ah-surface-3: #252B3C;
+  --ah-border: #2E2742;
+  --ah-hover: #2B243E;
+
+  --ah-text: #F4EEF8;
+  --ah-text-2: #C9B9D2;
+  --ah-muted: #91819A;
+
+  --ah-primary: #B58AF4;
+  --ah-primary-hover: #C5A3FA;
+  --ah-periwinkle: #8197FF;
+  --ah-electric-lilac: #B979FF;
+  --ah-teal: #57C7C1;
+  --ah-rose: #E07DA5;
+  --ah-apricot: #F0A06D;
+  --ah-gold: #D5AB5E;
+
+  --ah-success: #69C49A;
+  --ah-warning: #E1A25D;
+  --ah-danger: #E16F86;
+  --ah-info: #8FA9FF;
+}
+
+/* LIGHT MODE — Lavender Daylight + Soft Editorial Plum */
+html.light, :root[data-theme='light'] {
+  --ah-canvas: #F7F2F7;
+  --ah-surface: #FFF9FC;
+  --ah-surface-2: #F0E8F4;
+  --ah-surface-3: #E8EEF8;
+  --ah-border: #E4DAE8;
+  --ah-hover: #EADFEF;
+
+  --ah-text: #201726;
+  --ah-text-2: #66576D;
+  --ah-muted: #927F97;
+
+  --ah-primary: #6E45C7;
+  --ah-primary-hover: #5B35B2;
+  --ah-periwinkle: #6F83E6;
+  --ah-electric-lilac: #A46CE4;
+  --ah-teal: #3F9B9A;
+  --ah-rose: #C55D86;
+  --ah-apricot: #E9915D;
+  --ah-gold: #B98A3F;
+
+  --ah-success: #3D8A69;
+  --ah-warning: #B67838;
+  --ah-danger: #B64E62;
+  --ah-info: #5676C8;
+}
+
+html {
+  font-family: var(--app-font-family);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: var(--ah-canvas);
+  color: var(--ah-text);
+  font-family: var(--app-font-family);
+}
+
+/* Light Theme backward-compatibility bridges */
+html.light body {
+  background-color: #F7F2F7;
+  color: #201726;
+}
+
+html.light .bg-night-bg {
+  background-color: #F7F2F7 !important;
+}
+
+html.light .bg-night-surface {
+  background-color: #FFF9FC !important;
+}
+
+html.light .bg-night-card {
+  background-color: #F0E8F4 !important;
+}
+
+html.light .border-night-border {
+  border-color: #E4DAE8 !important;
+}
+
+html.light .text-night-text {
+  color: #201726 !important;
+}
+
+html.light .text-night-muted {
+  color: #927F97 !important;
+}
+
+html.light .hover\:bg-night-hover:hover {
+  background-color: #EADFEF !important;
+}
+
+html.light .hover\:bg-night-card:hover {
+  background-color: #E6D8EC !important;
+}
+
+/* Scrollbar styling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Prevent text zoom on mobile inputs */
+input, textarea, select {
+  font-size: 16px;
+}
+@media screen and (min-width: 768px) {
+  input, textarea, select {
+    font-size: 14px;
+  }
+}
+
+/* Reduced Motion Accessibility Rules */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html.reduce-motion *,
+html.reduce-motion *::before,
+html.reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
